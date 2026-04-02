@@ -1,21 +1,60 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html { @apply scroll-smooth; }
+    body { @apply font-body text-gray-700 antialiased; }
+    [x-cloak] { display: none !important; }
+}
+
 @layer components {
+    /* Buttons */
     .btn-primary {
-        @apply bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-dark transition-colors duration-200;
+        @apply inline-flex items-center justify-center px-7 py-3.5 bg-primary text-white text-sm font-semibold rounded-xl
+               hover:bg-primary-dark active:scale-[0.98] transition-all duration-200 shadow-lg shadow-primary/20;
     }
     .btn-outline {
-        @apply border-2 border-primary text-primary px-6 py-3 rounded-lg font-semibold hover:bg-primary-light transition-colors duration-200;
+        @apply inline-flex items-center justify-center px-7 py-3.5 border-2 border-primary text-primary text-sm font-semibold rounded-xl
+               hover:bg-primary hover:text-white active:scale-[0.98] transition-all duration-200;
     }
+    .btn-ghost {
+        @apply inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-xl
+               hover:bg-gray-100 active:scale-[0.98] transition-all duration-200;
+    }
+    .btn-white {
+        @apply inline-flex items-center justify-center px-7 py-3.5 bg-white text-navy text-sm font-semibold rounded-xl
+               hover:bg-gray-50 active:scale-[0.98] transition-all duration-200 shadow-lg;
+    }
+
+    /* Cards */
     .card {
-        @apply bg-white rounded-xl border border-gray-200 shadow-sm p-6;
+        @apply bg-white rounded-2xl border border-gray-100 p-7 shadow-sm hover:shadow-md transition-shadow duration-300;
     }
+    .card-glass {
+        @apply bg-white/70 backdrop-blur-xl rounded-2xl border border-white/20 p-7 shadow-lg;
+    }
+
+    /* Section spacing */
+    .section { @apply py-24 lg:py-32; }
+    .section-sm { @apply py-16 lg:py-24; }
+
+    /* Typography */
     .section-title {
-        @apply font-heading text-3xl font-bold text-navy mb-4;
+        @apply font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight;
     }
     .section-sub {
-        @apply text-gray-600 text-lg max-w-2xl mx-auto;
+        @apply text-lg sm:text-xl text-gray-500 max-w-2xl leading-relaxed;
     }
+
+    /* Badge */
+    .badge {
+        @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wide;
+    }
+
+    /* Gradient backgrounds */
+    .bg-hero { @apply bg-gradient-to-br from-[#0a1628] via-navy to-[#0d3d35]; }
+    .bg-section-alt { @apply bg-gradient-to-b from-gray-50 to-white; }
 }

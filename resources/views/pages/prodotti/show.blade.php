@@ -1,87 +1,128 @@
 @extends('layouts.app')
 
 @section('title', $service->name . ' — Corvalys')
+@section('meta_description', $service->short_description)
 
 @section('content')
 
-{{-- Hero --}}
-<section class="bg-gradient-to-br from-navy to-primary py-20 lg:py-28">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span class="inline-block rounded-full bg-white/10 text-white text-xs font-semibold px-4 py-1.5 mb-6">Product</span>
-        <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
-            {{ $service->name }}
-        </h1>
-        @if($service->short_description)
-            <p class="mt-6 text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+    {{-- ── Breadcrumb ── --}}
+    <div class="bg-gray-50 border-b border-gray-100 pt-20">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <nav aria-label="breadcrumb">
+                <ol class="flex items-center gap-2 text-sm text-gray-500">
+                    <li>
+                        <a
+                            href="{{ route('prodotti') }}"
+                            class="hover:text-primary transition-colors duration-150"
+                            data-i18n="nav.products"
+                        >
+                            Prodotti
+                        </a>
+                    </li>
+                    <li aria-hidden="true">
+                        <svg class="w-4 h-4 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </li>
+                    <li class="font-medium text-gray-900 truncate max-w-xs" aria-current="page">
+                        {{ $service->name }}
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    {{-- ── Hero ── --}}
+    <section class="bg-hero text-white py-20 lg:py-28">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+
+            {{-- Coming Soon badge --}}
+            <div class="mb-6">
+                <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-semibold bg-amber/20 text-amber-light border border-amber/30" data-i18n="products.coming_soon">
+                    Coming Soon
+                </span>
+            </div>
+
+            <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6">
+                {{ $service->name }}
+            </h1>
+
+            <p class="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
                 {{ $service->short_description }}
             </p>
-        @endif
-    </div>
-</section>
 
-{{-- Main Content --}}
-<section class="bg-white py-20">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        @if($service->description)
-            <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+        </div>
+    </section>
+
+    {{-- ── Full Description ── --}}
+    <section class="section bg-white">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="prose prose-lg prose-gray max-w-none
+                        prose-headings:font-heading prose-headings:text-gray-900
+                        prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+                        prose-strong:text-gray-900 prose-p:text-gray-600 prose-p:leading-relaxed">
                 {!! nl2br(e($service->description)) !!}
             </div>
-        @endif
+        </div>
+    </section>
 
-        {{-- Price Info --}}
-        @if($service->price_from || $service->price_to)
-            <div class="mt-12 bg-gray-50 rounded-2xl p-8">
-                <h2 class="font-heading text-2xl font-bold text-gray-900 mb-4">Pricing</h2>
-                <div class="flex items-baseline gap-2">
-                    @if($service->price_from)
-                        <span class="text-3xl font-bold text-primary">&euro;{{ number_format($service->price_from, 0) }}</span>
-                    @endif
-                    @if($service->price_to && $service->price_to != $service->price_from)
-                        <span class="text-gray-500 text-lg">&ndash;</span>
-                        <span class="text-3xl font-bold text-primary">&euro;{{ number_format($service->price_to, 0) }}</span>
-                    @endif
-                    @if($service->price_unit)
-                        <span class="text-gray-500 text-lg">/{{ $service->price_unit }}</span>
-                    @endif
+    {{-- ── CTA Section ── --}}
+    <section class="bg-section-alt section-sm">
+        <div class="max-w-4xl mx-auto px-6">
+
+            <div class="card-glass bg-gradient-to-br from-primary/5 to-primary/10 border-primary/10 text-center">
+
+                <h2
+                    class="section-title mb-4"
+                    data-i18n="service.cta.title"
+                >
+                    Interessato?
+                </h2>
+                <p
+                    class="section-sub mx-auto mb-10"
+                    data-i18n="service.cta.sub"
+                >
+                    Contattaci per scoprire come {{ $service->name }} può trasformare il tuo business, oppure esplora i nostri piani.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+
+                    <a
+                        href="{{ route('contatto') }}"
+                        class="btn-primary"
+                        data-i18n="service.cta.contact"
+                    >
+                        Contattaci
+                    </a>
+
+                    <a
+                        href="{{ route('prodotti') }}"
+                        class="btn-outline"
+                        data-i18n="service.back"
+                    >
+                        Tutti i prodotti
+                    </a>
+
                 </div>
             </div>
-        @endif
-    </div>
-</section>
 
-{{-- CTA --}}
-<section class="py-20 bg-navy">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white">Start free &mdash; 3 months</h2>
-        <p class="mt-4 text-gray-300 text-lg">No commitment, no credit card. Try {{ $service->name }} on your business.</p>
-        <div class="mt-8 flex flex-wrap justify-center gap-4">
-            <a href="https://app.corvalys.eu/register" class="btn-primary">Start free</a>
-            <a href="/contatto" class="border border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition">Contact us</a>
+        </div>
+    </section>
+
+    {{-- ── Back to Products ── --}}
+    <div class="bg-white border-t border-gray-100 py-6">
+        <div class="max-w-7xl mx-auto px-6">
+            <a
+                href="{{ route('prodotti') }}"
+                class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-dark transition-colors duration-150"
+                data-i18n="service.back"
+            >
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18"/>
+                </svg>
+                Tutti i prodotti
+            </a>
         </div>
     </div>
-</section>
-
-{{-- Other Products --}}
-@php
-    $otherProducts = \App\Models\Service::prodotti()->active()->where('id', '!=', $service->id)->orderBy('sort_order')->get();
-@endphp
-@if($otherProducts->isNotEmpty())
-<section class="bg-gray-50 py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="section-title text-center">Other Products</h2>
-        <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            @foreach($otherProducts as $product)
-                <div class="card hover:shadow-lg transition-shadow duration-300 flex flex-col">
-                    <h3 class="font-heading text-xl font-bold text-gray-900">{{ $product->name }}</h3>
-                    <p class="mt-3 text-gray-600 text-sm flex-1">{{ $product->short_description }}</p>
-                    <a href="{{ route('prodotti.show', $product) }}" class="mt-6 inline-flex items-center text-primary font-semibold text-sm hover:text-primary-dark">
-                        Learn more &rarr;
-                    </a>
-                </div>
-            @endforeach
-        </div>
-    </div>
-</section>
-@endif
 
 @endsection

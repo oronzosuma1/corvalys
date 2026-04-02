@@ -42,6 +42,10 @@ class Lead extends Model
         'has_api_integrations',
         'current_ai_usage',
         'tech_maturity_score',
+        // AI Readiness assessment
+        'readiness_scores',
+        'readiness_reasons',
+        'readiness_overall',
         // Project details
         'desired_timeline',
         'pain_points',
@@ -50,6 +54,12 @@ class Lead extends Model
         // AI auto-assessment
         'claude_auto_assessment',
         'claude_auto_assessed_at',
+        // Proposal
+        'proposal_pdf_path',
+        'proposal_status',
+        'proposal_sent_at',
+        'proposal_approved_at',
+        'proposal_language',
     ];
 
     protected $casts = [
@@ -62,8 +72,13 @@ class Lead extends Model
         'uses_cloud' => 'boolean',
         'has_api_integrations' => 'boolean',
         'tech_maturity_score' => 'integer',
+        'readiness_scores' => 'array',
+        'readiness_reasons' => 'array',
+        'readiness_overall' => 'decimal:1',
         'claude_auto_assessment' => 'array',
         'claude_auto_assessed_at' => 'datetime',
+        'proposal_sent_at' => 'datetime',
+        'proposal_approved_at' => 'datetime',
     ];
 
     public function quotationAssessments(): HasMany
@@ -121,6 +136,67 @@ class Lead extends Model
             $score >= 7 && $score <= 10 => 'High',
             default => 'N/A',
         };
+    }
+
+    /**
+     * Compute readiness overall from dimension scores.
+     */
+    public function computeReadinessOverall(): ?float
+    {
+        $scores = $this->readiness_scores;
+        if (!is_array($scores) || empty($scores)) return null;
+
+        $vals = array_filter($scores, fn($v) => $v > 0);
+        if (empty($vals)) return null;
+
+        return round(array_sum($vals) / count($vals), 1);
+    }
+
+    /**
+     * Get readiness level label.
+     */
+    public function getReadinessLevelAttribute(): string
+    {
+        $score = $this->readiness_overall;
+        if ($score === null) return 'N/A';
+
+        return match (true) {
+            $score >= 4.5 => 'Excellent',
+            $score >= 3.5 => 'Good',
+            $score >= 2.5 => 'Moderate',
+            $score >= 1.5 => 'Low',
+            default => 'Very Low',
+        };
+    }
+
+    /**
+     * Get readiness color for UI.
+     */
+    public function getReadinessColorAttribute(): string
+    {
+        $score = $this->readiness_overall;
+        if ($score === null) return 'gray';
+
+        return match (true) {
+            $score >= 4.0 => 'green',
+            $score >= 3.0 => 'amber',
+            $score >= 2.0 => 'orange',
+            default => 'red',
+        };
+    }
+
+    /**
+     * Check if readiness implies training is needed (score < 3.0 in any dimension).
+     */
+    public function needsTraining(): bool
+    {
+        $scores = $this->readiness_scores;
+        if (!is_array($scores)) return false;
+
+        foreach ($scores as $score) {
+            if ($score > 0 && $score < 3) return true;
+        }
+        return false;
     }
 
     public function calculateTechMaturityScore(): int

@@ -44,6 +44,19 @@ class ContattoRequest extends FormRequest
             'pain_points' => 'nullable|string|max:2000',
             'expected_outcomes' => 'nullable|string|max:2000',
             'monthly_volume' => 'nullable|string|max:100',
+            // AI Readiness quick assessment
+            'readiness_leadership' => 'nullable|integer|between:1,5',
+            'readiness_data' => 'nullable|integer|between:1,5',
+            'readiness_technology' => 'nullable|integer|between:1,5',
+            'readiness_culture' => 'nullable|integer|between:1,5',
+            'readiness_process' => 'nullable|integer|between:1,5',
+            'readiness_compliance' => 'nullable|integer|between:1,5',
+            'readiness_reason_leadership' => 'nullable|string|max:500',
+            'readiness_reason_data' => 'nullable|string|max:500',
+            'readiness_reason_technology' => 'nullable|string|max:500',
+            'readiness_reason_culture' => 'nullable|string|max:500',
+            'readiness_reason_process' => 'nullable|string|max:500',
+            'readiness_reason_compliance' => 'nullable|string|max:500',
         ];
     }
 

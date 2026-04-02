@@ -7,11 +7,12 @@
     <title>@yield('title', 'Admin') - Corvalys</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
+    <script src="https://cdn.tiny.cloud/1/{{ config('corvalys.tinymce_key', 'no-api-key') }}/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     @stack('head')
 </head>
 <body class="bg-gray-50 min-h-screen flex font-body antialiased">
     {{-- Sidebar --}}
-    <aside class="w-64 min-h-screen bg-gradient-to-b from-primary-dark to-navy text-white flex flex-col fixed overflow-y-auto">
+    <aside class="w-64 bg-gradient-to-b from-primary-dark to-navy text-white flex flex-col fixed top-0 bottom-0 left-0 overflow-hidden">
         {{-- Logo area --}}
         <div class="px-5 py-5 border-b border-white/10">
             <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3">
@@ -23,7 +24,7 @@
             </a>
         </div>
 
-        <nav class="flex-1 px-3 py-5 space-y-0.5">
+        <nav class="flex-1 overflow-y-auto px-3 py-5 space-y-0.5">
             {{-- Dashboard --}}
             <a href="{{ route('admin.dashboard') }}"
                 class="flex items-center px-3 py-2.5 rounded-lg text-sm font-medium transition-colors
@@ -70,6 +71,30 @@
                 Partners
             </a>
 
+            {{-- Business Survey --}}
+            <p class="px-3 pt-6 pb-2 text-[11px] font-semibold text-white/30 uppercase tracking-widest">Surveys</p>
+
+            <a href="{{ route('admin.business-survey.index') }}"
+                class="flex items-center px-3 py-2.5 rounded-lg text-sm font-medium transition-colors
+                {{ request()->routeIs('admin.business-survey.*') && !request()->routeIs('admin.business-survey.analytics') ? 'bg-white/15 text-white shadow-sm' : 'text-white/60 hover:bg-white/10 hover:text-white' }}">
+                <svg class="w-5 h-5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z"/></svg>
+                Business Survey
+            </a>
+
+            <a href="{{ route('admin.business-survey.analytics') }}"
+                class="flex items-center px-3 py-2.5 rounded-lg text-sm font-medium transition-colors
+                {{ request()->routeIs('admin.business-survey.analytics') ? 'bg-white/15 text-white shadow-sm' : 'text-white/60 hover:bg-white/10 hover:text-white' }}">
+                <svg class="w-5 h-5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+                Survey Analytics
+            </a>
+
+            <a href="{{ route('admin.survey.index') }}"
+                class="flex items-center px-3 py-2.5 rounded-lg text-sm font-medium transition-colors
+                {{ request()->routeIs('admin.survey.*') ? 'bg-white/15 text-white shadow-sm' : 'text-white/60 hover:bg-white/10 hover:text-white' }}">
+                <svg class="w-5 h-5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+                AI Readiness
+            </a>
+
             {{-- Leads section --}}
             <p class="px-3 pt-6 pb-2 text-[11px] font-semibold text-white/30 uppercase tracking-widest">Leads</p>
 
@@ -104,20 +129,15 @@
                 Fatture
             </a>
 
-            <a href="{{ route('admin.cashflow.index') }}"
-                class="flex items-center px-3 py-2.5 rounded-lg text-sm font-medium transition-colors
-                {{ request()->routeIs('admin.cashflow.*') ? 'bg-white/15 text-white shadow-sm' : 'text-white/60 hover:bg-white/10 hover:text-white' }}">
-                <svg class="w-5 h-5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                Cash Flow
-            </a>
-
             {{-- Settings section --}}
             <p class="px-3 pt-6 pb-2 text-[11px] font-semibold text-white/30 uppercase tracking-widest">Settings</p>
 
-            <span class="flex items-center px-3 py-2.5 rounded-lg text-sm font-medium text-white/30 cursor-not-allowed">
+            <a href="{{ route('admin.settings.index') }}"
+                class="flex items-center px-3 py-2.5 rounded-lg text-sm font-medium transition-colors
+                {{ request()->routeIs('admin.settings.*') ? 'bg-white/15 text-white shadow-sm' : 'text-white/60 hover:bg-white/10 hover:text-white' }}">
                 <svg class="w-5 h-5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                 Impostazioni
-            </span>
+            </a>
         </nav>
 
         {{-- Footer --}}
@@ -180,6 +200,22 @@
     </main>
 
     @livewireScripts
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (document.querySelector('.tinymce-editor')) {
+                tinymce.init({
+                    selector: '.tinymce-editor',
+                    height: 400,
+                    menubar: true,
+                    plugins: 'lists link image table code wordcount fullscreen preview',
+                    toolbar: 'undo redo | blocks | bold italic underline strikethrough | alignleft aligncenter alignright | bullist numlist | link image table | code fullscreen',
+                    content_style: 'body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 14px; line-height: 1.6; }',
+                    branding: false,
+                    promotion: false,
+                });
+            }
+        });
+    </script>
     @stack('scripts')
 </body>
 </html>

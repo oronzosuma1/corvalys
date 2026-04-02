@@ -3,6 +3,22 @@
 @section('title', 'Lead')
 
 @section('content')
+    {{-- Area Tabs --}}
+    <div class="flex gap-2 mb-4">
+        <a href="{{ route('admin.leads.index', request()->except('area')) }}"
+            class="px-4 py-2 rounded-full text-sm font-medium transition {{ !request('area') ? 'bg-navy text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200' }}">
+            Tutti
+        </a>
+        <a href="{{ route('admin.leads.index', ['area' => 'saas'] + request()->except('area')) }}"
+            class="px-4 py-2 rounded-full text-sm font-medium transition {{ request('area') === 'saas' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200' }}">
+            SaaS
+        </a>
+        <a href="{{ route('admin.leads.index', ['area' => 'consulenza'] + request()->except('area')) }}"
+            class="px-4 py-2 rounded-full text-sm font-medium transition {{ request('area') === 'consulenza' ? 'bg-amber text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200' }}">
+            Consulenza
+        </a>
+    </div>
+
     {{-- Filter Bar --}}
     <div class="bg-white rounded-xl border border-gray-200/60 p-4 mb-6">
         <form method="GET" action="{{ route('admin.leads.index') }}" class="flex flex-wrap items-center gap-3">

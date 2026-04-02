@@ -9,6 +9,8 @@ use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ContattoController;
 use App\Http\Controllers\RisorseController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\SurveyController;
+use App\Http\Controllers\BusinessSurveyController;
 use Illuminate\Support\Facades\Route;
 
 // Public routes
@@ -34,4 +36,8 @@ Route::get('/blog/{article:slug}', [BlogController::class, 'show'])->name('blog.
 Route::get('/legal/privacy', fn() => view('pages.legal.privacy'))->name('privacy');
 Route::get('/legal/termini', fn() => view('pages.legal.termini'))->name('termini');
 Route::get('/legal/cookie', fn() => view('pages.legal.cookie'))->name('cookie');
+Route::get('/ai-readiness', [SurveyController::class, 'index'])->name('survey');
+Route::post('/ai-readiness', [SurveyController::class, 'store'])->name('survey.store');
+Route::get('/survey', [BusinessSurveyController::class, 'index'])->name('business-survey');
+Route::post('/survey', [BusinessSurveyController::class, 'store'])->name('business-survey.store');
 Route::get('/sitemap.xml', [HomeController::class, 'sitemap'])->name('sitemap');

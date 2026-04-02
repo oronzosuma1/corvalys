@@ -1,104 +1,140 @@
 @extends('layouts.app')
 
-@section('title', 'Termini di Servizio — Corvalys')
+@section('title', __('legal.terms.meta_title', [], app()->getLocale()) ?: 'Terms of Service — Corvalys')
+@section('meta_description', __('legal.terms.meta_description', [], app()->getLocale()) ?: '')
 
 @section('content')
-<section class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 class="font-heading text-3xl sm:text-4xl font-bold text-navy mb-4">Termini e Condizioni di Servizio</h1>
-        <p class="text-sm text-gray-400 mb-12">Ultimo aggiornamento: [DA AGGIORNARE] &mdash; Versione 1.0</p>
 
-        <div class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-navy">
-
-            <p class="text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 text-sm font-medium">
-                [DA AGGIORNARE CON TESTO LEGALE DEFINITIVO]
+    {{-- ── Page Header ── --}}
+    <section class="bg-hero text-white pt-32 pb-16 lg:pt-40 lg:pb-20">
+        <div class="max-w-4xl mx-auto px-6">
+            <h1
+                class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight mb-4"
+                data-i18n="legal.terms.title"
+            >
+                Terms of Service
+            </h1>
+            <p class="text-white/60 text-sm" data-i18n="legal.terms.updated">
+                Last updated: 29 March 2026
             </p>
+        </div>
+    </section>
 
-            <h2>1. Premesse e definizioni</h2>
-            <p>
-                I presenti Termini e Condizioni di Servizio (di seguito &ldquo;Termini&rdquo;) regolano l&rsquo;utilizzo della piattaforma Corvalys e dei servizi correlati offerti da:
-            </p>
-            <p>
-                <strong>[Nome Societ&agrave;]</strong><br>
-                Sede legale: [Indirizzo]<br>
-                P.IVA: [Numero]<br>
-                Email: enzo@corvalys.eu
-            </p>
-            <p>Per &ldquo;Utente&rdquo; si intende qualsiasi persona fisica o giuridica che accede alla piattaforma o usufruisce dei servizi.</p>
+    {{-- ── Content ── --}}
+    <section class="section bg-white">
+        <div class="max-w-4xl mx-auto px-6">
 
-            <h2>2. Accettazione dei Termini</h2>
-            <p>
-                L&rsquo;utilizzo della piattaforma Corvalys implica l&rsquo;accettazione integrale dei presenti Termini. L&rsquo;Utente che non intenda accettare i Termini &egrave; tenuto a non utilizzare la piattaforma.
-            </p>
+            <div
+                class="prose prose-gray prose-headings:font-heading prose-headings:font-bold prose-a:text-primary prose-a:no-underline hover:prose-a:underline max-w-none"
+                data-i18n-html="legal.terms.body"
+            >
 
-            <h2>3. Descrizione dei servizi</h2>
-            <p>Corvalys offre i seguenti servizi:</p>
-            <ul>
-                <li><strong>AI Cash Controller:</strong> gestione automatizzata delle fatture e dei flussi di cassa</li>
-                <li><strong>AI Approval Coordinator:</strong> gestione dei flussi approvativi documentali</li>
-                <li><strong>AI Admin &amp; Compliance Officer:</strong> gestione scadenze e compliance AI Act</li>
-                <li><strong>Servizi di consulenza:</strong> strategia AI, sviluppo custom, compliance AI Act</li>
-            </ul>
+                <h2>1. Acceptance of Terms</h2>
+                <p>
+                    By accessing or using the services provided by <strong>Corvalys S.r.l.</strong> through
+                    <a href="https://corvalys.eu">corvalys.eu</a> (the "Service"), you agree to be bound by these
+                    Terms of Service ("Terms"). If you do not agree, please do not use the Service.
+                </p>
 
-            <h2>4. Registrazione e account</h2>
-            <p>
-                Per accedere ai servizi &egrave; necessario creare un account fornendo dati veritieri e completi. L&rsquo;Utente &egrave; responsabile della riservatezza delle proprie credenziali e di tutte le attivit&agrave; svolte tramite il proprio account.
-            </p>
+                <h2>2. Description of Service</h2>
+                <p>
+                    Corvalys S.r.l. provides AI-powered automation and compliance tools designed for European small
+                    and medium-sized enterprises. Features include invoice management, approval workflows, AI Act
+                    compliance assistance, and related integrations.
+                </p>
 
-            <h2>5. Piani e prezzi</h2>
-            <p>
-                [DA AGGIORNARE CON DETTAGLI SPECIFICI DEI PIANI]
-            </p>
-            <p>
-                I prezzi sono espressi in Euro e si intendono IVA esclusa salvo diversa indicazione. Il Titolare si riserva il diritto di modificare i prezzi con preavviso di 30 giorni.
-            </p>
+                <h2>3. Account Registration</h2>
+                <p>
+                    To access certain features you must create an account. You agree to provide accurate, complete,
+                    and current information and to keep it updated. You are responsible for maintaining the
+                    confidentiality of your credentials and for all activity under your account.
+                </p>
 
-            <h2>6. Periodo di prova gratuito</h2>
-            <p>
-                Corvalys offre un periodo di prova gratuito di 3 mesi. Al termine del periodo di prova, l&rsquo;Utente potr&agrave; scegliere se sottoscrivere un piano a pagamento o interrompere l&rsquo;utilizzo del servizio. Non &egrave; richiesta carta di credito per il periodo di prova.
-            </p>
+                <h2>4. Subscriptions and Payment</h2>
+                <p>
+                    Access to the Service is provided on a subscription basis. Fees are stated on the pricing page
+                    and are billed in advance. All amounts are exclusive of VAT unless otherwise stated. We reserve
+                    the right to modify pricing with 30 days' notice. Continued use after a price change constitutes
+                    acceptance of the new price.
+                </p>
 
-            <h2>7. Obblighi dell&rsquo;Utente</h2>
-            <p>L&rsquo;Utente si impegna a:</p>
-            <ul>
-                <li>Utilizzare il servizio in conformit&agrave; alle leggi vigenti</li>
-                <li>Non utilizzare il servizio per scopi illeciti o fraudolenti</li>
-                <li>Non tentare di accedere ad aree riservate della piattaforma</li>
-                <li>Non sovraccaricare intenzionalmente l&rsquo;infrastruttura del servizio</li>
-                <li>Mantenere aggiornati i dati del proprio account</li>
-            </ul>
+                <h2>5. Acceptable Use</h2>
+                <p>You agree not to:</p>
+                <ul>
+                    <li>Use the Service for any unlawful purpose or in violation of applicable regulations.</li>
+                    <li>Attempt to gain unauthorised access to any part of the Service or its infrastructure.</li>
+                    <li>Reverse engineer, decompile, or disassemble any software component of the Service.</li>
+                    <li>Upload or transmit malicious code or any content that infringes third-party rights.</li>
+                    <li>Resell or sub-license access to the Service without written authorisation from Corvalys S.r.l.</li>
+                </ul>
 
-            <h2>8. Propriet&agrave; intellettuale</h2>
-            <p>
-                Tutti i contenuti della piattaforma (software, testi, grafiche, loghi, marchi) sono di propriet&agrave; esclusiva del Titolare o dei suoi licenzianti. &Egrave; vietata la riproduzione, distribuzione o utilizzo non autorizzato.
-            </p>
+                <h2>6. Intellectual Property</h2>
+                <p>
+                    All intellectual property rights in the Service and its content (excluding your data) belong to
+                    Corvalys S.r.l. or its licensors. Nothing in these Terms transfers ownership of any intellectual
+                    property to you. You are granted a limited, non-exclusive, non-transferable licence to use the
+                    Service solely for your internal business purposes.
+                </p>
 
-            <h2>9. Limitazione di responsabilit&agrave;</h2>
-            <p>
-                Il Titolare non sar&agrave; responsabile per danni indiretti, incidentali o consequenziali derivanti dall&rsquo;utilizzo del servizio. I suggerimenti e le analisi forniti dagli strumenti AI hanno natura informativa e non costituiscono consulenza professionale.
-            </p>
+                <h2>7. Your Data</h2>
+                <p>
+                    You retain ownership of all data you submit to the Service. By using the Service you grant
+                    Corvalys S.r.l. a limited licence to process your data solely to deliver and improve the Service,
+                    in accordance with our <a href="{{ route('privacy') }}">Privacy Policy</a>.
+                </p>
 
-            <h2>10. Protezione dei dati</h2>
-            <p>
-                Il trattamento dei dati personali &egrave; regolato dalla <a href="{{ route('privacy') }}">Privacy Policy</a>. L&rsquo;Utente acconsente al trattamento dei propri dati secondo quanto ivi previsto.
-            </p>
+                <h2>8. Confidentiality</h2>
+                <p>
+                    Each party agrees to keep the other's confidential information secret and to use it only as
+                    necessary to fulfil obligations under these Terms, with the same degree of care it uses for its
+                    own confidential information (but no less than reasonable care).
+                </p>
 
-            <h2>11. Recesso e cancellazione</h2>
-            <p>
-                L&rsquo;Utente pu&ograve; recedere dal servizio in qualsiasi momento. I dati verranno conservati per il periodo previsto dalla normativa vigente e dalla Privacy Policy.
-            </p>
+                <h2>9. Limitation of Liability</h2>
+                <p>
+                    To the maximum extent permitted by applicable law, Corvalys S.r.l. shall not be liable for any
+                    indirect, incidental, special, consequential, or punitive damages arising out of or related to
+                    your use of the Service. Our total liability shall not exceed the fees you paid in the twelve
+                    months preceding the claim.
+                </p>
 
-            <h2>12. Modifiche ai Termini</h2>
-            <p>
-                Il Titolare si riserva il diritto di modificare i presenti Termini. Le modifiche saranno comunicate all&rsquo;Utente con preavviso di almeno 15 giorni. L&rsquo;uso continuato del servizio dopo l&rsquo;entrata in vigore delle modifiche costituisce accettazione delle stesse.
-            </p>
+                <h2>10. Warranty Disclaimer</h2>
+                <p>
+                    The Service is provided "as is" without warranty of any kind, express or implied, including but
+                    not limited to warranties of merchantability, fitness for a particular purpose, and
+                    non-infringement. We do not warrant that the Service will be error-free or uninterrupted.
+                </p>
 
-            <h2>13. Legge applicabile e foro competente</h2>
-            <p>
-                I presenti Termini sono regolati dalla legge italiana. Per qualsiasi controversia sar&agrave; competente il Foro di [DA INSERIRE].
-            </p>
+                <h2>11. Term and Termination</h2>
+                <p>
+                    These Terms remain in effect for the duration of your subscription. Either party may terminate
+                    for convenience with 30 days' written notice. We may suspend or terminate your access immediately
+                    if you breach these Terms. Upon termination you will lose access to the Service and your data
+                    will be handled as described in our Privacy Policy.
+                </p>
+
+                <h2>12. Governing Law</h2>
+                <p>
+                    These Terms are governed by and construed in accordance with the laws of Italy. Any disputes
+                    shall be subject to the exclusive jurisdiction of the courts of Milan, Italy.
+                </p>
+
+                <h2>13. Changes to These Terms</h2>
+                <p>
+                    We may update these Terms from time to time. We will notify you of material changes by email or
+                    by displaying a prominent notice on the Service at least 14 days before the changes take effect.
+                    Continued use after the effective date constitutes acceptance.
+                </p>
+
+                <h2>14. Contact</h2>
+                <p>
+                    Questions about these Terms should be sent to Corvalys S.r.l. at
+                    <a href="mailto:info@corvalys.eu">info@corvalys.eu</a>.
+                </p>
+
+            </div>
 
         </div>
-    </div>
-</section>
+    </section>
+
 @endsection

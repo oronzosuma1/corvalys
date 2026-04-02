@@ -1,215 +1,519 @@
 @extends('layouts.app')
 
-@section('title', 'Pricing – Corvalys')
+@section('title', __('pricing.meta.title', [], app()->getLocale()) ?: 'Prezzi — Corvalys')
+@section('meta_description', __('pricing.meta.description', [], app()->getLocale()) ?: '')
 
 @section('content')
 
-{{-- Hero --}}
-<section class="bg-gradient-to-br from-navy to-navy/80 py-16 lg:py-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight" data-i18n="prezzi.title">
-            Simple pricing, real results
-        </h1>
-        <p class="mt-6 text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto" data-i18n="prezzi.subtitle">
-            Start free for 3 months. No credit card. Cancel anytime.
-        </p>
-    </div>
-</section>
-
-{{-- Pricing Cards (Livewire component) --}}
-<section id="pricing" class="bg-white py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        @livewire('pricing-toggle')
-    </div>
-</section>
-
-{{-- Feature Comparison Table --}}
-<section class="bg-gray-50 py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="section-title text-center" data-i18n="prezzi.compare.title">Compare Plans</h2>
-
-        <div class="mt-12 overflow-x-auto">
-            <table class="w-full min-w-[640px] text-sm text-left">
-                <thead>
-                    <tr class="border-b-2 border-gray-200">
-                        <th class="py-4 pr-4 font-heading font-semibold text-gray-900 w-1/5">Feature</th>
-                        <th class="py-4 px-4 font-heading font-semibold text-gray-900 text-center w-1/5">Starter</th>
-                        <th class="py-4 px-4 font-heading font-semibold text-primary text-center w-1/5 bg-primary/5 rounded-t-lg">Core</th>
-                        <th class="py-4 px-4 font-heading font-semibold text-gray-900 text-center w-1/5">Pro</th>
-                        <th class="py-4 px-4 font-heading font-semibold text-gray-900 text-center w-1/5">Business</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-gray-100">
-                    {{-- Tool A --}}
-                    <tr>
-                        <td class="py-4 pr-4 text-gray-700 font-medium" data-i18n-html="prezzi.table.toolA">Tool A &mdash; Cash Controller</td>
-                        <td class="py-4 px-4 text-center text-gray-600" data-i18n="prezzi.table.basic">Basic</td>
-                        <td class="py-4 px-4 text-center text-gray-600 bg-primary/5" data-i18n="prezzi.table.full">Full</td>
-                        <td class="py-4 px-4 text-center text-gray-600" data-i18n="prezzi.table.full">Full</td>
-                        <td class="py-4 px-4 text-center text-gray-600">Custom</td>
-                    </tr>
-                    {{-- Tool B --}}
-                    <tr>
-                        <td class="py-4 pr-4 text-gray-700 font-medium" data-i18n-html="prezzi.table.toolB">Tool B &mdash; Approval Coordinator</td>
-                        <td class="py-4 px-4 text-center text-gray-400">&mdash;</td>
-                        <td class="py-4 px-4 text-center bg-primary/5">
-                            <svg class="mx-auto h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                        </td>
-                        <td class="py-4 px-4 text-center">
-                            <svg class="mx-auto h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                        </td>
-                        <td class="py-4 px-4 text-center text-gray-600">Custom</td>
-                    </tr>
-                    {{-- Tool C --}}
-                    <tr>
-                        <td class="py-4 pr-4 text-gray-700 font-medium" data-i18n-html="prezzi.table.toolC">Tool C &mdash; Compliance Officer</td>
-                        <td class="py-4 px-4 text-center text-gray-400">&mdash;</td>
-                        <td class="py-4 px-4 text-center text-gray-400 bg-primary/5">&mdash;</td>
-                        <td class="py-4 px-4 text-center">
-                            <svg class="mx-auto h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                        </td>
-                        <td class="py-4 px-4 text-center text-gray-600">Custom</td>
-                    </tr>
-                    {{-- Invoices/month --}}
-                    <tr>
-                        <td class="py-4 pr-4 text-gray-700 font-medium" data-i18n="prezzi.table.invoices">Invoices/month</td>
-                        <td class="py-4 px-4 text-center text-gray-600">50</td>
-                        <td class="py-4 px-4 text-center text-gray-600 bg-primary/5">500</td>
-                        <td class="py-4 px-4 text-center text-gray-600" data-i18n="prezzi.table.unlimited">Unlimited</td>
-                        <td class="py-4 px-4 text-center text-gray-600" data-i18n="prezzi.table.unlimited">Unlimited</td>
-                    </tr>
-                    {{-- Morning brief --}}
-                    <tr>
-                        <td class="py-4 pr-4 text-gray-700 font-medium" data-i18n="prezzi.table.brief">Morning brief</td>
-                        <td class="py-4 px-4 text-center text-gray-600">Email</td>
-                        <td class="py-4 px-4 text-center text-gray-600 bg-primary/5">Email + Dashboard</td>
-                        <td class="py-4 px-4 text-center text-gray-600">Email + Dashboard + WhatsApp</td>
-                        <td class="py-4 px-4 text-center text-gray-600">Custom</td>
-                    </tr>
-                    {{-- Automatic reminders --}}
-                    <tr>
-                        <td class="py-4 pr-4 text-gray-700 font-medium" data-i18n="prezzi.table.reminders">Automatic reminders</td>
-                        <td class="py-4 px-4 text-center text-gray-400">&mdash;</td>
-                        <td class="py-4 px-4 text-center bg-primary/5">
-                            <svg class="mx-auto h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                        </td>
-                        <td class="py-4 px-4 text-center text-gray-600" data-i18n="prezzi.table.escalation">Yes + escalation</td>
-                        <td class="py-4 px-4 text-center text-gray-600">Custom</td>
-                    </tr>
-                    {{-- AI Act compliance --}}
-                    <tr>
-                        <td class="py-4 pr-4 text-gray-700 font-medium">AI Act compliance</td>
-                        <td class="py-4 px-4 text-center text-gray-400">&mdash;</td>
-                        <td class="py-4 px-4 text-center text-gray-400 bg-primary/5">&mdash;</td>
-                        <td class="py-4 px-4 text-center text-gray-600" data-i18n="prezzi.table.report">Report + Inventory</td>
-                        <td class="py-4 px-4 text-center text-gray-600" data-i18n="prezzi.table.audit">Full audit</td>
-                    </tr>
-                    {{-- Support --}}
-                    <tr>
-                        <td class="py-4 pr-4 text-gray-700 font-medium" data-i18n="prezzi.table.support">Support</td>
-                        <td class="py-4 px-4 text-center text-gray-600">Community</td>
-                        <td class="py-4 px-4 text-center text-gray-600 bg-primary/5" data-i18n="prezzi.table.priority-email">Priority email</td>
-                        <td class="py-4 px-4 text-center text-gray-600" data-i18n="prezzi.table.call">1:1 Call</td>
-                        <td class="py-4 px-4 text-center text-gray-600" data-i18n="prezzi.table.account-mgr">Account manager</td>
-                    </tr>
-                    {{-- Integrations --}}
-                    <tr>
-                        <td class="py-4 pr-4 text-gray-700 font-medium" data-i18n="prezzi.table.integrations">Integrations</td>
-                        <td class="py-4 px-4 text-center text-gray-400">&mdash;</td>
-                        <td class="py-4 px-4 text-center text-gray-600 bg-primary/5">Standard</td>
-                        <td class="py-4 px-4 text-center text-gray-600">Standard + API</td>
-                        <td class="py-4 px-4 text-center text-gray-600">Custom</td>
-                    </tr>
-                </tbody>
-            </table>
+    {{-- ── Hero ── --}}
+    <section class="bg-hero text-white pt-32 pb-24 lg:pt-40 lg:pb-32">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h1
+                class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6"
+                data-i18n="pricing.hero.title"
+            >
+                Piani e Prezzi
+            </h1>
+            <p
+                class="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed"
+                data-i18n="pricing.hero.sub"
+            >
+                Scegli il piano più adatto alla tua PMI. Nessuna sorpresa, nessun costo nascosto.
+            </p>
         </div>
-    </div>
-</section>
+    </section>
 
-{{-- FAQ --}}
-<section class="py-20 bg-white">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="section-title text-center" data-i18n="prezzi.faq.title">Frequently Asked Questions</h2>
+    {{-- ── Pricing Section ── --}}
+    <section
+        class="section bg-white"
+        x-data="{ period: 'monthly' }"
+    >
+        <div class="max-w-7xl mx-auto px-6">
 
-        <div class="mt-12 divide-y divide-gray-200" x-data="{ open: null }">
-            {{-- FAQ 1 --}}
-            <div class="py-5">
-                <button @click="open = open === 1 ? null : 1" class="flex w-full items-center justify-between text-left">
-                    <span class="font-heading text-base font-semibold text-gray-900" data-i18n="prezzi.faq.q1">What happens after the 3 free months?</span>
-                    <svg class="h-5 w-5 text-gray-500 transition-transform duration-200" :class="{ 'rotate-180': open === 1 }" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
-                </button>
-                <div x-show="open === 1" x-collapse x-cloak class="mt-3 text-gray-600 text-sm leading-relaxed" data-i18n="prezzi.faq.a1">
-                    You automatically switch to a limited free plan, or choose a paid plan. We never charge without your consent.
+            {{-- ── Period Toggle ── --}}
+            <div class="flex items-center justify-center gap-3 mb-16">
+
+                <div class="inline-flex items-center bg-gray-100 rounded-xl p-1 gap-1">
+
+                    {{-- Monthly --}}
+                    <button
+                        @click="period = 'monthly'"
+                        :class="period === 'monthly'
+                            ? 'bg-primary text-white shadow-sm'
+                            : 'bg-transparent text-gray-600 hover:text-gray-900'"
+                        class="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200"
+                        data-i18n="pricing.monthly"
+                    >
+                        Mensile
+                    </button>
+
+                    {{-- Annual --}}
+                    <button
+                        @click="period = 'annual'"
+                        :class="period === 'annual'
+                            ? 'bg-primary text-white shadow-sm'
+                            : 'bg-transparent text-gray-600 hover:text-gray-900'"
+                        class="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 flex items-center gap-2"
+                        data-i18n="pricing.annual"
+                    >
+                        Annuale
+                    </button>
+
                 </div>
+
+                {{-- Save badge --}}
+                <span
+                    x-show="period === 'annual'"
+                    x-transition:enter="transition ease-out duration-200"
+                    x-transition:enter-start="opacity-0 scale-90"
+                    x-transition:enter-end="opacity-100 scale-100"
+                    x-transition:leave="transition ease-in duration-150"
+                    x-transition:leave-start="opacity-100 scale-100"
+                    x-transition:leave-end="opacity-0 scale-90"
+                    class="badge bg-amber/10 text-amber font-bold"
+                    data-i18n="pricing.save"
+                    style="display:none"
+                >
+                    Risparmia 20%
+                </span>
+
             </div>
 
-            {{-- FAQ 2 --}}
-            <div class="py-5">
-                <button @click="open = open === 2 ? null : 2" class="flex w-full items-center justify-between text-left">
-                    <span class="font-heading text-base font-semibold text-gray-900" data-i18n="prezzi.faq.q2">Can I change plans?</span>
-                    <svg class="h-5 w-5 text-gray-500 transition-transform duration-200" :class="{ 'rotate-180': open === 2 }" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
-                </button>
-                <div x-show="open === 2" x-collapse x-cloak class="mt-3 text-gray-600 text-sm leading-relaxed" data-i18n="prezzi.faq.a2">
-                    Yes, you can upgrade or downgrade at any time. The change takes effect the following month.
-                </div>
-            </div>
+            {{-- ── Pricing Cards Grid ── --}}
+            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8 items-stretch">
 
-            {{-- FAQ 3 --}}
-            <div class="py-5">
-                <button @click="open = open === 3 ? null : 3" class="flex w-full items-center justify-between text-left">
-                    <span class="font-heading text-base font-semibold text-gray-900" data-i18n="prezzi.faq.q3">How does billing work?</span>
-                    <svg class="h-5 w-5 text-gray-500 transition-transform duration-200" :class="{ 'rotate-180': open === 3 }" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
-                </button>
-                <div x-show="open === 3" x-collapse x-cloak class="mt-3 text-gray-600 text-sm leading-relaxed" data-i18n="prezzi.faq.a3">
-                    Monthly or annual (with 20% discount). We accept credit card and SEPA bank transfer.
-                </div>
-            </div>
+                {{-- ── STARTER ── --}}
+                <div class="card flex flex-col">
 
-            {{-- FAQ 4 --}}
-            <div class="py-5">
-                <button @click="open = open === 4 ? null : 4" class="flex w-full items-center justify-between text-left">
-                    <span class="font-heading text-base font-semibold text-gray-900" data-i18n="prezzi.faq.q4">Do you offer startup discounts?</span>
-                    <svg class="h-5 w-5 text-gray-500 transition-transform duration-200" :class="{ 'rotate-180': open === 4 }" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
-                </button>
-                <div x-show="open === 4" x-collapse x-cloak class="mt-3 text-gray-600 text-sm leading-relaxed" data-i18n="prezzi.faq.a4">
-                    Yes, contact us for our startup program with dedicated terms.
+                    {{-- Plan name --}}
+                    <div class="mb-6">
+                        <span
+                            class="badge bg-gray-100 text-gray-600 mb-3"
+                            data-i18n="pricing.starter.name"
+                        >
+                            Starter
+                        </span>
+
+                        {{-- Price --}}
+                        <div class="mt-4">
+                            <div
+                                x-show="period === 'monthly'"
+                                class="flex items-baseline gap-1"
+                            >
+                                <span
+                                    class="font-heading text-4xl font-bold text-gray-900"
+                                    data-i18n="pricing.free"
+                                >
+                                    Gratis
+                                </span>
+                            </div>
+                            <div
+                                x-show="period === 'annual'"
+                                class="flex items-baseline gap-1"
+                                style="display:none"
+                            >
+                                <span
+                                    class="font-heading text-4xl font-bold text-gray-900"
+                                    data-i18n="pricing.free"
+                                >
+                                    Gratis
+                                </span>
+                            </div>
+
+                            {{-- Trial note --}}
+                            <p
+                                class="mt-2 text-xs text-primary font-semibold"
+                                data-i18n="pricing.starter.trial"
+                            >
+                                3 mesi di prova gratuita
+                            </p>
+                        </div>
+                    </div>
+
+                    {{-- Description --}}
+                    <p
+                        class="text-gray-500 text-sm leading-relaxed mb-6"
+                        data-i18n="pricing.starter.desc"
+                    >
+                        Perfetto per iniziare a esplorare l'AI nella tua azienda senza rischi.
+                    </p>
+
+                    {{-- Features --}}
+                    <ul class="space-y-3 flex-1 mb-8">
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-sm text-gray-600" data-i18n="pricing.starter.f1">
+                                Accesso base alla piattaforma
+                            </span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-sm text-gray-600" data-i18n="pricing.starter.f2">
+                                Fino a 3 utenti
+                            </span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-sm text-gray-600" data-i18n="pricing.starter.f3">
+                                Supporto via email
+                            </span>
+                        </li>
+                    </ul>
+
+                    {{-- CTA --}}
+                    <a
+                        href="{{ route('contatto') }}"
+                        class="btn-outline w-full text-center"
+                        data-i18n="pricing.starter.cta"
+                    >
+                        Inizia gratis
+                    </a>
+
                 </div>
+
+                {{-- ── CORE ── --}}
+                <div class="card flex flex-col">
+
+                    <div class="mb-6">
+                        <span
+                            class="badge bg-primary/10 text-primary mb-3"
+                            data-i18n="pricing.core.name"
+                        >
+                            Core
+                        </span>
+
+                        {{-- Price --}}
+                        <div class="mt-4">
+                            <div
+                                x-show="period === 'monthly'"
+                                class="flex items-baseline gap-1"
+                            >
+                                <span class="font-heading text-4xl font-bold text-gray-900">€{{ $prezzi['core']['monthly'] }}</span>
+                                <span class="text-gray-400 text-sm font-medium">/mo</span>
+                            </div>
+                            <div
+                                x-show="period === 'annual'"
+                                class="flex items-baseline gap-1"
+                                style="display:none"
+                            >
+                                <span class="font-heading text-4xl font-bold text-gray-900">€{{ $prezzi['core']['annual'] }}</span>
+                                <span class="text-gray-400 text-sm font-medium">/yr</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p
+                        class="text-gray-500 text-sm leading-relaxed mb-6"
+                        data-i18n="pricing.core.desc"
+                    >
+                        La soluzione ideale per PMI che vogliono automatizzare i processi core.
+                    </p>
+
+                    <ul class="space-y-3 flex-1 mb-8">
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-sm text-gray-600" data-i18n="pricing.core.f1">
+                                Tutto di Starter
+                            </span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-sm text-gray-600" data-i18n="pricing.core.f2">
+                                Fino a 10 utenti
+                            </span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-sm text-gray-600" data-i18n="pricing.core.f3">
+                                Automazione fatture
+                            </span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-sm text-gray-600" data-i18n="pricing.core.f4">
+                                Reporting base
+                            </span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-sm text-gray-600" data-i18n="pricing.core.f5">
+                                Supporto prioritario
+                            </span>
+                        </li>
+                    </ul>
+
+                    <a
+                        href="{{ route('contatto') }}"
+                        class="btn-outline w-full text-center"
+                        data-i18n="pricing.core.cta"
+                    >
+                        Inizia ora
+                    </a>
+
+                </div>
+
+                {{-- ── PRO (highlighted) ── --}}
+                <div class="card flex flex-col ring-2 ring-primary relative">
+
+                    {{-- Most Popular badge --}}
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2">
+                        <span
+                            class="badge bg-primary text-white shadow-lg shadow-primary/30 px-4 py-1.5"
+                            data-i18n="pricing.popular"
+                        >
+                            Più Popolare
+                        </span>
+                    </div>
+
+                    <div class="mb-6 mt-4">
+                        <span
+                            class="badge bg-primary text-white mb-3"
+                            data-i18n="pricing.pro.name"
+                        >
+                            Pro
+                        </span>
+
+                        {{-- Price --}}
+                        <div class="mt-4">
+                            <div
+                                x-show="period === 'monthly'"
+                                class="flex items-baseline gap-1"
+                            >
+                                <span class="font-heading text-4xl font-bold text-gray-900">€{{ $prezzi['pro']['monthly'] }}</span>
+                                <span class="text-gray-400 text-sm font-medium">/mo</span>
+                            </div>
+                            <div
+                                x-show="period === 'annual'"
+                                class="flex items-baseline gap-1"
+                                style="display:none"
+                            >
+                                <span class="font-heading text-4xl font-bold text-gray-900">€{{ $prezzi['pro']['annual'] }}</span>
+                                <span class="text-gray-400 text-sm font-medium">/yr</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p
+                        class="text-gray-500 text-sm leading-relaxed mb-6"
+                        data-i18n="pricing.pro.desc"
+                    >
+                        Potenza e flessibilità per team in crescita che vogliono il massimo dall'AI.
+                    </p>
+
+                    <ul class="space-y-3 flex-1 mb-8">
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-sm text-gray-600" data-i18n="pricing.pro.f1">
+                                Tutto di Core
+                            </span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-sm text-gray-600" data-i18n="pricing.pro.f2">
+                                Utenti illimitati
+                            </span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-sm text-gray-600" data-i18n="pricing.pro.f3">
+                                AI Act compliance dashboard
+                            </span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-sm text-gray-600" data-i18n="pricing.pro.f4">
+                                Integrazioni avanzate
+                            </span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-sm text-gray-600" data-i18n="pricing.pro.f5">
+                                Analytics avanzati
+                            </span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-sm text-gray-600" data-i18n="pricing.pro.f6">
+                                Account manager dedicato
+                            </span>
+                        </li>
+                    </ul>
+
+                    <a
+                        href="{{ route('contatto') }}"
+                        class="btn-primary w-full text-center"
+                        data-i18n="pricing.pro.cta"
+                    >
+                        Scegli Pro
+                    </a>
+
+                </div>
+
+                {{-- ── BUSINESS ── --}}
+                <div class="card flex flex-col bg-navy text-white border-navy">
+
+                    <div class="mb-6">
+                        <span
+                            class="badge bg-white/10 text-white mb-3"
+                            data-i18n="pricing.business.name"
+                        >
+                            Business
+                        </span>
+
+                        {{-- Price --}}
+                        <div class="mt-4">
+                            <div
+                                x-show="period === 'monthly'"
+                                class="flex items-baseline gap-1"
+                            >
+                                <span class="font-heading text-4xl font-bold text-white">€{{ $prezzi['business']['monthly'] }}</span>
+                                <span class="text-white/50 text-sm font-medium">/mo</span>
+                            </div>
+                            <div
+                                x-show="period === 'annual'"
+                                class="flex items-baseline gap-1"
+                                style="display:none"
+                            >
+                                <span
+                                    class="font-heading text-3xl font-bold text-white"
+                                    data-i18n="pricing.contact"
+                                >
+                                    Contattaci
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p
+                        class="text-white/60 text-sm leading-relaxed mb-6"
+                        data-i18n="pricing.business.desc"
+                    >
+                        Soluzioni enterprise su misura per organizzazioni complesse con esigenze specifiche.
+                    </p>
+
+                    <ul class="space-y-3 flex-1 mb-8">
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-primary-light flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-sm text-white/80" data-i18n="pricing.business.f1">
+                                Tutto di Pro
+                            </span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-primary-light flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-sm text-white/80" data-i18n="pricing.business.f2">
+                                Implementazione dedicata
+                            </span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-primary-light flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-sm text-white/80" data-i18n="pricing.business.f3">
+                                SLA garantito
+                            </span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-primary-light flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-sm text-white/80" data-i18n="pricing.business.f4">
+                                Integrazioni custom
+                            </span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-primary-light flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-sm text-white/80" data-i18n="pricing.business.f5">
+                                Formazione del team
+                            </span>
+                        </li>
+                    </ul>
+
+                    <a
+                        href="{{ route('contatto') }}"
+                        class="btn-white w-full text-center"
+                        data-i18n="pricing.business.cta"
+                    >
+                        Parla con noi
+                    </a>
+
+                </div>
+
             </div>
+            {{-- End grid --}}
+
         </div>
-    </div>
-</section>
+    </section>
+    {{-- End Alpine x-data scope --}}
 
-{{-- AI Act Banner --}}
-<section class="py-16 bg-amber/10">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <div class="flex-shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-amber" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                </svg>
-            </div>
-            <div class="flex-1">
-                <p class="text-gray-800 font-medium" data-i18n-html="prezzi.aiact.warning">
-                    <strong>Attention:</strong> from August 2, 2026, the AI Act requires compliance for all AI deployers. The Pro plan includes the compliance report.
-                </p>
-            </div>
-            <div class="flex-shrink-0">
-                <a href="#pricing" class="text-primary font-semibold hover:underline whitespace-nowrap" data-i18n-html="prezzi.aiact.cta">Discover the Pro plan &rarr;</a>
-            </div>
-        </div>
-    </div>
-</section>
+    {{-- ── Bottom CTA / FAQ ── --}}
+    <section class="bg-section-alt section-sm">
+        <div class="max-w-4xl mx-auto px-6 text-center">
 
-{{-- Final CTA --}}
-<section class="py-20 bg-navy">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white" data-i18n="prezzi.cta.title">Ready to try?</h2>
-        <p class="mt-4 text-lg text-gray-300" data-i18n="prezzi.cta.subtitle">3 months free, zero risk</p>
-        <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="/contatto" class="btn-primary" data-i18n="cta.inizia">Start free</a>
-            <a href="/contatto" class="btn-outline border-white text-white hover:bg-white/10" data-i18n="prezzi.cta.talk">Talk to us</a>
+            <h2
+                class="section-title mb-4"
+                data-i18n="pricing.cta.title"
+            >
+                Hai domande?
+            </h2>
+            <p
+                class="section-sub mx-auto mb-10"
+                data-i18n="pricing.cta.sub"
+            >
+                Il nostro team è pronto ad aiutarti a scegliere il piano giusto e rispondere a qualsiasi domanda.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a
+                    href="{{ route('contatto') }}"
+                    class="btn-primary"
+                    data-i18n="pricing.cta.btn"
+                >
+                    Contattaci
+                </a>
+                <a
+                    href="{{ route('prodotti') }}"
+                    class="btn-ghost text-gray-700"
+                    data-i18n="pricing.cta.products"
+                >
+                    Esplora i prodotti
+                </a>
+            </div>
+
         </div>
-    </div>
-</section>
+    </section>
 
 @endsection

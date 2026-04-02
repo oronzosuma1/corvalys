@@ -11,16 +11,20 @@ class User extends Authenticatable
         'email',
         'password',
         'is_admin',
+        'two_factor_secret',
+        'two_factor_confirmed_at',
     ];
 
     protected $hidden = [
         'password',
         'remember_token',
+        'two_factor_secret',
     ];
 
     protected $casts = [
         'is_admin' => 'boolean',
         'password' => 'hashed',
+        'two_factor_confirmed_at' => 'datetime',
     ];
 
     public function isAdmin(): bool

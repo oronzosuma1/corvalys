@@ -15,6 +15,11 @@ class LeadController extends Controller
     public function index(Request $request)
     {
         $leads = Lead::query()
+            ->when($request->area === 'saas', fn($q) => $q->where(function ($q) {
+                $q->whereNotIn('service_type', ['industry40', 'compliance', 'supplychain'])
+                  ->orWhereNull('service_type');
+            }))
+            ->when($request->area === 'consulenza', fn($q) => $q->whereIn('service_type', ['industry40', 'compliance', 'supplychain']))
             ->when($request->status, fn($q, $s) => $q->where('status', $s))
             ->when($request->service_type, fn($q, $s) => $q->where('service_type', $s))
             ->when($request->search, fn($q, $s) => $q->where(function ($q) use ($s) {

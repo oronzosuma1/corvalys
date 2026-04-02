@@ -14,8 +14,9 @@ class InvoiceController extends Controller
     {
         $query = Invoice::query();
 
-        if ($request->filled('type') && $request->type !== 'tutte') {
-            $query->where('type', $request->type);
+        $typeFilter = $request->filled('type') ? $request->type : 'emessa';
+        if ($typeFilter !== 'tutte') {
+            $query->where('type', $typeFilter);
         }
 
         if ($request->filled('status')) {

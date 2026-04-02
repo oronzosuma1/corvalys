@@ -42,7 +42,7 @@
     <div class="mb-8">
         <div class="flex items-center justify-between mb-4">
             <h2 class="text-sm font-heading font-semibold text-gray-900">Finanza</h2>
-            <a href="{{ route('admin.cashflow.index') }}" class="text-xs text-primary hover:text-primary-dark font-medium">Vedi cash flow &rarr;</a>
+            <a href="{{ route('admin.invoices.index') }}" class="text-xs text-primary hover:text-primary-dark font-medium">Vedi fatture &rarr;</a>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             <a href="{{ route('admin.invoices.index') }}" class="group block bg-white rounded-xl border border-gray-200 p-5 hover:border-green-300 hover:shadow-md transition-all">

@@ -7,11 +7,14 @@ use App\Http\Controllers\Admin\QuotazioneController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\PartnerRequestController;
 use App\Http\Controllers\Admin\InvoiceController;
-use App\Http\Controllers\Admin\CashFlowController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\TeamMemberController;
 use App\Http\Controllers\Admin\DisplayPartnerController;
+use App\Http\Controllers\Admin\ProposalController;
+use App\Http\Controllers\Admin\SettingsController;
+use App\Http\Controllers\Admin\SurveyAdminController;
+use App\Http\Controllers\Admin\BusinessSurveyAdminController;
 use Illuminate\Support\Facades\Route;
 
 // Admin auth routes (no auth middleware)
@@ -28,6 +31,10 @@ Route::middleware(['web', 'auth', 'admin'])->prefix('admin')->name('admin.')->gr
     Route::post('leads/{lead}/nota', [LeadController::class, 'addNota'])->name('leads.nota');
     Route::post('leads/{lead}/proposal', [LeadController::class, 'sendProposal'])->name('leads.proposal');
     Route::post('leads/{lead}/auto-assess', [LeadController::class, 'autoAssess'])->name('leads.auto-assess');
+    Route::post('leads/{lead}/proposal/generate', [ProposalController::class, 'generate'])->name('leads.proposal.generate');
+    Route::get('leads/{lead}/proposal/download', [ProposalController::class, 'download'])->name('leads.proposal.download');
+    Route::post('leads/{lead}/proposal/approve', [ProposalController::class, 'approve'])->name('leads.proposal.approve');
+    Route::post('leads/{lead}/proposal/send', [ProposalController::class, 'send'])->name('leads.proposal.send');
     Route::get('quotazione', [QuotazioneController::class, 'index'])->name('quotazione.index');
     Route::post('quotazione', [QuotazioneController::class, 'generateStandalone'])->name('quotazione.generate-standalone');
     Route::get('quotazione/{lead}', [QuotazioneController::class, 'show'])->name('quotazione.show');
@@ -50,8 +57,25 @@ Route::middleware(['web', 'auth', 'admin'])->prefix('admin')->name('admin.')->gr
     Route::resource('display-partners', DisplayPartnerController::class);
 
     Route::resource('invoices', InvoiceController::class);
-    Route::get('cash-flow', [CashFlowController::class, 'index'])->name('cashflow.index');
-    Route::get('cash-flow/detail', [CashFlowController::class, 'detail'])->name('cashflow.detail');
-    Route::post('cash-flow', [CashFlowController::class, 'store'])->name('cashflow.store');
-    Route::delete('cash-flow/{entry}', [CashFlowController::class, 'destroy'])->name('cashflow.destroy');
+
+    // Survey / AI Readiness
+    Route::get('survey', [SurveyAdminController::class, 'index'])->name('survey.index');
+    Route::get('survey/analytics', [SurveyAdminController::class, 'analytics'])->name('survey.analytics');
+    Route::get('survey/export', [SurveyAdminController::class, 'export'])->name('survey.export');
+    Route::get('survey/{survey}', [SurveyAdminController::class, 'show'])->name('survey.show');
+
+    // Business Survey
+    Route::get('business-survey', [BusinessSurveyAdminController::class, 'index'])->name('business-survey.index');
+    Route::get('business-survey/analytics', [BusinessSurveyAdminController::class, 'analytics'])->name('business-survey.analytics');
+    Route::get('business-survey/export', [BusinessSurveyAdminController::class, 'export'])->name('business-survey.export');
+    Route::get('business-survey/{survey}', [BusinessSurveyAdminController::class, 'show'])->name('business-survey.show');
+
+    // Settings
+    Route::get('settings', [SettingsController::class, 'index'])->name('settings.index');
+    Route::post('settings/password', [SettingsController::class, 'changePassword'])->name('settings.password');
+    Route::post('settings/users', [SettingsController::class, 'storeUser'])->name('settings.users.store');
+    Route::delete('settings/users/{user}', [SettingsController::class, 'destroyUser'])->name('settings.users.destroy');
+    Route::post('settings/2fa', [SettingsController::class, 'toggle2fa'])->name('settings.2fa.toggle');
+    Route::post('settings/2fa/confirm', [SettingsController::class, 'confirm2fa'])->name('settings.2fa.confirm');
+    Route::post('settings/config', [SettingsController::class, 'updateConfig'])->name('settings.config');
 });

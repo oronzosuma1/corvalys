@@ -3,6 +3,7 @@
 return [
     'enzo_email' => env('ENZO_EMAIL', 'enzo@corvalys.eu'),
     'calendly_url' => env('CALENDLY_URL'),
+    'tinymce_key' => env('TINYMCE_KEY', ''),
     'tariffe' => [
         'strategy' => ['min' => 150, 'max' => 250],
         'development' => ['min' => 120, 'max' => 200],

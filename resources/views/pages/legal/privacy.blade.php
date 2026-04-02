@@ -1,108 +1,119 @@
 @extends('layouts.app')
 
-@section('title', 'Privacy Policy — Corvalys')
+@section('title', __('legal.privacy.meta_title', [], app()->getLocale()) ?: 'Privacy Policy — Corvalys')
+@section('meta_description', __('legal.privacy.meta_description', [], app()->getLocale()) ?: '')
 
 @section('content')
-<section class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 class="font-heading text-3xl sm:text-4xl font-bold text-navy mb-4">Privacy Policy</h1>
-        <p class="text-sm text-gray-400 mb-12">Ultimo aggiornamento: [DA AGGIORNARE] &mdash; Versione 1.0</p>
 
-        <div class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-navy">
-
-            <p class="text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 text-sm font-medium">
-                [DA AGGIORNARE CON TESTO LEGALE DEFINITIVO]
+    {{-- ── Page Header ── --}}
+    <section class="bg-hero text-white pt-32 pb-16 lg:pt-40 lg:pb-20">
+        <div class="max-w-4xl mx-auto px-6">
+            <h1
+                class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight mb-4"
+                data-i18n="legal.privacy.title"
+            >
+                Privacy Policy
+            </h1>
+            <p class="text-white/60 text-sm" data-i18n="legal.privacy.updated">
+                Last updated: 29 March 2026
             </p>
+        </div>
+    </section>
 
-            <h2>1. Titolare del trattamento</h2>
-            <p>
-                Il Titolare del trattamento dei dati personali &egrave;:<br>
-                <strong>[Nome Societ&agrave;]</strong><br>
-                Sede legale: [Indirizzo]<br>
-                P.IVA: [Numero]<br>
-                Email: enzo@corvalys.eu<br>
-                PEC: [DA INSERIRE]
-            </p>
+    {{-- ── Content ── --}}
+    <section class="section bg-white">
+        <div class="max-w-4xl mx-auto px-6">
 
-            <h2>2. Tipologie di dati raccolti</h2>
-            <p>
-                Tra i dati personali raccolti da questo sito web, in modo autonomo o tramite terze parti, ci sono:
-            </p>
-            <ul>
-                <li><strong>Dati di navigazione:</strong> indirizzo IP, tipo di browser, sistema operativo, pagine visitate, orari di accesso</li>
-                <li><strong>Dati forniti volontariamente:</strong> nome, cognome, email, azienda, telefono, descrizione del progetto, budget indicativo</li>
-                <li><strong>Dati da newsletter:</strong> indirizzo email</li>
-                <li><strong>Cookie e tecnologie di tracciamento:</strong> si veda la Cookie Policy</li>
-            </ul>
+            {{--
+                The data-i18n-html attribute allows the i18n JS layer to inject
+                fully formatted HTML (headings, paragraphs, lists) from the
+                translation file. The static content below serves as the
+                server-side fallback and for SEO crawlers.
+            --}}
+            <div
+                class="prose prose-gray prose-headings:font-heading prose-headings:font-bold prose-a:text-primary prose-a:no-underline hover:prose-a:underline max-w-none"
+                data-i18n-html="legal.privacy.body"
+            >
 
-            <h2>3. Finalit&agrave; del trattamento</h2>
-            <p>I dati personali sono trattati per le seguenti finalit&agrave;:</p>
-            <ul>
-                <li>Erogazione dei servizi richiesti dall&rsquo;utente</li>
-                <li>Risposta a richieste di contatto e preventivi</li>
-                <li>Invio di newsletter e comunicazioni commerciali (previo consenso)</li>
-                <li>Adempimento di obblighi di legge e fiscali</li>
-                <li>Analisi statistiche anonime per il miglioramento del servizio</li>
-                <li>Gestione del programma partner</li>
-            </ul>
+                <h2>1. Data Controller</h2>
+                <p>
+                    The data controller is <strong>Corvalys S.r.l.</strong>, a company registered in Italy.
+                    You can reach us at <a href="mailto:info@corvalys.eu">info@corvalys.eu</a> or through our website
+                    <a href="https://corvalys.eu">corvalys.eu</a>.
+                </p>
 
-            <h2>4. Base giuridica del trattamento</h2>
-            <p>Il trattamento dei dati personali si basa su:</p>
-            <ul>
-                <li><strong>Consenso dell&rsquo;interessato</strong> (art. 6, par. 1, lett. a) GDPR) per newsletter e comunicazioni commerciali</li>
-                <li><strong>Esecuzione di un contratto</strong> (art. 6, par. 1, lett. b) GDPR) per l&rsquo;erogazione dei servizi</li>
-                <li><strong>Legittimo interesse</strong> (art. 6, par. 1, lett. f) GDPR) per analisi statistiche e miglioramento del servizio</li>
-                <li><strong>Obbligo legale</strong> (art. 6, par. 1, lett. c) GDPR) per adempimenti fiscali e normativi</li>
-            </ul>
+                <h2>2. Data We Collect</h2>
+                <p>We may collect and process the following categories of personal data:</p>
+                <ul>
+                    <li><strong>Identity data:</strong> first name, last name, company name, job title.</li>
+                    <li><strong>Contact data:</strong> email address, phone number, postal address.</li>
+                    <li><strong>Technical data:</strong> IP address, browser type and version, time zone, operating system, device identifiers.</li>
+                    <li><strong>Usage data:</strong> information about how you use our website and platform.</li>
+                    <li><strong>Marketing and communications data:</strong> your preferences for receiving marketing communications from us.</li>
+                </ul>
 
-            <h2>5. Modalit&agrave; di trattamento</h2>
-            <p>
-                I dati sono trattati con strumenti informatici e/o telematici, con logiche strettamente correlate alle finalit&agrave; indicate e con l&rsquo;adozione di adeguate misure di sicurezza.
-            </p>
+                <h2>3. Purposes and Legal Bases</h2>
+                <p>We use your personal data for the following purposes:</p>
+                <ul>
+                    <li>To provide and manage our services — <em>performance of a contract (Art. 6(1)(b) GDPR)</em>.</li>
+                    <li>To comply with legal and regulatory obligations — <em>legal obligation (Art. 6(1)(c) GDPR)</em>.</li>
+                    <li>To send you marketing communications where you have opted in — <em>consent (Art. 6(1)(a) GDPR)</em>.</li>
+                    <li>To improve our platform and conduct analytics — <em>legitimate interests (Art. 6(1)(f) GDPR)</em>.</li>
+                </ul>
 
-            <h2>6. Periodo di conservazione</h2>
-            <ul>
-                <li>Dati di contatto e progetto: [DA DEFINIRE] mesi dalla richiesta</li>
-                <li>Dati newsletter: fino alla cancellazione da parte dell&rsquo;utente</li>
-                <li>Dati contabili e fiscali: 10 anni come da obbligo di legge</li>
-                <li>Cookie: si veda la Cookie Policy</li>
-            </ul>
+                <h2>4. Data Retention</h2>
+                <p>
+                    We retain personal data only for as long as necessary to fulfil the purposes for which it was collected,
+                    including satisfying any legal, accounting, or reporting requirements. In general, client data is retained
+                    for up to seven years after the end of the contractual relationship.
+                </p>
 
-            <h2>7. Destinatari dei dati</h2>
-            <p>I dati personali possono essere comunicati a:</p>
-            <ul>
-                <li>Fornitori di servizi tecnologici (hosting, email, analytics)</li>
-                <li>Consulenti e professionisti (commercialista, legale)</li>
-                <li>Autorit&agrave; competenti in caso di obbligo di legge</li>
-            </ul>
-            <p>[DA AGGIORNARE CON ELENCO SPECIFICO DEI RESPONSABILI DEL TRATTAMENTO]</p>
+                <h2>5. Data Sharing</h2>
+                <p>
+                    We do not sell your personal data. We may share it with trusted third-party service providers
+                    (hosting, payment processing, email delivery) who act as data processors under written agreements
+                    and are bound to process data only on our instructions. Where data is transferred outside the EEA,
+                    we ensure appropriate safeguards are in place (e.g., Standard Contractual Clauses).
+                </p>
 
-            <h2>8. Trasferimento dati extra UE</h2>
-            <p>
-                [DA AGGIORNARE] Alcuni dei fornitori di servizi utilizzati potrebbero trasferire dati al di fuori dell&rsquo;UE. In tal caso, il trasferimento avviene nel rispetto delle garanzie previste dal GDPR (decisioni di adeguatezza, clausole contrattuali tipo, ecc.).
-            </p>
+                <h2>6. Your Rights</h2>
+                <p>Under the GDPR, you have the right to:</p>
+                <ul>
+                    <li><strong>Access</strong> the personal data we hold about you.</li>
+                    <li><strong>Rectify</strong> inaccurate or incomplete data.</li>
+                    <li><strong>Erase</strong> your data ("right to be forgotten") where the legal basis no longer applies.</li>
+                    <li><strong>Restrict</strong> processing in certain circumstances.</li>
+                    <li><strong>Object</strong> to processing based on legitimate interests.</li>
+                    <li><strong>Data portability</strong> — receive your data in a structured, machine-readable format.</li>
+                    <li><strong>Withdraw consent</strong> at any time, without affecting the lawfulness of processing prior to withdrawal.</li>
+                </ul>
+                <p>
+                    To exercise any of these rights, please contact us at
+                    <a href="mailto:info@corvalys.eu">info@corvalys.eu</a>.
+                    You also have the right to lodge a complaint with your national data protection authority.
+                </p>
 
-            <h2>9. Diritti dell&rsquo;interessato</h2>
-            <p>Ai sensi degli artt. 15-22 del GDPR, l&rsquo;interessato ha diritto di:</p>
-            <ul>
-                <li>Accedere ai propri dati personali</li>
-                <li>Ottenere la rettifica o la cancellazione degli stessi</li>
-                <li>Limitare il trattamento</li>
-                <li>Opporsi al trattamento</li>
-                <li>Richiedere la portabilit&agrave; dei dati</li>
-                <li>Revocare il consenso in qualsiasi momento</li>
-                <li>Proporre reclamo al Garante per la Protezione dei Dati Personali</li>
-            </ul>
-            <p>
-                Per esercitare i propri diritti, l&rsquo;interessato pu&ograve; inviare una richiesta a: <strong>enzo@corvalys.eu</strong>
-            </p>
+                <h2>7. Cookies</h2>
+                <p>
+                    We use cookies and similar tracking technologies. Please refer to our
+                    <a href="{{ route('cookie') }}">Cookie Policy</a> for full details.
+                </p>
 
-            <h2>10. Modifiche alla Privacy Policy</h2>
-            <p>
-                Il Titolare si riserva il diritto di apportare modifiche alla presente Privacy Policy in qualunque momento. La versione aggiornata sar&agrave; pubblicata su questa pagina.
-            </p>
+                <h2>8. Changes to This Policy</h2>
+                <p>
+                    We may update this Privacy Policy from time to time. The "Last updated" date at the top of this page
+                    will reflect any changes. We encourage you to review this policy periodically.
+                </p>
+
+                <h2>9. Contact</h2>
+                <p>
+                    For any privacy-related questions, please contact Corvalys S.r.l. at
+                    <a href="mailto:info@corvalys.eu">info@corvalys.eu</a>.
+                </p>
+
+            </div>
 
         </div>
-    </div>
-</section>
+    </section>
+
 @endsection

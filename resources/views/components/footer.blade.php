@@ -1,69 +1,194 @@
-<footer class="bg-gray-900 text-gray-300 mt-0">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {{-- Columns --}}
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-            <div>
-                <h4 class="text-white font-heading font-semibold mb-4" data-i18n="footer.prodotti">Products</h4>
-                <ul class="space-y-2.5 text-sm">
-                    <li><a href="{{ route('prodotti') }}" class="hover:text-primary transition">AI Cash Controller</a></li>
-                    <li><a href="{{ route('prodotti') }}" class="hover:text-primary transition">AI Approval Coordinator</a></li>
-                    <li><a href="{{ route('prodotti') }}" class="hover:text-primary transition">AI Compliance Officer</a></li>
-                    <li><a href="{{ route('prezzi') }}" class="hover:text-primary transition"><span data-i18n="footer.prezzi">Pricing</span></a></li>
-                    <li><a href="https://app.corvalys.eu/register" class="hover:text-primary transition"><span data-i18n="footer.trial">Free trial</span></a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-white font-heading font-semibold mb-4" data-i18n="footer.consulenza">Consulting</h4>
-                <ul class="space-y-2.5 text-sm">
-                    <li><a href="{{ route('consulenza') }}" class="hover:text-primary transition"><span data-i18n="footer.servizi">Services</span></a></li>
-                    <li><a href="{{ route('chi-siamo') }}" class="hover:text-primary transition"><span data-i18n="footer.chi-siamo">About Us</span></a></li>
-                    <li><a href="{{ route('contatto') }}" class="hover:text-primary transition"><span data-i18n="footer.contatto">Contact</span></a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-white font-heading font-semibold mb-4" data-i18n="footer.azienda">Company</h4>
-                <ul class="space-y-2.5 text-sm">
-                    <li><a href="{{ route('blog.index') }}" class="hover:text-primary transition"><span data-i18n="footer.blog">Blog</span></a></li>
-                    <li><a href="{{ route('partner') }}" class="hover:text-primary transition"><span data-i18n="footer.partner">Partner</span></a></li>
-                    <li><a href="{{ route('risorse') }}" class="hover:text-primary transition"><span data-i18n="footer.risorse">Resources</span></a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-white font-heading font-semibold mb-4" data-i18n="footer.legale">Legal</h4>
-                <ul class="space-y-2.5 text-sm">
-                    <li><a href="{{ route('privacy') }}" class="hover:text-primary transition"><span data-i18n="footer.privacy">Privacy Policy</span></a></li>
-                    <li><a href="{{ route('termini') }}" class="hover:text-primary transition"><span data-i18n="footer.termini">Terms of Service</span></a></li>
-                    <li><a href="{{ route('cookie') }}" class="hover:text-primary transition"><span data-i18n="footer.cookie">Cookie Policy</span></a></li>
-                </ul>
-            </div>
-        </div>
+{{-- Footer --}}
+<footer class="bg-[#1B3A5C] text-white">
 
-        {{-- Newsletter --}}
-        <div class="border-t border-gray-800 pt-8 mb-8">
-            <div class="max-w-md">
-                <h4 class="text-white font-heading font-semibold mb-2" data-i18n="footer.newsletter.title">Stay updated</h4>
-                <p class="text-sm text-gray-400 mb-4" data-i18n="footer.newsletter.desc">Receive insights on AI, SMEs, and automation. No spam.</p>
-                @livewire('newsletter-form')
-            </div>
-        </div>
-
-        {{-- Bottom bar --}}
-        <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p class="text-xs text-gray-500" data-i18n="footer.copyright" data-i18n-params='{"year":"{{ date('Y') }}"}'>&copy; {{ date('Y') }} Corvalys. All rights reserved.</p>
-            <div class="flex items-center gap-4">
-                <span class="inline-flex items-center gap-1.5 text-xs font-medium text-amber bg-amber-light/10 px-3 py-1 rounded-full">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                    AI Act Ready 2026
-                </span>
-                <span class="inline-flex items-center gap-1.5 text-xs font-medium text-primary bg-primary-light/20 px-3 py-1 rounded-full">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                    GDPR Compliant
-                </span>
-                {{-- LinkedIn --}}
-                <a href="https://linkedin.com/company/corvalys" target="_blank" class="text-gray-500 hover:text-white transition">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                </a>
-            </div>
+    {{-- Newsletter Band --}}
+    <div class="border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <p class="text-white/70 text-sm font-medium" data-i18n="footer.newsletter.title">
+                Stay up to date with Corvalys news and product updates.
+            </p>
+            <form action="{{ route('newsletter') }}" method="POST"
+                  class="flex w-full sm:w-auto gap-2">
+                @csrf
+                <input
+                    type="email"
+                    name="email"
+                    required
+                    data-i18n-placeholder="footer.newsletter.placeholder"
+                    placeholder="your@email.com"
+                    class="flex-1 sm:w-64 px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-sm text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/30 transition"
+                />
+                <button
+                    type="submit"
+                    class="px-5 py-2.5 rounded-lg bg-white text-[#1B3A5C] text-sm font-semibold hover:bg-white/90 transition whitespace-nowrap"
+                    data-i18n="footer.newsletter.btn">
+                    Subscribe
+                </button>
+            </form>
         </div>
     </div>
+
+    {{-- Main Columns --}}
+    <div class="max-w-7xl mx-auto px-6 py-14">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+
+            {{-- Column 1 — Brand --}}
+            <div class="space-y-5">
+                <a href="{{ url('/') }}" class="inline-flex items-center gap-3">
+                    <img src="{{ asset('images/logo-corvalys.png') }}"
+                         alt="Corvalys logo"
+                         width="40"
+                         height="40"
+                         class="w-10 h-10 object-contain">
+                    <span class="text-lg font-bold tracking-tight text-white">Corvalys</span>
+                </a>
+
+                <p class="text-white/70 text-sm leading-relaxed"
+                   data-i18n="footer.tagline">
+                    AI-first solutions for European SMEs.
+                </p>
+
+                {{-- Social links --}}
+                <div class="flex items-center gap-4 pt-1">
+                    {{-- LinkedIn --}}
+                    <a href="#"
+                       aria-label="LinkedIn"
+                       class="text-white/50 hover:text-white transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+
+                    {{-- Twitter / X --}}
+                    <a href="#"
+                       aria-label="X (Twitter)"
+                       class="text-white/50 hover:text-white transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            {{-- Column 2 — Products --}}
+            <div class="space-y-4">
+                <h3 class="text-white text-sm font-semibold uppercase tracking-widest"
+                    data-i18n="footer.products">
+                    Products
+                </h3>
+                <ul class="space-y-2.5">
+                    <li>
+                        <a href="{{ route('prodotti') }}"
+                           class="text-white/70 text-sm hover:text-white transition"
+                           data-i18n="nav.prodotti">
+                            Prodotti
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('consulenza') }}"
+                           class="text-white/70 text-sm hover:text-white transition"
+                           data-i18n="nav.consulenza">
+                            Consulenza
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            {{-- Column 3 — Company --}}
+            <div class="space-y-4">
+                <h3 class="text-white text-sm font-semibold uppercase tracking-widest"
+                    data-i18n="footer.company">
+                    Company
+                </h3>
+                <ul class="space-y-2.5">
+                    <li>
+                        <a href="{{ route('chi-siamo') }}"
+                           class="text-white/70 text-sm hover:text-white transition"
+                           data-i18n="nav.chi-siamo">
+                            Chi Siamo
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('blog.index') }}"
+                           class="text-white/70 text-sm hover:text-white transition"
+                           data-i18n="nav.blog">
+                            Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('partner') }}"
+                           class="text-white/70 text-sm hover:text-white transition"
+                           data-i18n="nav.partner">
+                            Partner
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('risorse') }}"
+                           class="text-white/70 text-sm hover:text-white transition"
+                           data-i18n="nav.risorse">
+                            Risorse
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('business-survey') }}"
+                           class="text-white/70 text-sm hover:text-white transition">
+                            Business Survey
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            {{-- Column 4 — Legal & Contact --}}
+            <div class="space-y-4">
+                <h3 class="text-white text-sm font-semibold uppercase tracking-widest"
+                    data-i18n="footer.legal">
+                    Legal & Contact
+                </h3>
+                <ul class="space-y-2.5">
+                    <li>
+                        <a href="{{ route('privacy') }}"
+                           class="text-white/70 text-sm hover:text-white transition"
+                           data-i18n="nav.privacy">
+                            Privacy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('termini') }}"
+                           class="text-white/70 text-sm hover:text-white transition"
+                           data-i18n="nav.termini">
+                            Termini
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('cookie') }}"
+                           class="text-white/70 text-sm hover:text-white transition"
+                           data-i18n="nav.cookie">
+                            Cookie
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('contatto') }}"
+                           class="text-white/70 text-sm hover:text-white transition"
+                           data-i18n="nav.contatto">
+                            Contatto
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    {{-- Bottom Bar --}}
+    <div class="border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p class="text-white/40 text-xs" data-i18n="footer.copy">
+                &copy; {{ date('Y') }} Corvalys S.r.l. &mdash; All rights reserved.
+            </p>
+            <p class="text-white/40 text-xs">
+                Made with AI in Europe &#127466;&#127482;
+            </p>
+        </div>
+    </div>
+
 </footer>

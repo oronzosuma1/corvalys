@@ -14,6 +14,18 @@
       0 => 'Artesaos\\SEOTools\\Providers\\SEOToolsServiceProvider',
     ),
   ),
+  'barryvdh/laravel-dompdf' => 
+  array (
+    'aliases' => 
+    array (
+      'PDF' => 'Barryvdh\\DomPDF\\Facade\\Pdf',
+      'Pdf' => 'Barryvdh\\DomPDF\\Facade\\Pdf',
+    ),
+    'providers' => 
+    array (
+      0 => 'Barryvdh\\DomPDF\\ServiceProvider',
+    ),
+  ),
   'intervention/image-laravel' => 
   array (
     'aliases' => 

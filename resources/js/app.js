@@ -1,56 +1,69 @@
-import Alpine from 'alpinejs'
-import focus from '@alpinejs/focus'
-import { translations } from './translations.js'
+import { translations } from './translations.js';
 
-Alpine.plugin(focus)
-
-// Translation system
-Alpine.store('lang', {
-    current: localStorage.getItem('corvalys_lang') || 'en',
-
-    set(lang) {
-        this.current = lang;
-        localStorage.setItem('corvalys_lang', lang);
-        document.documentElement.lang = lang;
-        this.translatePage();
-    },
+/* ── i18n System ── */
+const i18n = {
+    current: localStorage.getItem('lang') || 'en',
 
     t(key, params = {}) {
-        let text = translations[this.current]?.[key] || translations['en']?.[key] || key;
+        const lang = translations[this.current] || translations.en;
+        let text = lang[key] || translations.en[key] || key;
         Object.entries(params).forEach(([k, v]) => {
-            text = text.replace(`{${k}}`, v);
+            text = text.replace(new RegExp(`\\{${k}\\}`, 'g'), v);
         });
         return text;
     },
 
-    translatePage() {
+    apply() {
+        document.documentElement.lang = this.current;
+
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             const params = el.getAttribute('data-i18n-params');
-            const parsedParams = params ? JSON.parse(params) : {};
-            el.textContent = this.t(key, parsedParams);
+            const parsed = params ? JSON.parse(params) : {};
+            el.textContent = this.t(key, parsed);
         });
-        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-            el.placeholder = this.t(el.getAttribute('data-i18n-placeholder'));
-        });
+
         document.querySelectorAll('[data-i18n-html]').forEach(el => {
             const key = el.getAttribute('data-i18n-html');
             const params = el.getAttribute('data-i18n-params');
-            const parsedParams = params ? JSON.parse(params) : {};
-            el.innerHTML = this.t(key, parsedParams);
+            const parsed = params ? JSON.parse(params) : {};
+            el.innerHTML = this.t(key, parsed);
+        });
+
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            el.placeholder = this.t(el.getAttribute('data-i18n-placeholder'));
         });
     },
 
-    init() {
-        // Set initial lang attribute
-        document.documentElement.lang = this.current;
-    }
+    setLang(lang) {
+        this.current = lang;
+        localStorage.setItem('lang', lang);
+        this.apply();
+        window.dispatchEvent(new CustomEvent('lang-changed', { detail: lang }));
+    },
+};
+
+/* Expose to Alpine */
+document.addEventListener('alpine:init', () => {
+    Alpine.store('i18n', {
+        lang: i18n.current,
+        setLang(l) { i18n.setLang(l); this.lang = l; },
+        t(key, params) { return i18n.t(key, params); },
+    });
 });
 
-window.Alpine = Alpine
-Alpine.start()
+/* Apply on load and after Livewire updates */
+document.addEventListener('DOMContentLoaded', () => i18n.apply());
+document.addEventListener('livewire:navigated', () => i18n.apply());
 
-// Translate on page load after Alpine is ready
-document.addEventListener('alpine:initialized', () => {
-    Alpine.store('lang').translatePage();
+/* Re-apply after Alpine components render (debounced, observer paused during apply) */
+let applyTimeout = null;
+const observer = new MutationObserver(() => {
+    clearTimeout(applyTimeout);
+    applyTimeout = setTimeout(() => {
+        observer.disconnect();
+        i18n.apply();
+        observer.observe(document.body, { childList: true, subtree: true });
+    }, 100);
 });
+observer.observe(document.body, { childList: true, subtree: true });

@@ -50,6 +50,16 @@
                     @enderror
                 </div>
 
+                {{-- Experience Summary --}}
+                <div>
+                    <label for="experience_summary" class="block text-xs font-medium text-gray-500 mb-1">Sommario esperienze</label>
+                    <textarea name="experience_summary" id="experience_summary" rows="4"
+                        class="w-full rounded-lg border-gray-300 text-sm focus:border-primary focus:ring-primary resize-none tinymce-editor @error('experience_summary') border-red-300 @enderror">{{ old('experience_summary') }}</textarea>
+                    @error('experience_summary')
+                        <p class="text-xs text-red-500 mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+
                 {{-- Photo --}}
                 <div>
                     <label for="photo" class="block text-xs font-medium text-gray-500 mb-1">Foto</label>

@@ -42,7 +42,7 @@
                 <div>
                     <label for="body" class="block text-xs font-medium text-gray-500 mb-1">Contenuto</label>
                     <textarea name="body" id="body" rows="16" required
-                        class="w-full rounded-lg border-gray-300 text-sm font-mono focus:border-primary focus:ring-primary @error('body') border-red-300 @enderror">{{ old('body') }}</textarea>
+                        class="w-full rounded-lg border-gray-300 text-sm focus:border-primary focus:ring-primary tinymce-editor @error('body') border-red-300 @enderror">{{ old('body') }}</textarea>
                     @error('body')
                         <p class="text-xs text-red-500 mt-1">{{ $message }}</p>
                     @enderror

@@ -1,12 +1,12 @@
 @extends('layouts.admin')
 
-@section('title', 'Fatture')
+@section('title', 'Fatture SaaS')
 
 @section('content')
     <div class="flex items-center justify-between mb-6">
         <div>
-            <h1 class="text-2xl font-heading font-bold text-gray-900 mb-1">Fatture</h1>
-            <p class="text-sm text-gray-500">Gestisci fatture emesse e ricevute.</p>
+            <h1 class="text-2xl font-heading font-bold text-gray-900 mb-1">Fatture SaaS</h1>
+            <p class="text-sm text-gray-500">Fatture per sottoscrizioni SaaS.</p>
         </div>
         <a href="{{ route('admin.invoices.create') }}"
             class="inline-flex items-center gap-2 px-4 py-2.5 bg-primary text-white text-sm font-semibold rounded-lg hover:bg-primary-dark transition-colors shadow-sm">
@@ -22,7 +22,7 @@
                 <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Tipo</label>
                 <select name="type" class="text-sm border-gray-300 rounded-lg focus:ring-primary focus:border-primary">
                     <option value="tutte" {{ request('type') == 'tutte' ? 'selected' : '' }}>Tutte</option>
-                    <option value="emessa" {{ request('type') == 'emessa' ? 'selected' : '' }}>Emesse</option>
+                    <option value="emessa" {{ request('type', 'emessa') == 'emessa' ? 'selected' : '' }}>Emesse</option>
                     <option value="ricevuta" {{ request('type') == 'ricevuta' ? 'selected' : '' }}>Ricevute</option>
                 </select>
             </div>

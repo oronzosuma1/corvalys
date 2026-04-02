@@ -200,6 +200,102 @@
                 </div>
             </div>
 
+            {{-- Section 2b: AI Readiness Assessment --}}
+            @if($lead->readiness_scores && count($lead->readiness_scores))
+                <div class="bg-white rounded-xl border border-gray-200/60 overflow-hidden">
+                    <div class="px-5 py-4 border-b border-gray-100 bg-gradient-to-r from-teal-50 to-emerald-50">
+                        <div class="flex items-center justify-between">
+                            <h2 class="text-sm font-heading font-semibold text-gray-900">AI Readiness Assessment</h2>
+                            <div class="flex items-center gap-2">
+                                @if($lead->readiness_overall)
+                                    @php
+                                        $rColor = match($lead->readiness_color) {
+                                            'green' => 'bg-green-100 text-green-700 border-green-200',
+                                            'amber' => 'bg-amber-100 text-amber-700 border-amber-200',
+                                            'orange' => 'bg-orange-100 text-orange-700 border-orange-200',
+                                            'red' => 'bg-red-100 text-red-700 border-red-200',
+                                            default => 'bg-gray-100 text-gray-600 border-gray-200',
+                                        };
+                                    @endphp
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border {{ $rColor }}">
+                                        {{ $lead->readiness_level }} ({{ $lead->readiness_overall }}/5)
+                                    </span>
+                                @endif
+                                @if($lead->needsTraining())
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-red-100 text-red-700 border border-red-200">
+                                        <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
+                                        Training Required
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        {{-- Overall Score Bar --}}
+                        @if($lead->readiness_overall)
+                            <div class="mb-5">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-sm font-medium text-gray-700">Overall: {{ $lead->readiness_overall }}/5.0</span>
+                                    <span class="text-xs text-gray-400">{{ $lead->readiness_level }}</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-3">
+                                    <div class="h-3 rounded-full transition-all duration-300 {{ match($lead->readiness_color) { 'green' => 'bg-green-500', 'amber' => 'bg-amber-500', 'orange' => 'bg-orange-500', 'red' => 'bg-red-500', default => 'bg-gray-400' } }}"
+                                        style="width: {{ ($lead->readiness_overall / 5) * 100 }}%"></div>
+                                </div>
+                            </div>
+                        @endif
+
+                        {{-- Dimension Scores --}}
+                        @php
+                            $dimensionLabels = [
+                                'leadership' => ['Leadership & Strategy', 'bg-blue-500'],
+                                'data' => ['Data Foundations', 'bg-indigo-500'],
+                                'technology' => ['Technology', 'bg-purple-500'],
+                                'culture' => ['Culture & Skills', 'bg-teal-500'],
+                                'process' => ['Process Maturity', 'bg-amber-500'],
+                                'compliance' => ['Compliance', 'bg-red-500'],
+                            ];
+                            $scores = $lead->readiness_scores;
+                            $reasons = $lead->readiness_reasons ?? [];
+                        @endphp
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            @foreach($dimensionLabels as $dimKey => [$dimLabel, $barColor])
+                                @if(isset($scores[$dimKey]))
+                                    <div class="bg-gray-50 rounded-lg p-3">
+                                        <div class="flex items-center justify-between mb-1.5">
+                                            <span class="text-xs font-medium text-gray-700">{{ $dimLabel }}</span>
+                                            <span class="text-xs font-bold {{ $scores[$dimKey] >= 4 ? 'text-green-600' : ($scores[$dimKey] >= 3 ? 'text-amber-600' : 'text-red-600') }}">
+                                                {{ $scores[$dimKey] }}/5
+                                            </span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="{{ $barColor }} h-2 rounded-full" style="width: {{ ($scores[$dimKey] / 5) * 100 }}%"></div>
+                                        </div>
+                                        @if(isset($reasons[$dimKey]) && $reasons[$dimKey])
+                                            <p class="mt-1.5 text-xs text-red-600 italic">{{ $reasons[$dimKey] }}</p>
+                                        @endif
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
+
+                        {{-- Training Notice --}}
+                        @if($lead->needsTraining())
+                            <div class="mt-4 p-3 bg-red-50 border border-red-100 rounded-lg">
+                                <div class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
+                                    <div>
+                                        <p class="text-sm font-medium text-red-800">Training necessario</p>
+                                        <p class="text-xs text-red-600 mt-0.5">Uno o piu dimensioni hanno score &lt; 3. La proposta dovrebbe includere formazione/training specifico.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            @endif
+
             {{-- Section 3: Project Details --}}
             <div class="bg-white rounded-xl border border-gray-200/60 overflow-hidden">
                 <div class="px-5 py-4 border-b border-gray-100">
@@ -470,6 +566,94 @@
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                         Invia proposta al cliente
                     </button>
+                </div>
+            </div>
+
+            {{-- Section 8: PDF Proposal --}}
+            <div class="bg-white rounded-xl border border-gray-200/60 overflow-hidden">
+                <div class="px-5 py-4 border-b border-gray-100 bg-gradient-to-r from-emerald-50 to-teal-50">
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-sm font-heading font-semibold text-gray-900">PDF Proposal</h2>
+                        @if($lead->proposal_status)
+                            @php
+                                $proposalStatusColors = [
+                                    'draft' => 'bg-gray-100 text-gray-600 border-gray-200',
+                                    'sent' => 'bg-blue-100 text-blue-700 border-blue-200',
+                                    'approved' => 'bg-green-100 text-green-700 border-green-200',
+                                    'rejected' => 'bg-red-100 text-red-700 border-red-200',
+                                ];
+                                $pColor = $proposalStatusColors[$lead->proposal_status] ?? 'bg-gray-100 text-gray-600 border-gray-200';
+                            @endphp
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border {{ $pColor }}">
+                                {{ ucfirst($lead->proposal_status) }}
+                            </span>
+                        @endif
+                    </div>
+                </div>
+                <div class="p-5 space-y-4">
+                    {{-- Generate PDF Form --}}
+                    <form method="POST" action="{{ route('admin.leads.proposal.generate', $lead) }}">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="proposal_language" class="block text-xs font-medium text-gray-500 mb-1">Lingua proposta</label>
+                            <select name="language" id="proposal_language" class="w-full rounded-lg border-gray-300 text-sm focus:border-primary focus:ring-primary">
+                                <option value="en" {{ ($lead->proposal_language ?? 'en') === 'en' ? 'selected' : '' }}>English</option>
+                                <option value="it" {{ ($lead->proposal_language ?? 'en') === 'it' ? 'selected' : '' }}>Italiano</option>
+                                <option value="fr" {{ ($lead->proposal_language ?? 'en') === 'fr' ? 'selected' : '' }}>Francais</option>
+                                <option value="de" {{ ($lead->proposal_language ?? 'en') === 'de' ? 'selected' : '' }}>Deutsch</option>
+                                <option value="es" {{ ($lead->proposal_language ?? 'en') === 'es' ? 'selected' : '' }}>Espanol</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full inline-flex items-center justify-center px-4 py-2.5 bg-gradient-to-r from-primary-dark to-navy text-white text-sm font-medium rounded-lg hover:opacity-90 transition-opacity">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                            {{ $lead->proposal_pdf_path ? 'Rigenera PDF' : 'Genera PDF' }}
+                        </button>
+                    </form>
+
+                    {{-- Actions (visible only if PDF exists) --}}
+                    @if($lead->proposal_pdf_path)
+                        <div class="border-t border-gray-100 pt-4 space-y-2">
+                            {{-- Download --}}
+                            <a href="{{ route('admin.leads.proposal.download', $lead) }}"
+                                class="w-full inline-flex items-center justify-center px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                                Scarica PDF
+                            </a>
+
+                            {{-- Send to Client --}}
+                            <form method="POST" action="{{ route('admin.leads.proposal.send', $lead) }}">
+                                @csrf
+                                <button type="submit" class="w-full inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                                    Invia PDF al cliente
+                                </button>
+                            </form>
+
+                            {{-- Approve --}}
+                            @if($lead->proposal_status !== 'approved')
+                                <form method="POST" action="{{ route('admin.leads.proposal.approve', $lead) }}">
+                                    @csrf
+                                    <button type="submit" class="w-full inline-flex items-center justify-center px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-colors">
+                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                        Approva e invia
+                                    </button>
+                                </form>
+                            @endif
+
+                            {{-- Status details --}}
+                            <div class="text-xs text-gray-400 pt-2 space-y-1">
+                                @if($lead->proposal_sent_at)
+                                    <p>Inviata: {{ $lead->proposal_sent_at->format('d/m/Y H:i') }}</p>
+                                @endif
+                                @if($lead->proposal_approved_at)
+                                    <p>Approvata: {{ $lead->proposal_approved_at->format('d/m/Y H:i') }}</p>
+                                @endif
+                                @if($lead->proposal_language)
+                                    <p>Lingua: {{ strtoupper($lead->proposal_language) }}</p>
+                                @endif
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

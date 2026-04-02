@@ -10,6 +10,7 @@ class TeamMember extends Model
         'name',
         'role',
         'bio',
+        'experience_summary',
         'photo',
         'linkedin_url',
         'sort_order',

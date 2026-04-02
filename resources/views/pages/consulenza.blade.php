@@ -1,216 +1,219 @@
 @extends('layouts.app')
 
-@section('title', 'Custom AI Consulting – Corvalys')
+@section('title', __('consulting.meta.title', [], app()->getLocale()) ?: 'Consulenza AI — Corvalys')
+@section('meta_description', __('consulting.meta.description', [], app()->getLocale()) ?: '')
 
 @section('content')
 
-{{-- Hero --}}
-<section class="bg-gradient-to-br from-navy to-primary py-20 lg:py-28">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight" data-i18n="consulenza.title">
-            Custom AI consulting for your business
-        </h1>
-        <p class="mt-6 text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto" data-i18n="consulenza.subtitle">
-            We analyze your processes, identify AI opportunities, and build solutions that work. From day one.
-        </p>
-        <div class="mt-10">
-            <a href="/contatto" class="btn-primary" data-i18n="consulenza.hero.cta">Request information</a>
+    {{-- ── Hero ── --}}
+    <section class="bg-hero text-white pt-32 pb-24 lg:pt-40 lg:pb-32">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h1
+                class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6"
+                data-i18n="consulting.hero.title"
+            >
+                Consulenza AI
+            </h1>
+            <p
+                class="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed"
+                data-i18n="consulting.hero.sub"
+            >
+                Accompagniamo le PMI europee in ogni fase dell'adozione dell'intelligenza artificiale.
+            </p>
         </div>
-    </div>
-</section>
+    </section>
 
-{{-- Why choose Corvalys --}}
-<section class="bg-white py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="section-title text-center" data-i18n="consulenza.why.title">Why Choose Corvalys</h2>
-        <p class="section-sub text-center max-w-2xl mx-auto"></p>
+    {{-- ── Services Grid ── --}}
+    <section class="section bg-white">
+        <div class="max-w-7xl mx-auto px-6">
 
-        <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {{-- Verticale --}}
-            <div class="card text-center">
-                <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
-                </div>
-                <h3 class="font-heading text-lg font-bold text-gray-900" data-i18n="consulenza.why.vertical.title">Vertical</h3>
-                <p class="mt-2 text-gray-600 text-sm" data-i18n="consulenza.why.vertical.desc">We are not generalists. We work with European SMEs on concrete problems: payments, approvals, compliance.</p>
+            <div class="text-center mb-14">
+                <h2
+                    class="section-title mb-4"
+                    data-i18n="consulting.services.title"
+                >
+                    I Nostri Servizi
+                </h2>
+                <p
+                    class="section-sub mx-auto"
+                    data-i18n="consulting.services.sub"
+                >
+                    Soluzioni su misura per le sfide reali delle imprese europee.
+                </p>
             </div>
 
-            {{-- Operativo --}}
-            <div class="card text-center">
-                <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
+            @if($services->isEmpty())
+                <div class="text-center py-16">
+                    <p class="text-gray-400 text-lg" data-i18n="consulting.services.empty">
+                        Nessun servizio disponibile al momento.
+                    </p>
                 </div>
-                <h3 class="font-heading text-lg font-bold text-gray-900" data-i18n="consulenza.why.operational.title">Operational</h3>
-                <p class="mt-2 text-gray-600 text-sm" data-i18n="consulenza.why.operational.desc">We don't leave slide decks. We build systems that work and teach you how to use them.</p>
-            </div>
+            @else
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    @foreach($services as $service)
 
-            {{-- Conforme --}}
-            <div class="card text-center">
-                <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                </div>
-                <h3 class="font-heading text-lg font-bold text-gray-900" data-i18n="consulenza.why.compliant.title">Compliant</h3>
-                <p class="mt-2 text-gray-600 text-sm" data-i18n="consulenza.why.compliant.desc">Every solution respects GDPR and AI Act. Compliance is not an extra, it's the starting point.</p>
-            </div>
-        </div>
-    </div>
-</section>
+                        <div class="card flex flex-col group">
 
-{{-- Our services --}}
-<section class="py-20 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="section-title text-center" data-i18n="consulenza.services.title">Our Services</h2>
+                            {{-- Accent top bar --}}
+                            <div class="h-1 rounded-t-2xl bg-gradient-to-r from-primary to-primary-dark -mt-7 -mx-7 mb-7"></div>
 
-        @if($services->isNotEmpty())
-            <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                @foreach($services as $service)
-                    <div class="card flex flex-col">
-                        <h3 class="font-heading text-lg font-bold text-gray-900">{{ $service->name }}</h3>
-                        <p class="mt-2 text-gray-600 text-sm flex-1">{{ $service->short_description }}</p>
-                        @if($service->price_from)
-                            <p class="mt-3 text-primary font-semibold text-sm">
-                                From &euro;{{ number_format($service->price_from, 0) }}{{ $service->price_unit ? '/' . $service->price_unit : '' }}
+                            {{-- Icon placeholder --}}
+                            <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 mb-5">
+                                <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/>
+                                </svg>
+                            </div>
+
+                            {{-- Name — dynamic from DB --}}
+                            <h3 class="font-heading text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-200">
+                                {{ $service->name }}
+                            </h3>
+
+                            {{-- Description — dynamic from DB --}}
+                            <p class="text-gray-500 text-sm leading-relaxed flex-1">
+                                {{ $service->description ?? $service->short_description }}
                             </p>
-                        @endif
+
+                        </div>
+
+                    @endforeach
+                </div>
+            @endif
+
+        </div>
+    </section>
+
+    {{-- ── Process Section ── --}}
+    <section class="section bg-section-alt">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="text-center mb-14">
+                <h2
+                    class="section-title mb-4"
+                    data-i18n="consulting.process.title"
+                >
+                    Il Nostro Processo
+                </h2>
+                <p
+                    class="section-sub mx-auto"
+                    data-i18n="consulting.process.sub"
+                >
+                    Un approccio strutturato per risultati concreti e misurabili.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+
+                {{-- Connector line (desktop only) --}}
+                <div class="hidden lg:block absolute top-10 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-primary/20 via-primary/50 to-primary/20 z-0"></div>
+
+                {{-- Step 1 — Discovery --}}
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div class="w-20 h-20 rounded-2xl bg-white border-2 border-primary/20 shadow-md flex items-center justify-center mb-5 group-hover:border-primary transition-colors duration-300">
+                        <span class="font-heading text-2xl font-bold text-primary">1</span>
                     </div>
-                @endforeach
+                    <h3
+                        class="font-heading text-lg font-bold text-gray-900 mb-2"
+                        data-i18n="consulting.step1.title"
+                    >
+                        Discovery
+                    </h3>
+                    <p
+                        class="text-gray-500 text-sm leading-relaxed"
+                        data-i18n="consulting.step1.desc"
+                    >
+                        Analizziamo i processi, i dati e le esigenze specifiche della tua azienda.
+                    </p>
+                </div>
+
+                {{-- Step 2 — Strategy --}}
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div class="w-20 h-20 rounded-2xl bg-white border-2 border-primary/20 shadow-md flex items-center justify-center mb-5">
+                        <span class="font-heading text-2xl font-bold text-primary">2</span>
+                    </div>
+                    <h3
+                        class="font-heading text-lg font-bold text-gray-900 mb-2"
+                        data-i18n="consulting.step2.title"
+                    >
+                        Strategy
+                    </h3>
+                    <p
+                        class="text-gray-500 text-sm leading-relaxed"
+                        data-i18n="consulting.step2.desc"
+                    >
+                        Definiamo una roadmap AI personalizzata con obiettivi chiari e misurabili.
+                    </p>
+                </div>
+
+                {{-- Step 3 — Implementation --}}
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div class="w-20 h-20 rounded-2xl bg-white border-2 border-primary/20 shadow-md flex items-center justify-center mb-5">
+                        <span class="font-heading text-2xl font-bold text-primary">3</span>
+                    </div>
+                    <h3
+                        class="font-heading text-lg font-bold text-gray-900 mb-2"
+                        data-i18n="consulting.step3.title"
+                    >
+                        Implementation
+                    </h3>
+                    <p
+                        class="text-gray-500 text-sm leading-relaxed"
+                        data-i18n="consulting.step3.desc"
+                    >
+                        Sviluppiamo e integriamo le soluzioni AI nei tuoi sistemi esistenti.
+                    </p>
+                </div>
+
+                {{-- Step 4 — Support --}}
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div class="w-20 h-20 rounded-2xl bg-white border-2 border-primary/20 shadow-md flex items-center justify-center mb-5">
+                        <span class="font-heading text-2xl font-bold text-primary">4</span>
+                    </div>
+                    <h3
+                        class="font-heading text-lg font-bold text-gray-900 mb-2"
+                        data-i18n="consulting.step4.title"
+                    >
+                        Support
+                    </h3>
+                    <p
+                        class="text-gray-500 text-sm leading-relaxed"
+                        data-i18n="consulting.step4.desc"
+                    >
+                        Forniamo supporto continuo, monitoraggio e ottimizzazione delle soluzioni.
+                    </p>
+                </div>
+
             </div>
-        @else
-            <p class="mt-12 text-center text-gray-500 text-lg">No consulting services available at the moment.</p>
-        @endif
-    </div>
-</section>
 
-{{-- How we work --}}
-<section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="section-title text-center" data-i18n="consulenza.process.title">How We Work</h2>
-
-        <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-            {{-- Connecting line (desktop) --}}
-            <div class="hidden lg:block absolute top-7 left-[12.5%] right-[12.5%] h-0.5 bg-primary/20"></div>
-
-            {{-- Step 1 --}}
-            <div class="text-center relative">
-                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white text-xl font-bold relative z-10">1</div>
-                <h3 class="mt-4 font-heading text-lg font-bold text-gray-900" data-i18n="consulenza.process.step1.title">Contact</h3>
-                <p class="mt-2 text-gray-600 text-sm" data-i18n="consulenza.process.step1.desc">Fill out the form or book a call. We respond within 24 hours.</p>
-            </div>
-
-            {{-- Step 2 --}}
-            <div class="text-center relative">
-                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white text-xl font-bold relative z-10">2</div>
-                <h3 class="mt-4 font-heading text-lg font-bold text-gray-900" data-i18n="consulenza.process.step2.title">30-min Call</h3>
-                <p class="mt-2 text-gray-600 text-sm" data-i18n="consulenza.process.step2.desc">We understand your problem, context, and priorities.</p>
-            </div>
-
-            {{-- Step 3 --}}
-            <div class="text-center relative">
-                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white text-xl font-bold relative z-10">3</div>
-                <h3 class="mt-4 font-heading text-lg font-bold text-gray-900" data-i18n="consulenza.process.step3.title">Proposal</h3>
-                <p class="mt-2 text-gray-600 text-sm" data-i18n="consulenza.process.step3.desc">You receive a detailed proposal with scope, timeline, and costs.</p>
-            </div>
-
-            {{-- Step 4 --}}
-            <div class="text-center relative">
-                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white text-xl font-bold relative z-10">4</div>
-                <h3 class="mt-4 font-heading text-lg font-bold text-gray-900" data-i18n="consulenza.process.step4.title">Development</h3>
-                <p class="mt-2 text-gray-600 text-sm" data-i18n="consulenza.process.step4.desc">We work in short sprints with incremental deliveries.</p>
-            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-{{-- FAQ --}}
-<section class="py-20 bg-gray-50">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="section-title text-center" data-i18n="consulenza.faq.title">Frequently Asked Questions</h2>
+    {{-- ── CTA Section ── --}}
+    <section class="bg-hero text-white section-sm">
+        <div class="max-w-4xl mx-auto px-6 text-center">
 
-        <div class="mt-12 divide-y divide-gray-200" x-data="{ open: null }">
-            {{-- FAQ 1 --}}
-            <div class="py-5">
-                <button @click="open = open === 1 ? null : 1" class="flex w-full items-center justify-between text-left">
-                    <span class="font-heading text-base font-semibold text-gray-900" data-i18n="consulenza.faq.q1">How much does a consultation cost?</span>
-                    <svg class="h-5 w-5 text-gray-500 transition-transform duration-200" :class="{ 'rotate-180': open === 1 }" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
-                </button>
-                <div x-show="open === 1" x-collapse x-cloak class="mt-3 text-gray-600 text-sm leading-relaxed" data-i18n="consulenza.faq.a1">
-                    The cost depends on the complexity and type of project. Contact us for a free personalized quote.
-                </div>
-            </div>
+            <h2
+                class="font-heading text-3xl sm:text-4xl font-bold mb-4"
+                data-i18n="consulting.cta.title"
+            >
+                Pronto a trasformare la tua azienda?
+            </h2>
+            <p
+                class="text-white/70 text-lg mb-10 max-w-xl mx-auto"
+                data-i18n="consulting.cta.sub"
+            >
+                Prenota una call gratuita con un nostro esperto e scopri come l'AI può fare la differenza per te.
+            </p>
 
-            {{-- FAQ 2 --}}
-            <div class="py-5">
-                <button @click="open = open === 2 ? null : 2" class="flex w-full items-center justify-between text-left">
-                    <span class="font-heading text-base font-semibold text-gray-900" data-i18n="consulenza.faq.q2">How long does a typical project take?</span>
-                    <svg class="h-5 w-5 text-gray-500 transition-transform duration-200" :class="{ 'rotate-180': open === 2 }" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
-                </button>
-                <div x-show="open === 2" x-collapse x-cloak class="mt-3 text-gray-600 text-sm leading-relaxed" data-i18n="consulenza.faq.a2">
-                    An assessment takes 1-2 weeks. A pilot project 4-8 weeks. A full implementation 2-4 months.
-                </div>
-            </div>
+            <a
+                href="{{ route('contatto') }}"
+                class="btn-white"
+                data-i18n="consulting.cta"
+            >
+                Schedule a Call
+            </a>
 
-            {{-- FAQ 3 --}}
-            <div class="py-5">
-                <button @click="open = open === 3 ? null : 3" class="flex w-full items-center justify-between text-left">
-                    <span class="font-heading text-base font-semibold text-gray-900" data-i18n="consulenza.faq.q3">Do you only work with Italian SMEs?</span>
-                    <svg class="h-5 w-5 text-gray-500 transition-transform duration-200" :class="{ 'rotate-180': open === 3 }" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
-                </button>
-                <div x-show="open === 3" x-collapse x-cloak class="mt-3 text-gray-600 text-sm leading-relaxed" data-i18n="consulenza.faq.a3">
-                    We work with SMEs across Europe, with a focus on Italy, France, and DACH. We communicate in Italian, English, and French.
-                </div>
-            </div>
-
-            {{-- FAQ 4 --}}
-            <div class="py-5">
-                <button @click="open = open === 4 ? null : 4" class="flex w-full items-center justify-between text-left">
-                    <span class="font-heading text-base font-semibold text-gray-900" data-i18n="consulenza.faq.q4">Can I start with a small project?</span>
-                    <svg class="h-5 w-5 text-gray-500 transition-transform duration-200" :class="{ 'rotate-180': open === 4 }" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
-                </button>
-                <div x-show="open === 4" x-collapse x-cloak class="mt-3 text-gray-600 text-sm leading-relaxed" data-i18n="consulenza.faq.a4">
-                    Absolutely. We always recommend starting with an assessment or pilot project to validate the value before investing more.
-                </div>
-            </div>
-
-            {{-- FAQ 5 --}}
-            <div class="py-5">
-                <button @click="open = open === 5 ? null : 5" class="flex w-full items-center justify-between text-left">
-                    <span class="font-heading text-base font-semibold text-gray-900" data-i18n="consulenza.faq.q5">What technologies do you use?</span>
-                    <svg class="h-5 w-5 text-gray-500 transition-transform duration-200" :class="{ 'rotate-180': open === 5 }" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
-                </button>
-                <div x-show="open === 5" x-collapse x-cloak class="mt-3 text-gray-600 text-sm leading-relaxed" data-i18n="consulenza.faq.a5">
-                    Claude, OpenAI, Ollama for LLM. Python, FastAPI, Laravel for backend. PostgreSQL for data. AWS/GCP for cloud.
-                </div>
-            </div>
-
-            {{-- FAQ 6 --}}
-            <div class="py-5">
-                <button @click="open = open === 6 ? null : 6" class="flex w-full items-center justify-between text-left">
-                    <span class="font-heading text-base font-semibold text-gray-900" data-i18n="consulenza.faq.q6">Are you GDPR and AI Act compliant?</span>
-                    <svg class="h-5 w-5 text-gray-500 transition-transform duration-200" :class="{ 'rotate-180': open === 6 }" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
-                </button>
-                <div x-show="open === 6" x-collapse x-cloak class="mt-3 text-gray-600 text-sm leading-relaxed" data-i18n="consulenza.faq.a6">
-                    Yes. Compliance is integrated into every project. We can also help you prepare your company for the AI Act.
-                </div>
-            </div>
         </div>
-    </div>
-</section>
-
-{{-- CTA Finale --}}
-<section class="py-20 bg-navy">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white" data-i18n="consulenza.cta.title">Fill out the form, I'll respond within 24 hours.</h2>
-        <div class="mt-8">
-            <a href="/contatto" class="btn-primary" data-i18n="consulenza.hero.cta">Request information</a>
-        </div>
-    </div>
-</section>
+    </section>
 
 @endsection
