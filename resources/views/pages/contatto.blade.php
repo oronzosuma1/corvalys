@@ -947,44 +947,31 @@
         </div>
     </section>
 
-    {{-- ── Schedule a Call CTA ── --}}
+    {{-- ── Schedule a Call — Embedded Calendly ── --}}
     @if(config('corvalys.calendly_url'))
-    <section class="section bg-white">
-        <div class="max-w-3xl mx-auto px-6 text-center">
-            <div class="bg-gradient-to-br from-primary-dark to-navy rounded-2xl p-8 sm:p-12 text-white relative overflow-hidden">
-                {{-- Decorative --}}
-                <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-                <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
-
-                <div class="relative">
-                    <div class="w-14 h-14 mx-auto mb-5 rounded-2xl bg-white/10 backdrop-blur flex items-center justify-center">
-                        <svg class="w-7 h-7 text-primary-light" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z"/>
-                        </svg>
-                    </div>
-
-                    <h3 class="font-heading text-2xl sm:text-3xl font-bold mb-3">
-                        Preferisci parlarne a voce?
-                    </h3>
-                    <p class="text-white/60 text-base sm:text-lg max-w-xl mx-auto mb-8">
-                        Prenota una videochiamata gratuita di 30 minuti. Nessun impegno, solo una conversazione per capire come possiamo aiutarti.
-                    </p>
-
-                    <a href="{{ config('corvalys.calendly_url') }}"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="inline-flex items-center gap-2.5 bg-white text-primary-dark font-semibold px-8 py-3.5 rounded-xl hover:bg-primary-light hover:scale-[1.03] transition-all duration-200 shadow-lg shadow-black/20">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"/>
-                        </svg>
-                        Prenota una Call Gratuita
-                    </a>
-
-                    <p class="text-white/40 text-xs mt-4">30 min · Google Meet · Nessun impegno</p>
+    <section class="section bg-white" id="prenota-call">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-8">
+                <div class="w-14 h-14 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-primary-dark to-navy flex items-center justify-center">
+                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/>
+                    </svg>
                 </div>
+                <h3 class="font-heading text-2xl sm:text-3xl font-bold text-navy mb-3">
+                    Preferisci parlarne a voce?
+                </h3>
+                <p class="text-gray-500 text-base sm:text-lg max-w-xl mx-auto">
+                    Prenota una videochiamata gratuita di 30 minuti. Nessun impegno, solo una conversazione per capire come possiamo aiutarti.
+                </p>
+            </div>
+
+            {{-- Calendly Inline Widget --}}
+            <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="calendly-inline-widget" data-url="https://calendly.com/corvalys-info/30min" style="min-width:320px;height:700px;"></div>
             </div>
         </div>
     </section>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
     @endif
 
 @endsection
