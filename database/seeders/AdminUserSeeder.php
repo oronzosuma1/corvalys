@@ -14,7 +14,7 @@ class AdminUserSeeder extends Seeder
             ['email' => 'admin@corvalys.eu'],
             [
                 'name' => 'Admin',
-                'password' => Hash::make('Corvalys2026!'),
+                'password' => 'Corvalys2026!',
                 'is_admin' => true,
             ]
         );
