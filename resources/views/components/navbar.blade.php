@@ -246,6 +246,18 @@
             <div class="hidden lg:flex items-center gap-3">
                 <x-language-switcher />
 
+                @if(config('corvalys.calendly_url'))
+                <a
+                    href="{{ config('corvalys.calendly_url') }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold border border-primary/20 text-primary hover:bg-primary/5 transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-primary/50"
+                >
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"/></svg>
+                    Book a Call
+                </a>
+                @endif
+
                 <a
                     href="{{ route('contatto') }}"
                     class="btn-primary inline-flex items-center gap-1.5 px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-150 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-primary/50"
@@ -452,6 +464,19 @@
             {{-- Mobile: Language Switcher + CTA --}}
             <div class="pt-3 pb-2 border-t border-gray-100 flex flex-col gap-3">
                 <x-language-switcher />
+
+                @if(config('corvalys.calendly_url'))
+                <a
+                    href="{{ config('corvalys.calendly_url') }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center gap-1.5 w-full px-5 py-2.5 rounded-lg text-sm font-semibold text-center border-2 border-primary text-primary transition-all duration-150 hover:bg-primary hover:text-white focus:outline-none focus:ring-2 focus:ring-primary/50"
+                    @click="mobileOpen = false"
+                >
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
+                    Book a Call
+                </a>
+                @endif
 
                 <a
                     href="{{ route('contatto') }}"

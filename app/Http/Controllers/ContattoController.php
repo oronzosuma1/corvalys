@@ -63,9 +63,13 @@ class ContattoController extends Controller
         }
         $lead->update($updateData);
 
-        // Send notification emails
-        Mail::to(config('corvalys.enzo_email'))->queue(new NuovoLeadMail($lead));
-        Mail::to($lead->email)->queue(new ConfermaContattoMail($lead->name));
+        // Send notification emails (non-blocking: lead is saved even if email fails)
+        try {
+            Mail::to(config('corvalys.enzo_email'))->send(new NuovoLeadMail($lead));
+            Mail::to($lead->email)->send(new ConfermaContattoMail($lead->name));
+        } catch (\Throwable $e) {
+            Log::warning('Email send failed for lead #' . $lead->id . ': ' . $e->getMessage());
+        }
 
         // Auto-assess with Claude (non-blocking: lead is saved even if this fails)
         try {
