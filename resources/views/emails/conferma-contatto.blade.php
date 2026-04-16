@@ -43,7 +43,7 @@
                     <tr>
                         <td style="padding: 20px 30px; text-align: center; border-top: 1px solid #eee;">
                             <p style="margin: 0 0 6px 0; color: #555; font-size: 13px;">Enzo &mdash; Corvalys</p>
-                            <a href="https://linkedin.com/in/" style="color: #0F7B6C; text-decoration: none; font-size: 12px;">LinkedIn</a>
+                            <a href="https://www.linkedin.com/company/corvalysholding" style="color: #0F7B6C; text-decoration: none; font-size: 12px;">LinkedIn</a>
                         </td>
                     </tr>
                 </table>

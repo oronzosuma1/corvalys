@@ -37,7 +37,7 @@
                 <div class="relative bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl hover:border-primary/30 transition-all duration-300 flex flex-col">
                     {{-- Badge --}}
                     <span class="absolute top-4 right-4 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-700">
-                        Start Here
+                        Inizia da qui
                     </span>
                     {{-- Icon --}}
                     <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 mb-5">
@@ -46,14 +46,13 @@
                         </svg>
                     </div>
                     {{-- Content --}}
-                    <h3 class="font-heading text-xl font-bold text-gray-900 mb-1">Advisory</h3>
+                    <h3 class="font-heading text-xl font-bold text-gray-900 mb-1">Consulenza Strategica</h3>
                     <p class="text-sm text-primary font-medium mb-3">Inizia da qui</p>
                     <p class="text-gray-500 text-sm leading-relaxed flex-1 mb-5">
                         Assessment AI, analisi dei processi, roadmap strategiche e valutazione della prontezza digitale.
                     </p>
-                    <p class="font-heading text-lg font-bold text-gray-900 mb-4">da &euro;2.500</p>
                     <a href="{{ route('contatto') }}" class="text-primary text-sm font-semibold hover:text-primary-dark transition-colors duration-200">
-                        Scopri di pi&ugrave; &rarr;
+                        Richiedi un preventivo &rarr;
                     </a>
                 </div>
 
@@ -61,7 +60,7 @@
                 <div class="relative bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl hover:border-primary/30 transition-all duration-300 flex flex-col ring-2 ring-primary/20">
                     {{-- Badge --}}
                     <span class="absolute top-4 right-4 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary text-white">
-                        Most Popular
+                        Pi&ugrave; richiesto
                     </span>
                     {{-- Icon --}}
                     <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 mb-5">
@@ -71,14 +70,13 @@
                         </svg>
                     </div>
                     {{-- Content --}}
-                    <h3 class="font-heading text-xl font-bold text-gray-900 mb-1">Implementation</h3>
+                    <h3 class="font-heading text-xl font-bold text-gray-900 mb-1">Implementazione</h3>
                     <p class="text-sm text-primary font-medium mb-3">Vai in profondit&agrave;</p>
                     <p class="text-gray-500 text-sm leading-relaxed flex-1 mb-5">
                         Sprint di sviluppo AI, automazione dei workflow, integrazione con i sistemi esistenti e formazione del team.
                     </p>
-                    <p class="font-heading text-lg font-bold text-gray-900 mb-4">da &euro;8.000</p>
                     <a href="{{ route('contatto') }}" class="text-primary text-sm font-semibold hover:text-primary-dark transition-colors duration-200">
-                        Scopri di pi&ugrave; &rarr;
+                        Richiedi un preventivo &rarr;
                     </a>
                 </div>
 
@@ -86,7 +84,7 @@
                 <div class="relative bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl hover:border-primary/30 transition-all duration-300 flex flex-col">
                     {{-- Badge --}}
                     <span class="absolute top-4 right-4 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-800 text-white">
-                        Ongoing
+                        Continuativo
                     </span>
                     {{-- Icon --}}
                     <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 mb-5">
@@ -95,14 +93,13 @@
                         </svg>
                     </div>
                     {{-- Content --}}
-                    <h3 class="font-heading text-xl font-bold text-gray-900 mb-1">Managed Support</h3>
+                    <h3 class="font-heading text-xl font-bold text-gray-900 mb-1">Supporto Gestito</h3>
                     <p class="text-sm text-primary font-medium mb-3">Resta supportato</p>
                     <p class="text-gray-500 text-sm leading-relaxed flex-1 mb-5">
                         Supporto gestito continuativo, monitoraggio delle performance, ottimizzazione e accesso ai nostri strumenti SaaS.
                     </p>
-                    <p class="font-heading text-lg font-bold text-gray-900 mb-4">da &euro;350/mese</p>
                     <a href="{{ route('contatto') }}" class="text-primary text-sm font-semibold hover:text-primary-dark transition-colors duration-200">
-                        Scopri di pi&ugrave; &rarr;
+                        Richiedi un preventivo &rarr;
                     </a>
                 </div>
 
@@ -200,7 +197,7 @@
                         <span class="font-heading text-2xl font-bold text-primary">1</span>
                     </div>
                     <h3 class="font-heading text-lg font-bold text-gray-900 mb-2">
-                        Discover
+                        Scoperta
                     </h3>
                     <p class="text-gray-500 text-sm leading-relaxed">
                         Analizziamo in profondit&agrave; le tue operazioni, i punti critici e gli obiettivi
@@ -213,7 +210,7 @@
                         <span class="font-heading text-2xl font-bold text-primary">2</span>
                     </div>
                     <h3 class="font-heading text-lg font-bold text-gray-900 mb-2">
-                        Diagnose
+                        Diagnosi
                     </h3>
                     <p class="text-gray-500 text-sm leading-relaxed">
                         Identifichiamo dove l'AI crea valore reale e misurabile
@@ -226,7 +223,7 @@
                         <span class="font-heading text-2xl font-bold text-primary">3</span>
                     </div>
                     <h3 class="font-heading text-lg font-bold text-gray-900 mb-2">
-                        Design
+                        Progettazione
                     </h3>
                     <p class="text-gray-500 text-sm leading-relaxed">
                         Progettiamo soluzioni che si integrano con i tuoi sistemi e budget
@@ -239,7 +236,7 @@
                         <span class="font-heading text-2xl font-bold text-primary">4</span>
                     </div>
                     <h3 class="font-heading text-lg font-bold text-gray-900 mb-2">
-                        Deliver
+                        Consegna
                     </h3>
                     <p class="text-gray-500 text-sm leading-relaxed">
                         Costruiamo, testiamo e implementiamo in sprint focalizzati
@@ -252,7 +249,7 @@
                         <span class="font-heading text-2xl font-bold text-primary">5</span>
                     </div>
                     <h3 class="font-heading text-lg font-bold text-gray-900 mb-2">
-                        Support
+                        Supporto
                     </h3>
                     <p class="text-gray-500 text-sm leading-relaxed">
                         Monitoriamo, ottimizziamo e scaliamo ci&ograve; che funziona
@@ -268,7 +265,7 @@
     <section class="section bg-section-alt">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-14">
-                <h2 class="section-title mb-4">Case Study</h2>
+                <h2 class="section-title mb-4">Casi Studio</h2>
                 <p class="section-sub mx-auto">Risultati concreti dai nostri progetti.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -276,30 +273,30 @@
                 {{-- Case Study 1 --}}
                 <div class="relative bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 rounded-2xl p-8 flex flex-col">
                     <span class="absolute top-4 right-4 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-700">
-                        Coming Soon
+                        In arrivo
                     </span>
                     <p class="text-gray-600 text-sm leading-relaxed mt-4">
-                        Come una PMI manifatturiera in Italia ha ridotto i tempi di elaborazione documenti del 60% con workflow AI-assistiti
+                        Come una PMI europea ha ridotto i tempi di elaborazione documenti del 60% con workflow AI-assistiti
                     </p>
                 </div>
 
                 {{-- Case Study 2 --}}
                 <div class="relative bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 rounded-2xl p-8 flex flex-col">
                     <span class="absolute top-4 right-4 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-700">
-                        Coming Soon
+                        In arrivo
                     </span>
                     <p class="text-gray-600 text-sm leading-relaxed mt-4">
-                        Automazione del controllo qualit&agrave; per un fornitore automotive: dalla conformit&agrave; IATF 16949 all'efficienza operativa
+                        Automazione del controllo qualit&agrave; per un'azienda di servizi: dalla gestione manuale dei processi all'efficienza operativa
                     </p>
                 </div>
 
                 {{-- Case Study 3 --}}
                 <div class="relative bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 rounded-2xl p-8 flex flex-col">
                     <span class="absolute top-4 right-4 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-700">
-                        Coming Soon
+                        In arrivo
                     </span>
                     <p class="text-gray-600 text-sm leading-relaxed mt-4">
-                        Trasformazione digitale di una societ&agrave; di servizi: dall'analisi dei processi all'implementazione AI in 8 settimane
+                        Trasformazione digitale di un'azienda commerciale: dall'analisi dei processi all'implementazione AI in 8 settimane
                     </p>
                 </div>
 
@@ -377,7 +374,7 @@
                         </svg>
                     </button>
                     <div x-show="open" x-collapse class="px-6 pb-5">
-                        <p class="text-gray-500 text-sm leading-relaxed">Manifatturiero, automotive, costruzioni e servizi. Abbiamo competenze specifiche in ISO 9001, IATF 16949 e supply chain management.</p>
+                        <p class="text-gray-500 text-sm leading-relaxed">Lavoriamo con aziende di ogni settore: servizi, commercio, manifatturiero, tecnologia e altri. Il nostro approccio si basa sul miglioramento dei processi, applicabile a qualsiasi tipo di business.</p>
                     </div>
                 </div>
 
@@ -390,7 +387,7 @@
                         </svg>
                     </button>
                     <div x-show="open" x-collapse class="px-6 pb-5">
-                        <p class="text-gray-500 text-sm leading-relaxed">Le valutazioni partono da &euro;2.500. Offriamo anche una discovery call gratuita di 30 minuti per capire insieme se e come possiamo aiutarvi.</p>
+                        <p class="text-gray-500 text-sm leading-relaxed">Ogni progetto &egrave; unico e il costo dipende dalla complessit&agrave; e dall'ambito. Offriamo una discovery call gratuita di 30 minuti per capire le tue esigenze e preparare un preventivo personalizzato senza impegno.</p>
                     </div>
                 </div>
 
@@ -418,7 +415,7 @@
                     <svg class="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
-                    ISO 9001 & IATF 16949
+                    Miglioramento Processi
                 </span>
                 <span class="flex items-center gap-2">
                     <svg class="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

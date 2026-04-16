@@ -51,7 +51,8 @@
                 {{-- Social links --}}
                 <div class="flex items-center gap-4 pt-1">
                     {{-- LinkedIn --}}
-                    <a href="#"
+                    <a href="https://www.linkedin.com/company/corvalysholding"
+                       target="_blank" rel="noopener noreferrer"
                        aria-label="LinkedIn"
                        class="text-white/50 hover:text-white transition">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
