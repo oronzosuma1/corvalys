@@ -13,7 +13,7 @@
                     {{-- Header --}}
                     <tr>
                         <td style="background-color: #0F7B6C; padding: 20px 30px; text-align: center;">
-                            <h1 style="margin: 0; color: #ffffff; font-size: 22px; font-weight: 600;">Corvalys AI Desk</h1>
+                            <h1 style="margin: 0; color: #ffffff; font-size: 22px; font-weight: 600;">Corvalys</h1>
                         </td>
                     </tr>
 
@@ -74,7 +74,7 @@
                     {{-- Footer --}}
                     <tr>
                         <td style="padding: 20px 30px; text-align: center; border-top: 1px solid #eee;">
-                            <p style="margin: 0; color: #999; font-size: 12px;">Corvalys AI Desk &mdash; Sistema automatico</p>
+                            <p style="margin: 0; color: #999; font-size: 12px;">Corvalys &mdash; Sistema automatico</p>
                         </td>
                     </tr>
                 </table>

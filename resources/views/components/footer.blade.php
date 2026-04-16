@@ -45,7 +45,7 @@
 
                 <p class="text-white/70 text-sm leading-relaxed"
                    data-i18n="footer.tagline">
-                    AI-first solutions for European SMEs.
+                    AI consulting and operational improvement for European SMEs.
                 </p>
 
                 {{-- Social links --}}
@@ -74,21 +74,21 @@
             <div class="space-y-4">
                 <h3 class="text-white text-sm font-semibold uppercase tracking-widest"
                     data-i18n="footer.products">
-                    Products
+                    Solutions
                 </h3>
                 <ul class="space-y-2.5">
+                    <li>
+                        <a href="{{ route('consulenza') }}"
+                           class="text-white/70 text-sm hover:text-white transition"
+                           data-i18n="nav.consulenza">
+                            Servizi
+                        </a>
+                    </li>
                     <li>
                         <a href="{{ route('prodotti') }}"
                            class="text-white/70 text-sm hover:text-white transition"
                            data-i18n="nav.prodotti">
                             Prodotti
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('consulenza') }}"
-                           class="text-white/70 text-sm hover:text-white transition"
-                           data-i18n="nav.consulenza">
-                            Consulenza
                         </a>
                     </li>
                 </ul>
@@ -183,7 +183,7 @@
     <div class="border-t border-white/10">
         <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
             <p class="text-white/40 text-xs" data-i18n="footer.copy">
-                &copy; {{ date('Y') }} Corvalys S.r.l. &mdash; All rights reserved.
+                &copy; {{ date('Y') }} Corvalys LTD &mdash; All rights reserved.
             </p>
             <p class="text-white/40 text-xs">
                 Made with AI in Europe &#127466;&#127482;

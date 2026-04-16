@@ -97,6 +97,13 @@
                     </div>
                 </div>
 
+                {{-- Servizi --}}
+                <a
+                    href="{{ route('consulenza') }}"
+                    class="px-3 py-2 text-sm font-medium rounded-lg hover:text-primary hover:bg-gray-50 transition-colors duration-150 {{ request()->routeIs('consulenza') ? 'text-primary' : 'text-gray-700' }}"
+                    data-i18n="nav.consulting"
+                >Servizi</a>
+
                 {{-- Prodotti dropdown --}}
                 <div class="relative" x-data>
                     <button
@@ -156,13 +163,6 @@
                         @endif
                     </div>
                 </div>
-
-                {{-- Consulenza --}}
-                <a
-                    href="{{ route('consulenza') }}"
-                    class="px-3 py-2 text-sm font-medium rounded-lg hover:text-primary hover:bg-gray-50 transition-colors duration-150 {{ request()->routeIs('consulenza') ? 'text-primary' : 'text-gray-700' }}"
-                    data-i18n="nav.consulting"
-                >Consulenza</a>
 
                 {{-- Blog dropdown --}}
                 <div class="relative" x-data>
@@ -349,6 +349,14 @@
                 </div>
             </div>
 
+            {{-- Mobile: Servizi --}}
+            <a
+                href="{{ route('consulenza') }}"
+                class="block px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-gray-50 hover:text-primary transition-colors {{ request()->routeIs('consulenza') ? 'text-primary' : 'text-gray-700' }}"
+                data-i18n="nav.consulting"
+                @click="mobileOpen = false"
+            >Servizi</a>
+
             {{-- Mobile: Prodotti --}}
             <div>
                 <button
@@ -389,14 +397,6 @@
                     @endforeach
                 </div>
             </div>
-
-            {{-- Mobile: Consulenza --}}
-            <a
-                href="{{ route('consulenza') }}"
-                class="block px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-gray-50 hover:text-primary transition-colors {{ request()->routeIs('consulenza') ? 'text-primary' : 'text-gray-700' }}"
-                data-i18n="nav.consulting"
-                @click="mobileOpen = false"
-            >Consulenza</a>
 
             {{-- Mobile: Blog --}}
             <div>

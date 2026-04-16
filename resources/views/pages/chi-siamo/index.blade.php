@@ -169,13 +169,13 @@
                 class="font-heading text-3xl sm:text-4xl font-bold mb-4"
                 data-i18n="about.cta.title"
             >
-                Le persone dietro Corvalys
+                Chi c'è dietro Corvalys
             </h2>
             <p
                 class="text-white/70 text-lg mb-10 max-w-xl mx-auto"
                 data-i18n="about.cta.sub"
             >
-                Un team multidisciplinare con esperienza in AI, business strategy e compliance europea.
+                Fondato da professionisti con oltre 20 anni di esperienza in operations, AI e sistemi di qualità.
             </p>
             <a
                 href="{{ route('chi-siamo.team') }}"

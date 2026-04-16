@@ -13,8 +13,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        SEOTools::setTitle('Corvalys AI Desk — Il tuo primo dipendente AI');
-        SEOTools::setDescription('Suite AI per PMI europee. Gestione fatture, approvazioni e compliance AI Act. Zero setup tecnico.');
+        SEOTools::setTitle('Corvalys — AI Consulting & Operational Improvement for European SMEs');
+        SEOTools::setDescription('Practical AI consulting for European SMEs. Assessment, implementation, and managed support. GDPR compliant, EU AI Act ready.');
         JsonLd::setType('Organization');
         JsonLd::addValue('name', 'Corvalys');
         JsonLd::addValue('url', config('app.url'));

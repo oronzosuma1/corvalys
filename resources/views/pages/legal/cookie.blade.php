@@ -33,7 +33,7 @@
                 <p>
                     Cookies are small text files placed on your device when you visit a website. They are widely used
                     to make websites work efficiently, to remember your preferences, and to provide information to
-                    the website owners. This Cookie Policy explains how <strong>Corvalys S.r.l.</strong>
+                    the website owners. This Cookie Policy explains how <strong>Corvalys LTD</strong>
                     (<a href="https://corvalys.eu">corvalys.eu</a>) uses cookies and similar technologies.
                 </p>
 
@@ -170,7 +170,7 @@
 
                 <h2>6. Contact</h2>
                 <p>
-                    If you have questions about our use of cookies, please contact Corvalys S.r.l. at
+                    If you have questions about our use of cookies, please contact Corvalys LTD at
                     <a href="mailto:info@corvalys.eu">info@corvalys.eu</a>.
                 </p>
 

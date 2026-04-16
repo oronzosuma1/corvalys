@@ -556,7 +556,7 @@
 
     {{-- Footer --}}
     <div class="footer">
-        <span class="company-name">Corvalys S.r.l.</span> &middot; AI & Technology Solutions<br>
+        <span class="company-name">Corvalys LTD</span> &middot; AI & Technology Solutions<br>
         info@corvalys.com &middot; www.corvalys.com
     </div>
 </div>
@@ -639,7 +639,7 @@
 
     {{-- Footer --}}
     <div class="footer">
-        <span class="company-name">Corvalys S.r.l.</span> &middot; AI & Technology Solutions<br>
+        <span class="company-name">Corvalys LTD</span> &middot; AI & Technology Solutions<br>
         info@corvalys.com &middot; www.corvalys.com
     </div>
 </div>
@@ -687,7 +687,7 @@
         <table width="100%">
             <tr>
                 <td width="50%" style="vertical-align: top;">
-                    <p style="font-size: 9pt; color: #6b7280; margin-bottom: 40px;">Corvalys S.r.l.</p>
+                    <p style="font-size: 9pt; color: #6b7280; margin-bottom: 40px;">Corvalys LTD</p>
                     <div style="border-top: 1px solid #374151; width: 200px; padding-top: 5px;">
                         <p style="font-size: 9pt; color: #6b7280;">Signature / Date</p>
                     </div>
@@ -704,7 +704,7 @@
 
     {{-- Footer --}}
     <div class="footer">
-        <span class="company-name">Corvalys S.r.l.</span> &middot; AI & Technology Solutions<br>
+        <span class="company-name">Corvalys LTD</span> &middot; AI & Technology Solutions<br>
         info@corvalys.com &middot; www.corvalys.com
     </div>
 </div>

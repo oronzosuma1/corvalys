@@ -48,7 +48,7 @@
                     <tr>
                         <td style="background-color: #f9fafb; padding: 20px 40px; border-top: 1px solid #e5e7eb;">
                             <p style="color: #9ca3af; font-size: 12px; margin: 0; text-align: center;">
-                                Corvalys S.r.l. &middot; AI & Technology Solutions<br>
+                                Corvalys LTD &middot; AI & Technology Solutions<br>
                                 This email was sent to {{ $lead->email }}
                             </p>
                         </td>

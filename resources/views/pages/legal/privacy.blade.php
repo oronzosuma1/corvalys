@@ -37,7 +37,7 @@
 
                 <h2>1. Data Controller</h2>
                 <p>
-                    The data controller is <strong>Corvalys S.r.l.</strong>, a company registered in Italy.
+                    The data controller is <strong>Corvalys LTD</strong>, a company registered in Italy.
                     You can reach us at <a href="mailto:info@corvalys.eu">info@corvalys.eu</a> or through our website
                     <a href="https://corvalys.eu">corvalys.eu</a>.
                 </p>
@@ -107,7 +107,7 @@
 
                 <h2>9. Contact</h2>
                 <p>
-                    For any privacy-related questions, please contact Corvalys S.r.l. at
+                    For any privacy-related questions, please contact Corvalys LTD at
                     <a href="mailto:info@corvalys.eu">info@corvalys.eu</a>.
                 </p>
 

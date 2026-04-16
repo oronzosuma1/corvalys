@@ -8,8 +8,8 @@ class PrezziController extends Controller
 {
     public function index()
     {
-        SEOTools::setTitle('Prezzi — Corvalys AI Desk');
-        SEOTools::setDescription('Piani flessibili per PMI. Inizia gratis per 3 mesi.');
+        SEOTools::setTitle('Prezzi — Corvalys');
+        SEOTools::setDescription('Piani flessibili per PMI europee. Consulenza e strumenti AI su misura.');
 
         return view('pages.prezzi', ['prezzi' => config('corvalys.prezzi')]);
     }

@@ -80,6 +80,36 @@
         </div>
     </section>
 
+    {{-- ── Custom Solution Bridge ── --}}
+    <section class="section bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="bg-gradient-to-br from-primary-dark to-navy rounded-2xl p-8 sm:p-12 text-white relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+                <div class="relative text-center">
+                    <div class="w-14 h-14 mx-auto mb-5 rounded-2xl bg-white/10 backdrop-blur flex items-center justify-center">
+                        <svg class="w-7 h-7 text-primary-light" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z"/>
+                        </svg>
+                    </div>
+                    <h2 class="font-heading text-2xl sm:text-3xl font-bold mb-3">
+                        Hai bisogno di una soluzione su misura?
+                    </h2>
+                    <p class="text-white/60 text-base sm:text-lg max-w-xl mx-auto mb-8">
+                        I nostri prodotti sono l'entry point ideale. Ma se hai esigenze specifiche, il nostro team di consulenza può costruire una soluzione personalizzata per la tua azienda.
+                    </p>
+                    <a href="{{ route('consulenza') }}"
+                       class="inline-flex items-center gap-2.5 bg-white text-primary-dark font-semibold px-8 py-3.5 rounded-xl hover:bg-primary-light hover:scale-[1.03] transition-all duration-200 shadow-lg shadow-black/20">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/>
+                        </svg>
+                        Scopri i Nostri Servizi
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     {{-- ── Bottom CTA ── --}}
     <section class="bg-section-alt section-sm">
         <div class="max-w-4xl mx-auto px-6 text-center">

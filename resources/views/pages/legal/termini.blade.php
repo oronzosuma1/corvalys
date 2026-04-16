@@ -31,14 +31,14 @@
 
                 <h2>1. Acceptance of Terms</h2>
                 <p>
-                    By accessing or using the services provided by <strong>Corvalys S.r.l.</strong> through
+                    By accessing or using the services provided by <strong>Corvalys LTD</strong> through
                     <a href="https://corvalys.eu">corvalys.eu</a> (the "Service"), you agree to be bound by these
                     Terms of Service ("Terms"). If you do not agree, please do not use the Service.
                 </p>
 
                 <h2>2. Description of Service</h2>
                 <p>
-                    Corvalys S.r.l. provides AI-powered automation and compliance tools designed for European small
+                    Corvalys LTD provides AI-powered automation and compliance tools designed for European small
                     and medium-sized enterprises. Features include invoice management, approval workflows, AI Act
                     compliance assistance, and related integrations.
                 </p>
@@ -65,13 +65,13 @@
                     <li>Attempt to gain unauthorised access to any part of the Service or its infrastructure.</li>
                     <li>Reverse engineer, decompile, or disassemble any software component of the Service.</li>
                     <li>Upload or transmit malicious code or any content that infringes third-party rights.</li>
-                    <li>Resell or sub-license access to the Service without written authorisation from Corvalys S.r.l.</li>
+                    <li>Resell or sub-license access to the Service without written authorisation from Corvalys LTD</li>
                 </ul>
 
                 <h2>6. Intellectual Property</h2>
                 <p>
                     All intellectual property rights in the Service and its content (excluding your data) belong to
-                    Corvalys S.r.l. or its licensors. Nothing in these Terms transfers ownership of any intellectual
+                    Corvalys LTD or its licensors. Nothing in these Terms transfers ownership of any intellectual
                     property to you. You are granted a limited, non-exclusive, non-transferable licence to use the
                     Service solely for your internal business purposes.
                 </p>
@@ -79,7 +79,7 @@
                 <h2>7. Your Data</h2>
                 <p>
                     You retain ownership of all data you submit to the Service. By using the Service you grant
-                    Corvalys S.r.l. a limited licence to process your data solely to deliver and improve the Service,
+                    Corvalys LTD a limited licence to process your data solely to deliver and improve the Service,
                     in accordance with our <a href="{{ route('privacy') }}">Privacy Policy</a>.
                 </p>
 
@@ -92,7 +92,7 @@
 
                 <h2>9. Limitation of Liability</h2>
                 <p>
-                    To the maximum extent permitted by applicable law, Corvalys S.r.l. shall not be liable for any
+                    To the maximum extent permitted by applicable law, Corvalys LTD shall not be liable for any
                     indirect, incidental, special, consequential, or punitive damages arising out of or related to
                     your use of the Service. Our total liability shall not exceed the fees you paid in the twelve
                     months preceding the claim.
@@ -128,7 +128,7 @@
 
                 <h2>14. Contact</h2>
                 <p>
-                    Questions about these Terms should be sent to Corvalys S.r.l. at
+                    Questions about these Terms should be sent to Corvalys LTD at
                     <a href="mailto:info@corvalys.eu">info@corvalys.eu</a>.
                 </p>
 
