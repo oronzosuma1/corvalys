@@ -122,12 +122,13 @@ return [
             'method' => 'post',
         ],
         'business-survey' => [
-            'paths' => ['en' => 'business-survey', 'it' => 'business-survey', 'fr' => 'business-survey'],
+            // EN = /survey (no prefix), IT = /it/business-survey (existing slug kept),
+            // FR = /fr/sondage per spec B5.
+            'paths' => ['en' => 'survey', 'it' => 'business-survey', 'fr' => 'sondage'],
             'controller' => [\App\Http\Controllers\BusinessSurveyController::class, 'index'],
-            'redirects' => ['/survey' => 'it'],
         ],
         'business-survey.store' => [
-            'paths' => ['en' => 'business-survey', 'it' => 'business-survey', 'fr' => 'business-survey'],
+            'paths' => ['en' => 'survey', 'it' => 'business-survey', 'fr' => 'sondage'],
             'controller' => [\App\Http\Controllers\BusinessSurveyController::class, 'store'],
             'method' => 'post',
         ],

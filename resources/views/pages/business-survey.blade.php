@@ -50,27 +50,27 @@
                         </div>
                         <h1 class="font-heading text-2xl sm:text-3xl font-bold text-[#1B3A5C] mb-4 leading-tight"
                             data-i18n="survey.biz.hero.title">
-                            What is slowing down your business?
+                            {{ __('survey.hero.title') }}
                         </h1>
                         <p class="text-gray-500 text-base sm:text-lg mb-8 max-w-md leading-relaxed"
                            data-i18n="survey.biz.hero.sub">
-                            This short survey helps us understand the repetitive, frustrating, and time-consuming tasks businesses want to solve first.
+                            {{ __('survey.hero.sub') }}
                         </p>
                         <div class="flex flex-wrap justify-center gap-3 mb-8">
                             <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-100 text-sm text-gray-600">
                                 <svg class="w-4 h-4 text-[#0F7B6C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                                <span data-i18n="survey.cta.subtitle">Takes 3-5 minutes</span>
+                                <span data-i18n="survey.cta.subtitle">{{ __('survey.cta.subtitle') }}</span>
                             </span>
                             <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-100 text-sm text-gray-600">
                                 <svg class="w-4 h-4 text-[#0F7B6C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-                                <span data-i18n="survey.cta.anonymous">Anonymous by default</span>
+                                <span data-i18n="survey.cta.anonymous">{{ __('survey.cta.anonymous') }}</span>
                             </span>
                         </div>
                         <button @click="step = 1"
                                 class="w-full sm:w-auto px-8 py-4 bg-[#0F7B6C] hover:bg-[#0a5f54] text-white font-semibold rounded-xl transition-colors text-lg min-h-[48px]"
                                 type="button"
                                 data-i18n="survey.cta.primary">
-                            Start Survey
+                            {{ __('survey.cta.primary') }}
                         </button>
                     </div>
                 </template>

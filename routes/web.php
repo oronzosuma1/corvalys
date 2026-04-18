@@ -7,6 +7,21 @@ use Illuminate\Support\Facades\Route;
 // Register localized routes from config/localized_routes.php
 \App\Support\LocalizedRoutes::register();
 
+// ── Legacy redirects — MUST register AFTER LocalizedRoutes so they take
+//     precedence over any colliding canonical paths. Blog, product detail
+//     and /legal/privacy currently contain Italian-only content, so every
+//     anonymous hit should go to the /it/... equivalent until English
+//     content ships. Laravel uses last-registered-wins for same-path routes.
+Route::get('/blog', fn () => redirect('/it/blog', 301));
+Route::get('/blog/{slug}', fn (string $slug) => redirect("/it/blog/{$slug}", 301))
+    ->where('slug', '[A-Za-z0-9_\-]+');
+Route::get('/prodotti/{slug}', fn (string $slug) => redirect("/it/prodotti/{$slug}", 301))
+    ->where('slug', '[A-Za-z0-9_\-]+');
+Route::redirect('/legal/privacy', '/it/legale/privacy', 301);
+Route::redirect('/business-survey', '/it/business-survey', 301);
+Route::redirect('/it/survey', '/it/business-survey', 301);
+Route::redirect('/fr/survey', '/fr/sondage', 301);
+
 // Home shortcut — keep non-suffixed `home` name for backward compat
 Route::redirect('/home', '/', 301);
 

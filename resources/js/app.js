@@ -1,5 +1,17 @@
 import { translations } from './translations.js';
 
+/* ── Alpine.js (bundled, no CDN) ──
+ * Livewire v3 starts Alpine automatically, so we must NOT call Alpine.start().
+ * Expose Alpine on window so existing inline x-data components work.
+ */
+import Alpine from 'alpinejs';
+import intersect from '@alpinejs/intersect';
+import collapse from '@alpinejs/collapse';
+
+Alpine.plugin(intersect);
+Alpine.plugin(collapse);
+window.Alpine = Alpine;
+
 /* ── i18n System ── */
 function readLocaleCookie() {
     const m = document.cookie.match(/(?:^|;\s*)locale=(en|it|fr)(?:;|$)/);
