@@ -3,6 +3,13 @@
 @section('title', __('seo.blog_index.title'))
 @section('meta_description', __('seo.blog_index.description'))
 
+@push('head')
+    <x-json-ld :data="\App\Support\JsonLd::breadcrumbs([
+        ['name' => 'Home', 'url' => route('home')],
+        ['name' => __('seo.blog_index.title'), 'url' => route('blog.index')],
+    ])" />
+@endpush
+
 @section('content')
 
     {{-- ── Hero ── --}}
@@ -85,7 +92,7 @@
                         <article class="card flex flex-col group overflow-hidden p-0">
 
                             {{-- Cover image / placeholder --}}
-                            <a href="{{ route('blog.show', $article) }}" class="block relative overflow-hidden aspect-[16/9]">
+                            <a href="{{ route('blog.show', ['slug' => $article->slug]) }}" class="block relative overflow-hidden aspect-[16/9]">
                                 @if($article->cover_image)
                                     <img
                                         src="{{ asset($article->cover_image) }}"
@@ -123,7 +130,7 @@
 
                                 {{-- Title --}}
                                 <h2 class="font-heading text-lg font-bold text-gray-900 mb-2 leading-snug group-hover:text-primary transition-colors duration-200">
-                                    <a href="{{ route('blog.show', $article) }}">
+                                    <a href="{{ route('blog.show', ['slug' => $article->slug]) }}">
                                         {{ $article->title }}
                                     </a>
                                 </h2>
@@ -145,7 +152,7 @@
                                     </time>
 
                                     <a
-                                        href="{{ route('blog.show', $article) }}"
+                                        href="{{ route('blog.show', ['slug' => $article->slug]) }}"
                                         class="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:text-primary-dark transition-colors duration-150"
                                         data-i18n="blog.card.read_more"
                                     >

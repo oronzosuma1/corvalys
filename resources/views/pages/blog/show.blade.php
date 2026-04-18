@@ -1,7 +1,59 @@
 @extends('layouts.app')
 
-@section('title', __('seo.blog_show.title', ['title' => $article->title]))
-@section('meta_description', $article->excerpt ?? __('seo.blog_show.description'))
+@php
+    // Normalize both the new BlogPost+translation path and the legacy Article path
+    // into a common set of view variables.
+    if (!empty($translation)) {
+        $title = $translation->title;
+        $excerpt = $translation->excerpt;
+        $bodyHtml = $translation->renderedHtml();
+        $publishedAt = $post->published_at;
+        $updatedAt = $translation->updated_at ?? $post->updated_at;
+        $coverUrl = $post->coverUrl();
+        $coverImage = $post->cover_path;
+        $category = $post->category;
+        $author = null;
+        $articleType = null;
+        $slugForUrl = $translation->slug;
+    } else {
+        $title = $article->title;
+        $excerpt = $article->excerpt ?? '';
+        $bodyHtml = $article->body_html ?? app(\App\Support\MarkdownRenderer::class)->render($article->body ?? '');
+        $publishedAt = $article->published_at;
+        $updatedAt = $article->updated_at;
+        $coverUrl = $article->cover_image ? asset($article->cover_image) : asset('images/og-default.png');
+        $coverImage = $article->cover_image;
+        $category = $article->category;
+        $author = $article->author ?? null;
+        $articleType = $article->type ?? null;
+        $slugForUrl = $article->slug;
+    }
+@endphp
+
+@section('title', __('seo.blog_show.title', ['title' => $title]))
+@section('meta_description', $excerpt ?: __('seo.blog_show.description'))
+
+@php
+    $articleSchema = \App\Support\JsonLd::article([
+        'headline' => $title,
+        'description' => $excerpt ?? '',
+        'image' => $coverUrl,
+        'url' => route('blog.show', ['slug' => $slugForUrl]),
+        'datePublished' => optional($publishedAt)->toIso8601String(),
+        'dateModified' => optional($updatedAt)->toIso8601String(),
+        'inLanguage' => app()->getLocale(),
+        'authorName' => $author ?? 'Corvalys',
+    ]);
+    $articleBreadcrumbs = \App\Support\JsonLd::breadcrumbs([
+        ['name' => 'Home', 'url' => route('home')],
+        ['name' => __('seo.blog_index.title'), 'url' => route('blog.index')],
+        ['name' => $title, 'url' => route('blog.show', ['slug' => $slugForUrl])],
+    ]);
+@endphp
+@push('head')
+    <x-json-ld :data="$articleSchema" />
+    <x-json-ld :data="$articleBreadcrumbs" />
+@endpush
 
 @section('content')
 
@@ -20,7 +72,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
                 </svg>
                 <span class="text-gray-700 font-medium truncate max-w-xs sm:max-w-sm lg:max-w-lg">
-                    {{ $article->title }}
+                    {{ $title }}
                 </span>
             </nav>
         </div>
@@ -31,37 +83,39 @@
         <div class="max-w-4xl mx-auto px-6">
 
             {{-- Category badge --}}
-            @if($article->category)
+            @if($category)
                 <div class="mb-4">
                     <span class="badge bg-primary/10 text-primary">
-                        {{ $article->category }}
+                        {{ $category }}
                     </span>
                 </div>
             @endif
 
             {{-- Title --}}
             <h1 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight leading-tight mb-6">
-                {{ $article->title }}
+                {{ $title }}
             </h1>
 
             {{-- Meta row: date + author --}}
             <div class="flex flex-wrap items-center gap-4 pb-8 border-b border-gray-100">
 
+                @if($publishedAt)
                 <div class="flex items-center gap-2 text-sm text-gray-500">
                     <svg class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 9v7.5"/>
                     </svg>
-                    <time datetime="{{ $article->published_at->toDateString() }}">
-                        {{ $article->published_at->format('M d, Y') }}
+                    <time datetime="{{ $publishedAt->toDateString() }}">
+                        {{ $publishedAt->format('M d, Y') }}
                     </time>
                 </div>
+                @endif
 
-                @if($article->author)
+                @if($author)
                     <div class="flex items-center gap-2 text-sm text-gray-500">
                         <svg class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
                         </svg>
-                        <span>{{ $article->author }}</span>
+                        <span>{{ $author }}</span>
                     </div>
                 @endif
 
@@ -70,13 +124,13 @@
     </header>
 
     {{-- ── Cover Image ── --}}
-    @if($article->cover_image)
+    @if($coverImage)
         <div class="bg-white">
             <div class="max-w-4xl mx-auto px-6 pt-8">
                 <figure class="rounded-2xl overflow-hidden shadow-lg aspect-[16/9]">
                     <img
-                        src="{{ asset($article->cover_image) }}"
-                        alt="{{ $article->title }}"
+                        src="{{ $coverUrl }}"
+                        alt="{{ $title }}"
                         class="w-full h-full object-cover"
                     >
                 </figure>
@@ -91,15 +145,16 @@
                 prose-headings:font-heading prose-headings:font-bold prose-headings:text-gray-900
                 prose-a:text-primary prose-a:no-underline hover:prose-a:underline
                 prose-img:rounded-xl prose-img:shadow-md
+                prose-table:w-full
                 prose-blockquote:border-primary prose-blockquote:bg-primary/5 prose-blockquote:rounded-r-lg prose-blockquote:py-1
                 prose-code:text-primary prose-code:bg-primary/5 prose-code:rounded prose-code:px-1">
-                {!! $article->body !!}
+                {!! $bodyHtml !!}
             </div>
         </div>
     </article>
 
-    {{-- ── Related Articles ── --}}
-    @if($related->count() > 0)
+    {{-- ── Related Articles (legacy Article path only) ── --}}
+    @if(!empty($related) && $related->count() > 0)
         <section class="bg-section-alt section-sm">
             <div class="max-w-7xl mx-auto px-6">
 
@@ -115,7 +170,7 @@
 
                         <article class="card flex flex-col group overflow-hidden p-0">
 
-                            <a href="{{ route('blog.show', $rel) }}" class="block relative overflow-hidden aspect-[16/9]">
+                            <a href="{{ route('blog.show', ['slug' => $rel->slug]) }}" class="block relative overflow-hidden aspect-[16/9]">
                                 @if($rel->cover_image)
                                     <img
                                         src="{{ asset($rel->cover_image) }}"
@@ -139,7 +194,7 @@
                                 @endif
 
                                 <h3 class="font-heading text-base font-bold text-gray-900 mb-2 leading-snug group-hover:text-primary transition-colors duration-200 flex-1">
-                                    <a href="{{ route('blog.show', $rel) }}">{{ $rel->title }}</a>
+                                    <a href="{{ route('blog.show', ['slug' => $rel->slug]) }}">{{ $rel->title }}</a>
                                 </h3>
 
                                 <div class="mt-4 flex items-center justify-between">
@@ -150,7 +205,7 @@
                                         {{ $rel->published_at->format('M d, Y') }}
                                     </time>
                                     <a
-                                        href="{{ route('blog.show', $rel) }}"
+                                        href="{{ route('blog.show', ['slug' => $rel->slug]) }}"
                                         class="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:text-primary-dark transition-colors duration-150"
                                         data-i18n="blog.card.read_more"
                                     >

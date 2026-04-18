@@ -105,23 +105,66 @@ class LocalizedRoutes
         // Strip trailing .locale suffix if present
         $base = preg_replace('/\.(en|it|fr)$/', '', $currentName);
 
-        // Extract route params (preserve {service} etc.)
-        $params = $current->parameters();
+        // Extract route params (preserve {service} etc.) and normalize any
+        // Eloquent models down to their route key (slug) so the URL builder
+        // receives plain scalars.
+        $params = self::normalizeParams($current->parameters());
 
-        return self::urlFor($base, $params, $locale);
+        try {
+            return self::urlFor($base, $params, $locale);
+        } catch (\Throwable $e) {
+            return self::urlFor('home', [], $locale);
+        }
     }
 
     /**
      * Return [en => url, it => url, fr => url] for hreflang alternates.
+     *
+     * If $params is empty and we're being called for the current route, the
+     * parameters of the current request route are used — normalized so that
+     * Eloquent model parameters are serialized via their route key (slug).
      */
     public static function alternatesFor(?string $name = null, array $params = []): array
     {
-        $name = $name ?: self::currentBaseName();
-        if (!$name) return [];
+        $resolvedName = $name ?: self::currentBaseName();
+        if (!$resolvedName) return [];
+
+        // If params are not explicitly provided and we're resolving the
+        // current route, pull params from the request and normalize them.
+        if (empty($params)) {
+            $currentBase = self::currentBaseName();
+            if ($currentBase === $resolvedName) {
+                $current = request()->route();
+                $raw = $current ? $current->parameters() : [];
+                $params = self::normalizeParams($raw);
+            }
+        }
 
         $out = [];
         foreach (config('localized_routes.locales', ['en']) as $locale) {
-            $out[$locale] = self::urlFor($name, $params, $locale);
+            try {
+                $out[$locale] = self::urlFor($resolvedName, $params, $locale);
+            } catch (\Throwable $e) {
+                // Fallback to home if target route requires params we don't have.
+                $out[$locale] = self::urlFor('home', [], $locale);
+            }
+        }
+        return $out;
+    }
+
+    /**
+     * Convert a mixed bag of route parameters (Eloquent models, strings, ints)
+     * into a flat array of scalars suitable for route() generation.
+     */
+    protected static function normalizeParams(array $params): array
+    {
+        $out = [];
+        foreach ($params as $key => $value) {
+            if ($value instanceof \Illuminate\Database\Eloquent\Model) {
+                $out[$key] = $value->getRouteKey();
+            } else {
+                $out[$key] = $value;
+            }
         }
         return $out;
     }

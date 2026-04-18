@@ -11,7 +11,16 @@ use Illuminate\Support\Facades\Route;
 Route::redirect('/home', '/', 301);
 
 // Sitemap (top-level, not localized)
-Route::get('/sitemap.xml', [HomeController::class, 'sitemap'])->name('sitemap');
+Route::get('/sitemap.xml', \App\Http\Controllers\SitemapController::class)->name('sitemap');
+
+// Dynamic robots.txt (top-level, not localized)
+Route::get('/robots.txt', \App\Http\Controllers\RobotsController::class)->name('robots');
+
+// RSS feed (top-level + per-locale prefix). The controller resolves locale from
+// the request-scoped locale set by middleware (same URL convention as sitemap).
+Route::get('/feed.xml', \App\Http\Controllers\FeedController::class)->name('feed.en');
+Route::get('/it/feed.xml', \App\Http\Controllers\FeedController::class)->name('feed.it');
+Route::get('/fr/feed.xml', \App\Http\Controllers\FeedController::class)->name('feed.fr');
 
 // Newsletter (form POST, not localized)
 Route::post('/newsletter', [HomeController::class, 'newsletter'])->name('newsletter');

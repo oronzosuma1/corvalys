@@ -3,6 +3,28 @@
 @section('title', __('seo.consulenza.title'))
 @section('meta_description', __('seo.consulenza.description'))
 
+@php
+    $consulenzaFaqs = [];
+    for ($i = 1; $i <= 6; $i++) {
+        $q = __("consulenza.faq.q{$i}");
+        $a = __("consulenza.faq.a{$i}");
+        // Skip if translation is missing
+        if ($q !== "consulenza.faq.q{$i}" && $a !== "consulenza.faq.a{$i}") {
+            $consulenzaFaqs[] = ['q' => $q, 'a' => $a];
+        }
+    }
+    $consulenzaBreadcrumbs = \App\Support\JsonLd::breadcrumbs([
+        ['name' => 'Home', 'url' => route('home')],
+        ['name' => __('seo.consulenza.title'), 'url' => route('consulenza')],
+    ]);
+@endphp
+@push('head')
+    @if(!empty($consulenzaFaqs))
+        <x-json-ld :data="\App\Support\JsonLd::faqPage($consulenzaFaqs)" />
+    @endif
+    <x-json-ld :data="$consulenzaBreadcrumbs" />
+@endpush
+
 @section('content')
 
     {{-- ── Hero ── --}}

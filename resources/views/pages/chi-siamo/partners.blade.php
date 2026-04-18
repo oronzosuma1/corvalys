@@ -3,6 +3,14 @@
 @section('title', __('seo.chi_siamo_partners.title'))
 @section('meta_description', __('seo.chi_siamo_partners.description'))
 
+@push('head')
+    <x-json-ld :data="\App\Support\JsonLd::breadcrumbs([
+        ['name' => 'Home', 'url' => route('home')],
+        ['name' => __('seo.chi_siamo.title'), 'url' => route('chi-siamo')],
+        ['name' => __('seo.chi_siamo_partners.title'), 'url' => route('chi-siamo.partners')],
+    ])" />
+@endpush
+
 @section('content')
 
     {{-- ── Hero ── --}}

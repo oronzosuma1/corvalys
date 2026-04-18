@@ -3,6 +3,13 @@
 @section('title', __('seo.cookie.title'))
 @section('meta_description', __('seo.cookie.description'))
 
+@push('head')
+    <x-json-ld :data="\App\Support\JsonLd::breadcrumbs([
+        ['name' => 'Home', 'url' => route('home')],
+        ['name' => __('seo.cookie.title'), 'url' => route('cookie')],
+    ])" />
+@endpush
+
 @php
     use League\CommonMark\Environment\Environment;
     use League\CommonMark\Extension\Autolink\AutolinkExtension;

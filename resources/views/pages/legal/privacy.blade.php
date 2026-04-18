@@ -3,6 +3,13 @@
 @section('title', __('seo.privacy.title'))
 @section('meta_description', __('seo.privacy.description'))
 
+@push('head')
+    <x-json-ld :data="\App\Support\JsonLd::breadcrumbs([
+        ['name' => 'Home', 'url' => route('home')],
+        ['name' => __('seo.privacy.title'), 'url' => route('privacy')],
+    ])" />
+@endpush
+
 @php
     use League\CommonMark\Environment\Environment;
     use League\CommonMark\Extension\Autolink\AutolinkExtension;

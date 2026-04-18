@@ -3,6 +3,26 @@
 @section('title', __('seo.prodotto_show.title', ['product' => $service->name]))
 @section('meta_description', $service->short_description ?? __('seo.prodotto_show.description'))
 
+@php
+    $productSchema = \App\Support\JsonLd::product([
+        'name' => $service->name,
+        'description' => $service->short_description ?? $service->description ?? '',
+        'image' => $service->image_url ?? asset('images/og-default.png'),
+        'url' => route('prodotti.show', $service),
+        'sku' => 'CRV-' . strtoupper(str_replace('-', '_', $service->slug)),
+        'availability' => 'https://schema.org/PreOrder',
+    ]);
+    $productBreadcrumbs = \App\Support\JsonLd::breadcrumbs([
+        ['name' => 'Home', 'url' => route('home')],
+        ['name' => __('seo.prodotti.title'), 'url' => route('prodotti')],
+        ['name' => $service->name, 'url' => route('prodotti.show', $service)],
+    ]);
+@endphp
+@push('head')
+    <x-json-ld :data="$productSchema" />
+    <x-json-ld :data="$productBreadcrumbs" />
+@endpush
+
 @section('content')
 
     {{-- ── Breadcrumb ── --}}

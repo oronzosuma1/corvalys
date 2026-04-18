@@ -3,6 +3,14 @@
 @section('title', __('seo.contatto.title'))
 @section('meta_description', __('seo.contatto.description'))
 
+@push('head')
+    <x-json-ld :data="\App\Support\JsonLd::contactPage(route('contatto'), __('seo.contatto.title'))" />
+    <x-json-ld :data="\App\Support\JsonLd::breadcrumbs([
+        ['name' => 'Home', 'url' => route('home')],
+        ['name' => __('seo.contatto.title'), 'url' => route('contatto')],
+    ])" />
+@endpush
+
 @section('content')
 
     {{-- ── Success flash ── --}}

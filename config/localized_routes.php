@@ -94,7 +94,7 @@ return [
             'controller' => [\App\Http\Controllers\BlogController::class, 'index'],
         ],
         'blog.show' => [
-            'paths' => ['en' => 'blog/{article:slug}', 'it' => 'blog/{article:slug}', 'fr' => 'blog/{article:slug}'],
+            'paths' => ['en' => 'blog/{slug}', 'it' => 'blog/{slug}', 'fr' => 'blog/{slug}'],
             'controller' => [\App\Http\Controllers\BlogController::class, 'show'],
         ],
         'privacy' => [

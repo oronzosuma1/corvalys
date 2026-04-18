@@ -3,6 +3,13 @@
 @section('title', __('seo.termini.title'))
 @section('meta_description', __('seo.termini.description'))
 
+@push('head')
+    <x-json-ld :data="\App\Support\JsonLd::breadcrumbs([
+        ['name' => 'Home', 'url' => route('home')],
+        ['name' => __('seo.termini.title'), 'url' => route('termini')],
+    ])" />
+@endpush
+
 @php
     use League\CommonMark\Environment\Environment;
     use League\CommonMark\Extension\Autolink\AutolinkExtension;

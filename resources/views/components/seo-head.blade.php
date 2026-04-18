@@ -114,18 +114,6 @@
 <meta name="apple-mobile-web-app-title" content="Corvalys">
 <link rel="manifest" href="{{ asset('manifest.json') }}">
 
-{{-- JSON-LD Organization (default) --}}
-<script type="application/ld+json">
-{!! json_encode([
-    '@context' => 'https://schema.org',
-    '@type' => 'Organization',
-    'name' => 'Corvalys',
-    'url' => $appUrl,
-    'logo' => asset('images/logo-corvalys.png'),
-    'sameAs' => ['https://www.linkedin.com/company/corvalysholding']
-], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
-</script>
-
 {{-- Additional schema (if provided) --}}
 @foreach($schema as $schemaItem)
 <script type="application/ld+json">

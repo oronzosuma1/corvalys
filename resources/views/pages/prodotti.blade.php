@@ -3,6 +3,13 @@
 @section('title', __('seo.prodotti.title'))
 @section('meta_description', __('seo.prodotti.description'))
 
+@push('head')
+    <x-json-ld :data="\App\Support\JsonLd::breadcrumbs([
+        ['name' => 'Home', 'url' => route('home')],
+        ['name' => __('seo.prodotti.title'), 'url' => route('prodotti')],
+    ])" />
+@endpush
+
 @section('content')
 
     {{-- ── Hero ── --}}
