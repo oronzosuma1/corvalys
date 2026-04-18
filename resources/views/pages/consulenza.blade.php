@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', __('consulting.meta.title', [], app()->getLocale()) ?: 'Servizi AI & Consulenza — Corvalys')
-@section('meta_description', __('consulting.meta.description', [], app()->getLocale()) ?: '')
+@section('title', __('seo.consulenza.title'))
+@section('meta_description', __('seo.consulenza.description'))
 
 @section('content')
 

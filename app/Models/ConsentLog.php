@@ -4,6 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @deprecated Use CookieConsent instead. This model is kept for existing
+ * records in the consent_logs table which is no longer written to.
+ */
 class ConsentLog extends Model
 {
     protected $guarded = ['id'];

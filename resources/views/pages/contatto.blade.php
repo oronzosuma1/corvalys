@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', __('contact.meta.title', [], app()->getLocale()) ?: 'Contatto — Corvalys')
-@section('meta_description', __('contact.meta.description', [], app()->getLocale()) ?: '')
+@section('title', __('seo.contatto.title'))
+@section('meta_description', __('seo.contatto.description'))
 
 @section('content')
 

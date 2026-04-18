@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'AI Readiness Assessment — Corvalys')
-@section('meta_description', 'Evaluate your organisation\'s AI readiness across 6 key dimensions. Get personalised insights and recommendations for your AI journey.')
+@section('title', __('seo.survey.title'))
+@section('meta_description', __('seo.survey.description'))
 
 @push('head')
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>

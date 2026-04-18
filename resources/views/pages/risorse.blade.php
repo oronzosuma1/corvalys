@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', __('resources.meta.title', [], app()->getLocale()) ?: 'Risorse — Corvalys')
-@section('meta_description', __('resources.meta.description', [], app()->getLocale()) ?: '')
+@section('title', __('seo.risorse.title'))
+@section('meta_description', __('seo.risorse.description'))
 
 @section('content')
 

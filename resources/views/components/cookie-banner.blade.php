@@ -1,4 +1,4 @@
-{{-- GDPR Cookie Consent Banner --}}
+{{-- GDPR / ePrivacy / Garante 2021 compliant cookie consent banner --}}
 <div x-data="cookieConsent"
      x-cloak
      x-show="open"
@@ -25,7 +25,6 @@
              class="p-6">
 
             <div class="flex items-start gap-3 mb-3">
-                {{-- Cookie icon --}}
                 <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-light flex items-center justify-center">
                     <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -39,38 +38,38 @@
                 <h2 id="cookie-banner-title"
                     class="font-heading font-bold text-gray-900 text-lg leading-tight pt-1"
                     data-i18n="cookie.banner.title">
-                    We value your privacy
+                    {{ __('cookie.banner.title') }}
                 </h2>
             </div>
 
             <p id="cookie-banner-desc"
                class="text-sm text-gray-600 leading-relaxed mb-5"
                data-i18n="cookie.banner.intro">
-                We use cookies to improve your experience, analyze traffic, and personalize content. See our Cookie Policy for details.
+                {{ __('cookie.banner.intro') }}
             </p>
 
             {{-- Three equal-prominence buttons (no dark patterns) --}}
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
                 <button type="button"
                         @click="rejectAll()"
-                        aria-label="Reject all non-essential cookies"
+                        aria-label="{{ __('cookie.aria.reject_all') }}"
                         class="px-4 py-2.5 rounded-lg border border-gray-300 bg-white text-gray-800 text-sm font-semibold hover:bg-gray-50 hover:border-gray-400 transition focus:outline-none focus:ring-2 focus:ring-primary/30"
                         data-i18n="cookie.banner.reject">
-                    Reject All
+                    {{ __('cookie.banner.reject') }}
                 </button>
                 <button type="button"
                         @click="view = 'categories'"
-                        aria-label="Customize cookie preferences"
+                        aria-label="{{ __('cookie.aria.customize') }}"
                         class="px-4 py-2.5 rounded-lg border border-gray-300 bg-white text-gray-800 text-sm font-semibold hover:bg-gray-50 hover:border-gray-400 transition focus:outline-none focus:ring-2 focus:ring-primary/30"
                         data-i18n="cookie.banner.customize">
-                    Customize
+                    {{ __('cookie.banner.customize') }}
                 </button>
                 <button type="button"
                         @click="acceptAll()"
-                        aria-label="Accept all cookies"
+                        aria-label="{{ __('cookie.aria.accept_all') }}"
                         class="px-4 py-2.5 rounded-lg border border-primary bg-primary text-white text-sm font-semibold hover:bg-primary-dark hover:border-primary-dark transition focus:outline-none focus:ring-2 focus:ring-primary/30"
                         data-i18n="cookie.banner.accept">
-                    Accept All
+                    {{ __('cookie.banner.accept') }}
                 </button>
             </div>
 
@@ -79,12 +78,12 @@
                 <a href="{{ route('privacy') }}"
                    class="hover:text-primary transition underline underline-offset-2"
                    data-i18n="nav.privacy">
-                    Privacy
+                    {{ __('cookie.nav.privacy') }}
                 </a>
                 <a href="{{ route('cookie') }}"
                    class="hover:text-primary transition underline underline-offset-2"
                    data-i18n="nav.cookie">
-                    Cookie Policy
+                    {{ __('cookie.nav.cookie') }}
                 </a>
             </div>
         </div>
@@ -99,33 +98,32 @@
             <div class="px-6 pt-6 pb-4 border-b border-gray-100">
                 <h2 class="font-heading font-bold text-gray-900 text-lg leading-tight"
                     data-i18n="cookie.banner.title">
-                    We value your privacy
+                    {{ __('cookie.banner.title') }}
                 </h2>
                 <p class="text-sm text-gray-600 mt-1"
                    data-i18n="cookie.banner.intro">
-                    We use cookies to improve your experience, analyze traffic, and personalize content. See our Cookie Policy for details.
+                    {{ __('cookie.banner.intro') }}
                 </p>
             </div>
 
             <div class="px-6 py-4 overflow-y-auto space-y-4">
 
-                {{-- 1. Strictly Necessary --}}
+                {{-- 1. Strictly Necessary (always on, locked) --}}
                 <div class="flex items-start justify-between gap-4 pb-4 border-b border-gray-100">
                     <div class="flex-1 min-w-0">
                         <h3 class="font-heading font-bold text-gray-900 text-sm"
                             data-i18n="cookie.cat.necessary.title">
-                            Strictly Necessary
+                            {{ __('cookie.cat.necessary.title') }}
                         </h3>
                         <p class="text-sm text-gray-600 mt-1"
                            data-i18n="cookie.cat.necessary.desc">
-                            Required for the site to function. Cannot be disabled.
+                            {{ __('cookie.cat.necessary.desc') }}
                         </p>
                     </div>
-                    {{-- Locked toggle (always on) --}}
                     <div class="flex-shrink-0 pt-0.5">
                         <button type="button"
                                 disabled
-                                aria-label="Strictly necessary cookies are always on"
+                                aria-label="{{ __('cookie.aria.necessary_locked') }}"
                                 aria-pressed="true"
                                 class="relative inline-flex h-6 w-11 items-center rounded-full bg-primary/60 cursor-not-allowed opacity-80">
                             <span class="inline-block h-5 w-5 translate-x-5 rounded-full bg-white shadow"></span>
@@ -133,23 +131,23 @@
                     </div>
                 </div>
 
-                {{-- 2. Functional --}}
+                {{-- 2. Functional (default OFF) --}}
                 <div class="flex items-start justify-between gap-4 pb-4 border-b border-gray-100">
                     <div class="flex-1 min-w-0">
                         <h3 class="font-heading font-bold text-gray-900 text-sm"
                             data-i18n="cookie.cat.functional.title">
-                            Functional
+                            {{ __('cookie.cat.functional.title') }}
                         </h3>
                         <p class="text-sm text-gray-600 mt-1"
                            data-i18n="cookie.cat.functional.desc">
-                            Remember your preferences (language, theme).
+                            {{ __('cookie.cat.functional.desc') }}
                         </p>
                     </div>
                     <div class="flex-shrink-0 pt-0.5">
                         <button type="button"
                                 @click="categories.functional = !categories.functional"
                                 :aria-pressed="categories.functional.toString()"
-                                aria-label="Toggle functional cookies"
+                                aria-label="{{ __('cookie.aria.toggle_functional') }}"
                                 :class="categories.functional ? 'bg-primary' : 'bg-gray-300'"
                                 class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary/30">
                             <span class="inline-block h-5 w-5 rounded-full bg-white shadow transition-transform"
@@ -158,23 +156,23 @@
                     </div>
                 </div>
 
-                {{-- 3. Analytics --}}
+                {{-- 3. Analytics (default OFF) --}}
                 <div class="flex items-start justify-between gap-4 pb-4 border-b border-gray-100">
                     <div class="flex-1 min-w-0">
                         <h3 class="font-heading font-bold text-gray-900 text-sm"
                             data-i18n="cookie.cat.analytics.title">
-                            Analytics
+                            {{ __('cookie.cat.analytics.title') }}
                         </h3>
                         <p class="text-sm text-gray-600 mt-1"
                            data-i18n="cookie.cat.analytics.desc">
-                            Help us understand how visitors use the site.
+                            {{ __('cookie.cat.analytics.desc') }}
                         </p>
                     </div>
                     <div class="flex-shrink-0 pt-0.5">
                         <button type="button"
                                 @click="categories.analytics = !categories.analytics"
                                 :aria-pressed="categories.analytics.toString()"
-                                aria-label="Toggle analytics cookies"
+                                aria-label="{{ __('cookie.aria.toggle_analytics') }}"
                                 :class="categories.analytics ? 'bg-primary' : 'bg-gray-300'"
                                 class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary/30">
                             <span class="inline-block h-5 w-5 rounded-full bg-white shadow transition-transform"
@@ -183,23 +181,23 @@
                     </div>
                 </div>
 
-                {{-- 4. Marketing --}}
+                {{-- 4. Marketing (default OFF) --}}
                 <div class="flex items-start justify-between gap-4">
                     <div class="flex-1 min-w-0">
                         <h3 class="font-heading font-bold text-gray-900 text-sm"
                             data-i18n="cookie.cat.marketing.title">
-                            Marketing
+                            {{ __('cookie.cat.marketing.title') }}
                         </h3>
                         <p class="text-sm text-gray-600 mt-1"
                            data-i18n="cookie.cat.marketing.desc">
-                            Personalized ads and content.
+                            {{ __('cookie.cat.marketing.desc') }}
                         </p>
                     </div>
                     <div class="flex-shrink-0 pt-0.5">
                         <button type="button"
                                 @click="categories.marketing = !categories.marketing"
                                 :aria-pressed="categories.marketing.toString()"
-                                aria-label="Toggle marketing cookies"
+                                aria-label="{{ __('cookie.aria.toggle_marketing') }}"
                                 :class="categories.marketing ? 'bg-primary' : 'bg-gray-300'"
                                 class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary/30">
                             <span class="inline-block h-5 w-5 rounded-full bg-white shadow transition-transform"
@@ -215,14 +213,14 @@
                         @click="view = 'compact'"
                         class="text-sm text-gray-600 hover:text-gray-900 font-medium transition focus:outline-none focus:ring-2 focus:ring-primary/30 rounded px-2 py-1"
                         data-i18n="cookie.banner.back">
-                    Back
+                    {{ __('cookie.banner.back') }}
                 </button>
                 <button type="button"
                         @click="saveCustom()"
-                        aria-label="Save cookie preferences"
+                        aria-label="{{ __('cookie.aria.save_prefs') }}"
                         class="px-5 py-2.5 rounded-lg border border-primary bg-primary text-white text-sm font-semibold hover:bg-primary-dark hover:border-primary-dark transition focus:outline-none focus:ring-2 focus:ring-primary/30"
                         data-i18n="cookie.banner.save">
-                    Save Preferences
+                    {{ __('cookie.banner.save') }}
                 </button>
             </div>
         </div>
@@ -232,94 +230,191 @@
 
 @push('scripts')
 <script>
-document.addEventListener('alpine:init', () => {
-    Alpine.data('cookieConsent', () => ({
-        open: false,
-        view: 'compact',
-        policyVersion: '1.0.0',
-        categories: {
-            necessary: true,
-            functional: true,
-            analytics: false,
-            marketing: false
-        },
+(function () {
+    var POLICY_VERSION = @json(config('legal.policy_version', '2026-04'));
+    var EXPIRES_MONTHS = @json((int) config('legal.consent_expires_months', 6));
+    var LOCALE = @json(app()->getLocale());
+    var ENDPOINT = @json(route('cookie-consent.store'));
+    var STORAGE_KEY = 'cookie_consent';
+    var DEFAULT_CATEGORIES_SAFE = { necessary: true, functional: false, analytics: false, marketing: false };
 
-        init() {
-            const stored = this.getStoredConsent();
-            if (!stored) {
-                // Respect DNT/GPC — default to reject if set
-                const dnt = navigator.doNotTrack === '1' || window.doNotTrack === '1';
-                const gpc = navigator.globalPrivacyControl === true;
-                if (dnt || gpc) {
-                    this.categories = { necessary: true, functional: false, analytics: false, marketing: false };
-                }
-                setTimeout(() => { this.open = true; }, 600);
-            } else {
-                this.categories = stored.categories;
-                // Dispatch global event so trackers can initialize
-                window.dispatchEvent(new CustomEvent('cookie-consent-ready', { detail: stored.categories }));
-            }
-            // Listen for external "open preferences" trigger
-            window.addEventListener('open-cookie-preferences', () => {
-                this.open = true;
-                this.view = 'categories';
-            });
-        },
-
-        getStoredConsent() {
+    // ──────────────────────────────────────────────────────────────
+    // GLOBAL HELPER — window.cookieConsent
+    // ──────────────────────────────────────────────────────────────
+    window.cookieConsent = {
+        /** Return {categories, savedAt, expiresAt, version, uuid} or null if missing/expired/stale-policy. */
+        read: function () {
             try {
-                const raw = localStorage.getItem('cookie_consent');
+                var raw = localStorage.getItem(STORAGE_KEY);
                 if (!raw) return null;
-                const parsed = JSON.parse(raw);
-                // Invalidate if policy version changed
-                if (parsed.version !== this.policyVersion) return null;
+                var parsed = JSON.parse(raw);
+                if (!parsed || !parsed.categories) return null;
+                if (parsed.version && parsed.version !== POLICY_VERSION) return null;
+                if (parsed.expiresAt && new Date(parsed.expiresAt) < new Date()) return null;
                 return parsed;
-            } catch (e) {
-                return null;
-            }
+            } catch (e) { return null; }
         },
-
-        save(action) {
-            const payload = {
-                version: this.policyVersion,
-                categories: { ...this.categories },
-                savedAt: new Date().toISOString()
-            };
-            localStorage.setItem('cookie_consent', JSON.stringify(payload));
-
-            // Send to backend
-            fetch('/api/consent', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name=csrf-token]')?.content || ''
-                },
-                body: JSON.stringify({
-                    categories: this.categories,
-                    action: action,
-                    policy_version: this.policyVersion
-                })
-            }).catch(() => {});
-
-            window.dispatchEvent(new CustomEvent('cookie-consent-ready', { detail: this.categories }));
-            this.open = false;
+        /** `cookieConsent.has('analytics')` → boolean */
+        has: function (category) {
+            var c = this.read();
+            return !!(c && c.categories && c.categories[category]);
         },
-
-        acceptAll() {
-            this.categories = { necessary: true, functional: true, analytics: true, marketing: true };
-            this.save('accept');
+        /** Current categories object (or null if no valid consent). */
+        categories: function () {
+            var c = this.read();
+            return c ? c.categories : null;
         },
-
-        rejectAll() {
-            this.categories = { necessary: true, functional: false, analytics: false, marketing: false };
-            this.save('reject');
+        /** Policy version constant (compiled from PHP). */
+        version: POLICY_VERSION,
+        /** Open the preferences modal. */
+        open: function () {
+            window.dispatchEvent(new CustomEvent('cookie-banner:open'));
         },
-
-        saveCustom() {
-            this.save('custom');
+        /** Reset consent (debug / test). */
+        reset: function () {
+            localStorage.removeItem(STORAGE_KEY);
         }
-    }));
-});
+    };
+
+    // Generate a UUID (RFC 4122 v4) without external libs
+    function uuid() {
+        if (crypto && typeof crypto.randomUUID === 'function') return crypto.randomUUID();
+        // Fallback
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+
+    function postToServer(payload) {
+        var meta = document.querySelector('meta[name=csrf-token]');
+        return fetch(ENDPOINT, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'X-CSRF-TOKEN': meta ? meta.content : ''
+            },
+            body: JSON.stringify(payload)
+        }).catch(function () { /* fire-and-forget */ });
+    }
+
+    // ──────────────────────────────────────────────────────────────
+    // GPC / DNT auto-reject on first visit (silent — no banner shown)
+    // ──────────────────────────────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', function () {
+        if (window.cookieConsent.read()) return; // already decided
+        var gpc = navigator.globalPrivacyControl === true;
+        if (!gpc) return; // DNT is deprecated; only GPC triggers silent auto-reject
+
+        var id = uuid();
+        var now = new Date();
+        var expires = new Date(now.getTime() + EXPIRES_MONTHS * 30 * 24 * 3600 * 1000);
+        var payload = {
+            version: POLICY_VERSION,
+            uuid: id,
+            categories: { necessary: true, functional: false, analytics: false, marketing: false },
+            savedAt: now.toISOString(),
+            expiresAt: expires.toISOString()
+        };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+        postToServer({
+            uuid: id,
+            categories: payload.categories,
+            action: 'gpc_auto_reject',
+            policy_version: POLICY_VERSION,
+            locale: LOCALE
+        });
+        window.dispatchEvent(new CustomEvent('consent:updated', { detail: { categories: payload.categories } }));
+        // Legacy event alias (backward compat with existing listeners)
+        window.dispatchEvent(new CustomEvent('cookie-consent-ready', { detail: payload.categories }));
+    });
+
+    // ──────────────────────────────────────────────────────────────
+    // ALPINE COMPONENT
+    // ──────────────────────────────────────────────────────────────
+    document.addEventListener('alpine:init', function () {
+        Alpine.data('cookieConsent', function () {
+            return {
+                open: false,
+                view: 'compact',
+                policyVersion: POLICY_VERSION,
+                // Defaults in Customize modal: only Necessary is true — GDPR strict consent
+                categories: { necessary: true, functional: false, analytics: false, marketing: false },
+
+                init: function () {
+                    var self = this;
+                    var stored = window.cookieConsent.read();
+
+                    if (!stored) {
+                        // If GPC is on, the DOMContentLoaded listener above already saved the choice silently.
+                        // Double-check and skip banner if consent is now present.
+                        if (navigator.globalPrivacyControl === true) {
+                            return;
+                        }
+                        // Delayed open for smoother perceived load
+                        setTimeout(function () { self.open = true; }, 600);
+                    } else {
+                        // Sync toggles to stored choice (for when user opens preferences)
+                        this.categories = Object.assign({}, DEFAULT_CATEGORIES_SAFE, stored.categories);
+                        // Dispatch both event names (new + legacy)
+                        window.dispatchEvent(new CustomEvent('consent:updated', { detail: { categories: stored.categories } }));
+                        window.dispatchEvent(new CustomEvent('cookie-consent-ready', { detail: stored.categories }));
+                    }
+
+                    // Listen for external "open preferences" triggers (new + legacy event names)
+                    window.addEventListener('cookie-banner:open', function () {
+                        self.view = 'categories';
+                        self.open = true;
+                    });
+                    window.addEventListener('open-cookie-preferences', function () {
+                        self.view = 'categories';
+                        self.open = true;
+                    });
+                },
+
+                save: function (action) {
+                    var now = new Date();
+                    var expires = new Date(now.getTime() + EXPIRES_MONTHS * 30 * 24 * 3600 * 1000);
+                    var id = (window.cookieConsent.read() || {}).uuid || uuid();
+                    var payload = {
+                        version: POLICY_VERSION,
+                        uuid: id,
+                        categories: Object.assign({}, this.categories),
+                        savedAt: now.toISOString(),
+                        expiresAt: expires.toISOString()
+                    };
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+                    postToServer({
+                        uuid: id,
+                        categories: this.categories,
+                        action: action,
+                        policy_version: POLICY_VERSION,
+                        locale: LOCALE
+                    });
+                    window.dispatchEvent(new CustomEvent('consent:updated', { detail: { categories: this.categories } }));
+                    // Legacy event alias
+                    window.dispatchEvent(new CustomEvent('cookie-consent-ready', { detail: this.categories }));
+                    this.open = false;
+                },
+
+                acceptAll: function () {
+                    this.categories = { necessary: true, functional: true, analytics: true, marketing: true };
+                    this.save('accept');
+                },
+
+                rejectAll: function () {
+                    this.categories = { necessary: true, functional: false, analytics: false, marketing: false };
+                    this.save('reject');
+                },
+
+                saveCustom: function () {
+                    this.categories.necessary = true; // never off
+                    this.save('custom');
+                }
+            };
+        });
+    });
+})();
 </script>
 @endpush

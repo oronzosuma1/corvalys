@@ -148,10 +148,10 @@
                 <ul class="space-y-2.5">
                     <li>
                         <button type="button"
-                           onclick="window.dispatchEvent(new CustomEvent('open-cookie-preferences'))"
+                           onclick="window.dispatchEvent(new CustomEvent('cookie-banner:open'))"
                            class="text-white/70 text-sm hover:text-white transition text-left"
                            data-i18n="nav.cookie-preferences">
-                            Cookie Preferences
+                            {{ __('cookie.banner.preferences_link') }}
                         </button>
                     </li>
                     <li>

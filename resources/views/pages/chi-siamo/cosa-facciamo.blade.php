@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', __('about.whatwedo.meta.title', [], app()->getLocale()) ?: 'Cosa Facciamo — Corvalys')
-@section('meta_description', __('about.whatwedo.meta.description', [], app()->getLocale()) ?: '')
+@section('title', __('seo.chi_siamo_cosa_facciamo.title'))
+@section('meta_description', __('seo.chi_siamo_cosa_facciamo.description'))
 
 @section('content')
 

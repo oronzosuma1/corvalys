@@ -68,29 +68,49 @@ const observer = new MutationObserver(() => {
 });
 observer.observe(document.body, { childList: true, subtree: true });
 
-/* ── Cookie consent tracker activation ── */
-function activateTrackers(categories) {
-    document.querySelectorAll('script[type="text/plain"][data-tracker-category]').forEach(el => {
-        const cat = el.getAttribute('data-tracker-category');
-        if (categories[cat]) {
-            const newScript = document.createElement('script');
-            // Copy attributes
-            if (el.dataset.src) {
-                newScript.src = el.dataset.src;
-            } else {
-                newScript.textContent = el.textContent;
-            }
-            if (el.id) newScript.id = el.id + '-activated';
-            newScript.setAttribute('data-activated-from', cat);
-            el.parentNode.insertBefore(newScript, el.nextSibling);
+/* ── Consent-gated script loader ──
+ * Scripts wrapped in <x-consent-script category="analytics" src="..."> are
+ * emitted as <script type="text/plain" data-consent="..."> so the browser
+ * never executes them until the user grants consent for that category.
+ *
+ * Selector accepts both the new (data-consent) and legacy (data-tracker-category)
+ * attributes for backward compatibility.
+ */
+function activateConsentedScripts(categories) {
+    if (!categories) return;
+    const sel = 'script[type="text/plain"][data-consent], script[type="text/plain"][data-tracker-category]';
+    document.querySelectorAll(sel).forEach(el => {
+        const cat = el.getAttribute('data-consent') || el.getAttribute('data-tracker-category');
+        if (!categories[cat]) return;
+        if (el.dataset.activated === '1') return; // idempotent
+
+        const s = document.createElement('script');
+        if (el.dataset.src) {
+            s.src = el.dataset.src;
+        } else {
+            s.textContent = el.textContent;
         }
+        if (el.dataset.async === 'true') s.async = true;
+        if (el.dataset.defer === 'true') s.defer = true;
+        if (el.id) s.id = el.id + '-activated';
+        s.setAttribute('data-activated-from', cat);
+        el.dataset.activated = '1';
+        el.parentNode.insertBefore(s, el.nextSibling);
     });
 }
-window.addEventListener('cookie-consent-ready', (e) => activateTrackers(e.detail));
-// Also activate on page load if consent already stored
+
+// Listen for new + legacy events
+window.addEventListener('consent:updated', (e) => {
+    const categories = (e.detail && e.detail.categories) ? e.detail.categories : e.detail;
+    activateConsentedScripts(categories);
+});
+window.addEventListener('cookie-consent-ready', (e) => activateConsentedScripts(e.detail));
+
+// Activate on initial page load if valid consent is already stored
 document.addEventListener('DOMContentLoaded', () => {
     try {
-        const stored = JSON.parse(localStorage.getItem('cookie_consent') || 'null');
-        if (stored && stored.categories) activateTrackers(stored.categories);
+        const cats = (window.cookieConsent && window.cookieConsent.categories())
+            || (JSON.parse(localStorage.getItem('cookie_consent') || 'null') || {}).categories;
+        if (cats) activateConsentedScripts(cats);
     } catch (e) {}
 });

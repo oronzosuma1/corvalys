@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', __('blog.meta.title', [], app()->getLocale()) ?: 'Blog — Corvalys')
-@section('meta_description', __('blog.meta.description', [], app()->getLocale()) ?: '')
+@section('title', __('seo.blog_index.title'))
+@section('meta_description', __('seo.blog_index.description'))
 
 @section('content')
 

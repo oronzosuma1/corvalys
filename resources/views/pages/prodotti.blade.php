@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', __('products.meta.title', [], app()->getLocale()) ?: 'Prodotti — Corvalys')
-@section('meta_description', __('products.meta.description', [], app()->getLocale()) ?: '')
+@section('title', __('seo.prodotti.title'))
+@section('meta_description', __('seo.prodotti.description'))
 
 @section('content')
 

@@ -5,9 +5,11 @@
         init() {
             // Hide if banner is open; track via custom events.
             this.bannerOpen = false;
-            window.addEventListener('open-cookie-preferences', () => { this.bannerOpen = true; });
-            // Reset when consent is saved (banner closes and dispatches ready)
-            window.addEventListener('cookie-consent-ready', () => { this.bannerOpen = false; });
+            window.addEventListener('cookie-banner:open', () => { this.bannerOpen = true; });
+            window.addEventListener('open-cookie-preferences', () => { this.bannerOpen = true; }); // legacy alias
+            // Reset when consent is saved
+            window.addEventListener('consent:updated', () => { this.bannerOpen = false; });
+            window.addEventListener('cookie-consent-ready', () => { this.bannerOpen = false; }); // legacy alias
         }
      }"
      x-cloak
@@ -21,8 +23,9 @@
      class="fixed bottom-4 left-4 z-[9998]"
      style="display: none;">
     <button type="button"
-            @click="window.dispatchEvent(new CustomEvent('open-cookie-preferences'))"
-            aria-label="Open cookie preferences"
+            @click="window.dispatchEvent(new CustomEvent('cookie-banner:open'))"
+            aria-label="{{ __('cookie.banner.preferences_link') }}"
+            title="{{ __('cookie.banner.preferences_link') }}"
             data-i18n-title="nav.cookie-preferences"
             class="group flex items-center justify-center w-12 h-12 rounded-full bg-white border border-gray-200 shadow-lg hover:shadow-xl hover:border-primary/40 transition focus:outline-none focus:ring-2 focus:ring-primary/30">
         {{-- Fingerprint / cookie icon --}}

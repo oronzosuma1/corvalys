@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', __('legal.cookie.meta_title', [], app()->getLocale()) ?: 'Cookie Policy — Corvalys')
-@section('meta_description', __('legal.cookie.meta_description', [], app()->getLocale()) ?: '')
+@section('title', __('seo.cookie.title'))
+@section('meta_description', __('seo.cookie.description'))
 
 @php
     use League\CommonMark\Environment\Environment;

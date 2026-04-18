@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', __('home.meta.title', [], app()->getLocale()) ?: 'Corvalys — AI Consulting & Operational Improvement for European SMEs')
-@section('meta_description', __('home.meta.description', [], app()->getLocale()) ?: 'Practical AI consulting for European SMEs. Assessment, implementation, and managed support. GDPR compliant, EU AI Act ready.')
+@section('title', __('seo.home.title'))
+@section('meta_description', __('seo.home.description'))
 
 @section('content')
 

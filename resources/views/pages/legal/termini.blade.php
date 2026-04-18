@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', __('legal.terms.meta_title', [], app()->getLocale()) ?: 'Terms of Service — Corvalys')
-@section('meta_description', __('legal.terms.meta_description', [], app()->getLocale()) ?: '')
+@section('title', __('seo.termini.title'))
+@section('meta_description', __('seo.termini.description'))
 
 @php
     use League\CommonMark\Environment\Environment;

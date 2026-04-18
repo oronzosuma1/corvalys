@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', __('about.partners.meta.title', [], app()->getLocale()) ?: 'I Nostri Partner — Corvalys')
-@section('meta_description', __('about.partners.meta.description', [], app()->getLocale()) ?: '')
+@section('title', __('seo.chi_siamo_partners.title'))
+@section('meta_description', __('seo.chi_siamo_partners.description'))
 
 @section('content')
 

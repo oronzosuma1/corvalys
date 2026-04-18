@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', $service->name . ' — Corvalys')
-@section('meta_description', $service->short_description)
+@section('title', __('seo.prodotto_show.title', ['product' => $service->name]))
+@section('meta_description', $service->short_description ?? __('seo.prodotto_show.description'))
 
 @section('content')
 

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', __('legal.privacy.meta_title', [], app()->getLocale()) ?: 'Privacy Policy — Corvalys')
-@section('meta_description', __('legal.privacy.meta_description', [], app()->getLocale()) ?: '')
+@section('title', __('seo.privacy.title'))
+@section('meta_description', __('seo.privacy.description'))
 
 @php
     use League\CommonMark\Environment\Environment;

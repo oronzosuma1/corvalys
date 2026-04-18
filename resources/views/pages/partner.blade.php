@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', __('partner.meta.title', [], app()->getLocale()) ?: 'Diventa Partner — Corvalys')
-@section('meta_description', __('partner.meta.description', [], app()->getLocale()) ?: '')
+@section('title', __('seo.partner.title'))
+@section('meta_description', __('seo.partner.description'))
 
 @section('content')
 

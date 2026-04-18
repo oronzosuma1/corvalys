@@ -46,3 +46,7 @@ Route::get('/sitemap.xml', [HomeController::class, 'sitemap'])->name('sitemap');
 Route::post('/api/consent', [\App\Http\Controllers\Api\ConsentController::class, 'store'])
     ->middleware(['throttle:30,1'])
     ->name('consent.store');
+
+Route::post('/api/cookie-consent', [\App\Http\Controllers\Api\ConsentController::class, 'store'])
+    ->middleware(['throttle:30,1'])
+    ->name('cookie-consent.store');

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', $article->title . ' — Corvalys')
-@section('meta_description', $article->excerpt ?? '')
+@section('title', __('seo.blog_show.title', ['title' => $article->title]))
+@section('meta_description', $article->excerpt ?? __('seo.blog_show.description'))
 
 @section('content')
 

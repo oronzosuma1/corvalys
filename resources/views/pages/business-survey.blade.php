@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Business Survey — Corvalys')
-@section('meta_description', 'Help us understand the repetitive, frustrating, and time-consuming tasks European businesses want to solve first.')
+@section('title', __('seo.business_survey.title'))
+@section('meta_description', __('seo.business_survey.description'))
 
 @section('content')
 <section class="min-h-screen bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 py-8 sm:py-12 lg:py-16"

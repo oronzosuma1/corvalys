@@ -16,10 +16,15 @@
 ])
 @php
     $siteName = 'Corvalys';
-    $defaultTitle = 'Corvalys — AI Consulting & Operational Improvement for European SMEs';
-    $defaultDescription = 'Practical AI consulting for European SMEs. Assessment, implementation, and managed support. GDPR compliant, EU AI Act ready.';
-    $defaultImage = asset('images/logo-corvalys.png');
-    $currentUrl = url()->current();
+    $defaultTitle = trim((string) __('seo.default.title')) ?: 'Corvalys — AI Consulting & Operational Improvement for European SMEs';
+    $defaultDescription = trim((string) __('seo.default.description')) ?: 'Practical AI consulting for European SMEs. Assessment, implementation, and managed support. GDPR compliant, EU AI Act ready.';
+
+    // Prefer a dedicated 1200x630 OG image if present; fall back to brand logo.
+    $ogDefaultPath = public_path('images/og-default.png');
+    $defaultImage = file_exists($ogDefaultPath)
+        ? asset('images/og-default.png')
+        : asset('images/logo-corvalys.png');
+    $currentUrl = url()->current(); // without query string by default
     $appUrl = config('app.url');
 
     // Fallback to @section('title', ...) / @section('meta_description', ...) for

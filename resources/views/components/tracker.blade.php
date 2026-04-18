@@ -1,8 +1,10 @@
+{{--
+    @deprecated Use <x-consent-script /> instead.
+    This component is kept as a backward-compatible alias and forwards to the
+    new <x-consent-script> component. See consent-script.blade.php.
+--}}
 @props(['category' => 'analytics', 'src' => null, 'id' => null, 'inline' => null])
 
-<script type="text/plain"
-        data-tracker-category="{{ $category }}"
-        @if($src) data-src="{{ $src }}" @endif
-        @if($id) id="{{ $id }}" @endif>
-@if($inline){!! $inline !!}@else{{ $slot }}@endif
-</script>
+<x-consent-script :category="$category" :src="$src" :id="$id">
+    @if($inline){!! $inline !!}@else{{ $slot }}@endif
+</x-consent-script>
