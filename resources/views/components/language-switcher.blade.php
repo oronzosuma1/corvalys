@@ -1,15 +1,17 @@
 {{--
-    Language Switcher (i18n)
+    Language Switcher (i18n + URL localization)
 
-    POSTs to /language/{locale} which sets a `locale` cookie (1y) and
-    redirects back. The SetLocale middleware resolves that cookie on
-    subsequent requests, so server-rendered content (page titles, legal
-    bodies, lang/* files) aligns with the user's choice.
+    Each option POSTs to /language/{locale} which sets a 1-year `locale`
+    cookie and redirects to the equivalent URL in the chosen language
+    (hreflang alternate of the current page, computed via
+    App\Support\LocalizedRoutes::currentInLocale()).
 
-    Client-side JS i18n (translations.js) is kept for instant UI swap
-    without a page round-trip — localStorage.lang is synced from the cookie
-    on boot to keep the two sources consistent.
+    The Alpine store update keeps the client-side i18n in sync so the UI
+    doesn't flash the old language during the round-trip.
 --}}
+@php
+    $alternates = \App\Support\LocalizedRoutes::alternatesFor();
+@endphp
 <div x-data="{ open: false }" @click.away="open = false" class="relative">
     <button type="button"
             @click="open = !open"
@@ -30,10 +32,11 @@
         @foreach(['en' => 'English', 'it' => 'Italiano', 'fr' => 'Français'] as $code => $label)
             <form action="{{ route('language.switch', $code) }}" method="POST" class="block">
                 @csrf
-                <input type="hidden" name="redirect" value="{{ url()->current() }}">
+                {{-- Redirect to the equivalent localized URL, not the current URL --}}
+                <input type="hidden" name="redirect" value="{{ $alternates[$code] ?? url()->current() }}">
                 <button type="submit"
                         role="menuitem"
-                        @click="(function(){ try { localStorage.setItem('lang', '{{ $code }}'); } catch(e){} })(); $store.i18n.setLang('{{ $code }}');"
+                        @click="(function(){ try { localStorage.setItem('lang', '{{ $code }}'); document.cookie = 'locale={{ $code }}; path=/; max-age=31536000; samesite=lax'; } catch(e){} })(); $store.i18n.setLang('{{ $code }}');"
                         class="w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition"
                         :class="$store.i18n.lang === '{{ $code }}' ? 'text-primary font-semibold' : 'text-gray-600'">
                     {{ $label }}

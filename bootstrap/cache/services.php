@@ -31,6 +31,10 @@
     27 => 'Livewire\\LivewireServiceProvider',
     28 => 'Carbon\\Laravel\\ServiceProvider',
     29 => 'Termwind\\Laravel\\TermwindServiceProvider',
+    30 => 'App\\Providers\\AppServiceProvider',
+    31 => 'App\\Providers\\LocalizedUrlServiceProvider',
+    32 => 'App\\Providers\\AppServiceProvider',
+    33 => 'App\\Providers\\LocalizedUrlServiceProvider',
   ),
   'eager' => 
   array (
@@ -49,6 +53,10 @@
     12 => 'Livewire\\LivewireServiceProvider',
     13 => 'Carbon\\Laravel\\ServiceProvider',
     14 => 'Termwind\\Laravel\\TermwindServiceProvider',
+    15 => 'App\\Providers\\AppServiceProvider',
+    16 => 'App\\Providers\\LocalizedUrlServiceProvider',
+    17 => 'App\\Providers\\AppServiceProvider',
+    18 => 'App\\Providers\\LocalizedUrlServiceProvider',
   ),
   'deferred' => 
   array (

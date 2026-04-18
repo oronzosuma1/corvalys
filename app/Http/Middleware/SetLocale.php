@@ -30,19 +30,27 @@ class SetLocale
 
     private function resolveLocale(Request $request): ?string
     {
-        // 1. Query string override (?lang=it) — useful for testing
+        // 1. URL path prefix — highest priority so Google crawling /it/... always
+        //    renders the Italian version regardless of the user's cookie.
+        $path = trim($request->path(), '/');
+        $firstSegment = strtolower(strtok($path, '/') ?: '');
+        if ($firstSegment && in_array($firstSegment, self::SUPPORTED, true) && $firstSegment !== 'en') {
+            return $firstSegment;
+        }
+
+        // 2. Query string override (?lang=it) — useful for testing
         $qs = $request->query('lang');
         if ($qs && in_array($qs, self::SUPPORTED, true)) {
             return $qs;
         }
 
-        // 2. Cookie
+        // 3. Cookie
         $cookie = $request->cookie(self::COOKIE);
         if ($cookie && in_array($cookie, self::SUPPORTED, true)) {
             return $cookie;
         }
 
-        // 3. Accept-Language best match
+        // 4. Accept-Language best match
         $header = (string) $request->header('Accept-Language', '');
         foreach (explode(',', $header) as $chunk) {
             $tag = strtolower(trim(explode(';', $chunk)[0]));

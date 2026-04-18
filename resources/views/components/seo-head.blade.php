@@ -43,6 +43,16 @@
         $finalCanonical = str_replace(url('/'), rtrim($appUrl, '/'), $finalCanonical);
     }
 
+    // Auto-generate hreflang alternates from the current localized route if
+    // the caller didn't pass them explicitly.
+    if (empty($alternates)) {
+        try {
+            $alternates = \App\Support\LocalizedRoutes::alternatesFor();
+        } catch (\Throwable $e) {
+            $alternates = [];
+        }
+    }
+
     $finalImage = $image ?? $defaultImage;
     if (!str_starts_with($finalImage, 'http')) {
         $finalImage = url($finalImage);
