@@ -11,13 +11,17 @@ use Illuminate\Support\Facades\Route;
 //     precedence over any colliding canonical paths. Blog, product detail
 //     and /legal/privacy currently contain Italian-only content, so every
 //     anonymous hit should go to the /it/... equivalent until English
-//     content ships. Laravel uses last-registered-wins for same-path routes.
-Route::get('/blog', fn () => redirect('/it/blog', 301));
+//     content ships.
+//     Each redirect keeps the same route NAME as the canonical LocalizedRoutes
+//     entry it replaces, so route('blog.index'), route('privacy'), etc.
+//     continue to resolve via the UrlGenerator override (fall back to .en name).
+Route::get('/blog', fn () => redirect('/it/blog', 301))->name('blog.index.en');
 Route::get('/blog/{slug}', fn (string $slug) => redirect("/it/blog/{$slug}", 301))
-    ->where('slug', '[A-Za-z0-9_\-]+');
+    ->where('slug', '[A-Za-z0-9_\-]+')
+    ->name('blog.show.en');
 Route::get('/prodotti/{slug}', fn (string $slug) => redirect("/it/prodotti/{$slug}", 301))
     ->where('slug', '[A-Za-z0-9_\-]+');
-Route::redirect('/legal/privacy', '/it/legale/privacy', 301);
+Route::redirect('/legal/privacy', '/it/legale/privacy', 301)->name('privacy.en');
 Route::redirect('/business-survey', '/it/business-survey', 301);
 Route::redirect('/it/survey', '/it/business-survey', 301);
 Route::redirect('/fr/survey', '/fr/sondage', 301);
