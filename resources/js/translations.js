@@ -26,6 +26,24 @@ export const translations = {
         "nav.privacy": "Privacy",
         "nav.termini": "Terms",
         "nav.cookie": "Cookie",
+        "nav.cookie-preferences": "Cookie Preferences",
+
+        // COOKIE CONSENT BANNER
+        "cookie.banner.title": "We value your privacy",
+        "cookie.banner.intro": "We use cookies to improve your experience, analyze traffic, and personalize content. See our Cookie Policy for details.",
+        "cookie.banner.accept": "Accept All",
+        "cookie.banner.reject": "Reject All",
+        "cookie.banner.customize": "Customize",
+        "cookie.banner.save": "Save Preferences",
+        "cookie.banner.back": "Back",
+        "cookie.cat.necessary.title": "Strictly Necessary",
+        "cookie.cat.necessary.desc": "Required for the site to function. Cannot be disabled.",
+        "cookie.cat.functional.title": "Functional",
+        "cookie.cat.functional.desc": "Remember your preferences (language, theme).",
+        "cookie.cat.analytics.title": "Analytics",
+        "cookie.cat.analytics.desc": "Help us understand how visitors use the site.",
+        "cookie.cat.marketing.title": "Marketing",
+        "cookie.cat.marketing.desc": "Personalized ads and content.",
 
         // HOMEPAGE
         "home.hero.badge": "Consultancy-First for European SMEs",
@@ -533,6 +551,24 @@ export const translations = {
         "nav.privacy": "Privacy",
         "nav.termini": "Termini",
         "nav.cookie": "Cookie",
+        "nav.cookie-preferences": "Preferenze cookie",
+
+        // COOKIE CONSENT BANNER
+        "cookie.banner.title": "La tua privacy è importante",
+        "cookie.banner.intro": "Utilizziamo cookie per migliorare la tua esperienza, analizzare il traffico e personalizzare i contenuti. Consulta la Cookie Policy per maggiori dettagli.",
+        "cookie.banner.accept": "Accetta tutti",
+        "cookie.banner.reject": "Rifiuta tutti",
+        "cookie.banner.customize": "Personalizza",
+        "cookie.banner.save": "Salva preferenze",
+        "cookie.banner.back": "Indietro",
+        "cookie.cat.necessary.title": "Strettamente necessari",
+        "cookie.cat.necessary.desc": "Necessari per il funzionamento del sito. Non disattivabili.",
+        "cookie.cat.functional.title": "Funzionali",
+        "cookie.cat.functional.desc": "Ricordano le tue preferenze (lingua, tema).",
+        "cookie.cat.analytics.title": "Statistiche",
+        "cookie.cat.analytics.desc": "Ci aiutano a capire come i visitatori usano il sito.",
+        "cookie.cat.marketing.title": "Marketing",
+        "cookie.cat.marketing.desc": "Annunci e contenuti personalizzati.",
 
         // HOMEPAGE
         "home.hero.badge": "Consulenza AI per le PMI Europee",
@@ -1040,6 +1076,24 @@ export const translations = {
         "nav.privacy": "Confidentialité",
         "nav.termini": "Conditions",
         "nav.cookie": "Cookie",
+        "nav.cookie-preferences": "Préférences cookies",
+
+        // COOKIE CONSENT BANNER
+        "cookie.banner.title": "Votre vie privée nous importe",
+        "cookie.banner.intro": "Nous utilisons des cookies pour améliorer votre expérience, analyser le trafic et personnaliser le contenu. Consultez notre Politique de cookies pour plus de détails.",
+        "cookie.banner.accept": "Tout accepter",
+        "cookie.banner.reject": "Tout refuser",
+        "cookie.banner.customize": "Personnaliser",
+        "cookie.banner.save": "Enregistrer les préférences",
+        "cookie.banner.back": "Retour",
+        "cookie.cat.necessary.title": "Strictement nécessaires",
+        "cookie.cat.necessary.desc": "Requis pour le fonctionnement du site. Non désactivables.",
+        "cookie.cat.functional.title": "Fonctionnels",
+        "cookie.cat.functional.desc": "Mémorisent vos préférences (langue, thème).",
+        "cookie.cat.analytics.title": "Analytique",
+        "cookie.cat.analytics.desc": "Nous aident à comprendre l'utilisation du site.",
+        "cookie.cat.marketing.title": "Marketing",
+        "cookie.cat.marketing.desc": "Publicités et contenus personnalisés.",
 
         // HOMEPAGE
         "home.hero.badge": "Conseil IA pour les PME Européennes",

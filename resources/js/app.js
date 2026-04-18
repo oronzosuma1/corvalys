@@ -67,3 +67,30 @@ const observer = new MutationObserver(() => {
     }, 100);
 });
 observer.observe(document.body, { childList: true, subtree: true });
+
+/* ── Cookie consent tracker activation ── */
+function activateTrackers(categories) {
+    document.querySelectorAll('script[type="text/plain"][data-tracker-category]').forEach(el => {
+        const cat = el.getAttribute('data-tracker-category');
+        if (categories[cat]) {
+            const newScript = document.createElement('script');
+            // Copy attributes
+            if (el.dataset.src) {
+                newScript.src = el.dataset.src;
+            } else {
+                newScript.textContent = el.textContent;
+            }
+            if (el.id) newScript.id = el.id + '-activated';
+            newScript.setAttribute('data-activated-from', cat);
+            el.parentNode.insertBefore(newScript, el.nextSibling);
+        }
+    });
+}
+window.addEventListener('cookie-consent-ready', (e) => activateTrackers(e.detail));
+// Also activate on page load if consent already stored
+document.addEventListener('DOMContentLoaded', () => {
+    try {
+        const stored = JSON.parse(localStorage.getItem('cookie_consent') || 'null');
+        if (stored && stored.categories) activateTrackers(stored.categories);
+    } catch (e) {}
+});

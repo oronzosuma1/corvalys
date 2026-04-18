@@ -5,20 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\NewsletterSubscriber;
 use App\Models\Service;
-use Artesaos\SEOTools\Facades\SEOTools;
-use Artesaos\SEOTools\Facades\JsonLd;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        SEOTools::setTitle('Corvalys — AI Consulting & Operational Improvement for European SMEs');
-        SEOTools::setDescription('Practical AI consulting for European SMEs. Assessment, implementation, and managed support. GDPR compliant, EU AI Act ready.');
-        JsonLd::setType('Organization');
-        JsonLd::addValue('name', 'Corvalys');
-        JsonLd::addValue('url', config('app.url'));
-
         $stats = [
             'sme' => '26.1M',
             'ore' => '9.85',

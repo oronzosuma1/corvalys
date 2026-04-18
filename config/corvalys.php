@@ -4,6 +4,7 @@ return [
     'enzo_email' => env('ENZO_EMAIL', 'enzo@corvalys.eu'),
     'calendly_url' => env('CALENDLY_URL'),
     'tinymce_key' => env('TINYMCE_KEY', ''),
+    'cookie_preferences_button' => env('COOKIE_PREFERENCES_BUTTON', false),
     'tariffe' => [
         'strategy' => ['min' => 150, 'max' => 250],
         'development' => ['min' => 120, 'max' => 200],

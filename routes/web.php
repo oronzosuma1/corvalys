@@ -41,3 +41,8 @@ Route::post('/ai-readiness', [SurveyController::class, 'store'])->name('survey.s
 Route::get('/survey', [BusinessSurveyController::class, 'index'])->name('business-survey');
 Route::post('/survey', [BusinessSurveyController::class, 'store'])->name('business-survey.store');
 Route::get('/sitemap.xml', [HomeController::class, 'sitemap'])->name('sitemap');
+
+// GDPR cookie consent logging (session + CSRF)
+Route::post('/api/consent', [\App\Http\Controllers\Api\ConsentController::class, 'store'])
+    ->middleware(['throttle:30,1'])
+    ->name('consent.store');

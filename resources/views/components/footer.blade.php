@@ -147,6 +147,14 @@
                 </h3>
                 <ul class="space-y-2.5">
                     <li>
+                        <button type="button"
+                           onclick="window.dispatchEvent(new CustomEvent('open-cookie-preferences'))"
+                           class="text-white/70 text-sm hover:text-white transition text-left"
+                           data-i18n="nav.cookie-preferences">
+                            Cookie Preferences
+                        </button>
+                    </li>
+                    <li>
                         <a href="{{ route('privacy') }}"
                            class="text-white/70 text-sm hover:text-white transition"
                            data-i18n="nav.privacy">
