@@ -16,6 +16,8 @@
                     required
                     data-i18n-placeholder="footer.newsletter.placeholder"
                     placeholder="your@email.com"
+                    data-i18n-aria-label="footer.newsletter.placeholder"
+                    aria-label="your@email.com"
                     class="flex-1 sm:w-64 px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-sm text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/30 transition"
                 />
                 <button
@@ -132,7 +134,8 @@
                     </li>
                     <li>
                         <a href="{{ route('business-survey') }}"
-                           class="text-white/70 text-sm hover:text-white transition">
+                           class="text-white/70 text-sm hover:text-white transition"
+                           data-i18n="nav.business_survey">
                             Business Survey
                         </a>
                     </li>

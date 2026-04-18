@@ -19,6 +19,12 @@ return Application::configure(basePath: dirname(__DIR__))
         // Redirect unauthenticated users to admin login
         $middleware->redirectGuestsTo('/admin/login');
 
+        // Locale resolution (cookie > ?lang= > Accept-Language) — must run
+        // before any controller so app()->getLocale() returns the right value.
+        $middleware->web(prepend: [
+            \App\Http\Middleware\SetLocale::class,
+        ]);
+
         // Track page views on all web requests
         $middleware->web(append: [
             \App\Http\Middleware\TrackPageViews::class,

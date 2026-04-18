@@ -27,8 +27,8 @@
     <section class="section bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-14">
-                <h2 class="section-title mb-4">Come Lavoriamo</h2>
-                <p class="section-sub mx-auto">Un modello a tre livelli per ogni fase del tuo percorso AI.</p>
+                <h2 class="section-title mb-4" data-i18n="consulenza.tiers.title">Come Lavoriamo</h2>
+                <p class="section-sub mx-auto" data-i18n="consulenza.tiers.sub">Un modello a tre livelli per ogni fase del tuo percorso AI.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -36,7 +36,7 @@
                 {{-- Tier 1 — Advisory --}}
                 <div class="relative bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl hover:border-primary/30 transition-all duration-300 flex flex-col">
                     {{-- Badge --}}
-                    <span class="absolute top-4 right-4 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-700">
+                    <span class="absolute top-4 right-4 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-700" data-i18n="consulenza.tier1.badge">
                         Inizia da qui
                     </span>
                     {{-- Icon --}}
@@ -46,12 +46,12 @@
                         </svg>
                     </div>
                     {{-- Content --}}
-                    <h3 class="font-heading text-xl font-bold text-gray-900 mb-1">Consulenza Strategica</h3>
-                    <p class="text-sm text-primary font-medium mb-3">Inizia da qui</p>
-                    <p class="text-gray-500 text-sm leading-relaxed flex-1 mb-5">
+                    <h3 class="font-heading text-xl font-bold text-gray-900 mb-1" data-i18n="consulenza.tier1.title">Consulenza Strategica</h3>
+                    <p class="text-sm text-primary font-medium mb-3" data-i18n="consulenza.tier1.subtitle">Inizia da qui</p>
+                    <p class="text-gray-500 text-sm leading-relaxed flex-1 mb-5" data-i18n="consulenza.tier1.desc">
                         Assessment AI, analisi dei processi, roadmap strategiche e valutazione della prontezza digitale.
                     </p>
-                    <a href="{{ route('contatto') }}" class="text-primary text-sm font-semibold hover:text-primary-dark transition-colors duration-200">
+                    <a href="{{ route('contatto') }}" class="text-primary text-sm font-semibold hover:text-primary-dark transition-colors duration-200" data-i18n="consulenza.tier1.cta">
                         Richiedi un preventivo &rarr;
                     </a>
                 </div>
@@ -59,7 +59,7 @@
                 {{-- Tier 2 — Implementation --}}
                 <div class="relative bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl hover:border-primary/30 transition-all duration-300 flex flex-col ring-2 ring-primary/20">
                     {{-- Badge --}}
-                    <span class="absolute top-4 right-4 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary text-white">
+                    <span class="absolute top-4 right-4 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary text-white" data-i18n="consulenza.tier2.badge">
                         Pi&ugrave; richiesto
                     </span>
                     {{-- Icon --}}
@@ -70,12 +70,12 @@
                         </svg>
                     </div>
                     {{-- Content --}}
-                    <h3 class="font-heading text-xl font-bold text-gray-900 mb-1">Implementazione</h3>
-                    <p class="text-sm text-primary font-medium mb-3">Vai in profondit&agrave;</p>
-                    <p class="text-gray-500 text-sm leading-relaxed flex-1 mb-5">
+                    <h3 class="font-heading text-xl font-bold text-gray-900 mb-1" data-i18n="consulenza.tier2.title">Implementazione</h3>
+                    <p class="text-sm text-primary font-medium mb-3" data-i18n="consulenza.tier2.subtitle">Vai in profondit&agrave;</p>
+                    <p class="text-gray-500 text-sm leading-relaxed flex-1 mb-5" data-i18n="consulenza.tier2.desc">
                         Sprint di sviluppo AI, automazione dei workflow, integrazione con i sistemi esistenti e formazione del team.
                     </p>
-                    <a href="{{ route('contatto') }}" class="text-primary text-sm font-semibold hover:text-primary-dark transition-colors duration-200">
+                    <a href="{{ route('contatto') }}" class="text-primary text-sm font-semibold hover:text-primary-dark transition-colors duration-200" data-i18n="consulenza.tier2.cta">
                         Richiedi un preventivo &rarr;
                     </a>
                 </div>
@@ -83,7 +83,7 @@
                 {{-- Tier 3 — Managed Support --}}
                 <div class="relative bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl hover:border-primary/30 transition-all duration-300 flex flex-col">
                     {{-- Badge --}}
-                    <span class="absolute top-4 right-4 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-800 text-white">
+                    <span class="absolute top-4 right-4 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-800 text-white" data-i18n="consulenza.tier3.badge">
                         Continuativo
                     </span>
                     {{-- Icon --}}
@@ -93,12 +93,12 @@
                         </svg>
                     </div>
                     {{-- Content --}}
-                    <h3 class="font-heading text-xl font-bold text-gray-900 mb-1">Supporto Gestito</h3>
-                    <p class="text-sm text-primary font-medium mb-3">Resta supportato</p>
-                    <p class="text-gray-500 text-sm leading-relaxed flex-1 mb-5">
+                    <h3 class="font-heading text-xl font-bold text-gray-900 mb-1" data-i18n="consulenza.tier3.title">Supporto Gestito</h3>
+                    <p class="text-sm text-primary font-medium mb-3" data-i18n="consulenza.tier3.subtitle">Resta supportato</p>
+                    <p class="text-gray-500 text-sm leading-relaxed flex-1 mb-5" data-i18n="consulenza.tier3.desc">
                         Supporto gestito continuativo, monitoraggio delle performance, ottimizzazione e accesso ai nostri strumenti SaaS.
                     </p>
-                    <a href="{{ route('contatto') }}" class="text-primary text-sm font-semibold hover:text-primary-dark transition-colors duration-200">
+                    <a href="{{ route('contatto') }}" class="text-primary text-sm font-semibold hover:text-primary-dark transition-colors duration-200" data-i18n="consulenza.tier3.cta">
                         Richiedi un preventivo &rarr;
                     </a>
                 </div>
@@ -196,10 +196,10 @@
                     <div class="w-20 h-20 rounded-2xl bg-white border-2 border-primary/20 shadow-md flex items-center justify-center mb-5">
                         <span class="font-heading text-2xl font-bold text-primary">1</span>
                     </div>
-                    <h3 class="font-heading text-lg font-bold text-gray-900 mb-2">
+                    <h3 class="font-heading text-lg font-bold text-gray-900 mb-2" data-i18n="consulenza.process.step1.title">
                         Scoperta
                     </h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">
+                    <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.process.step1.desc">
                         Analizziamo in profondit&agrave; le tue operazioni, i punti critici e gli obiettivi
                     </p>
                 </div>
@@ -209,10 +209,10 @@
                     <div class="w-20 h-20 rounded-2xl bg-white border-2 border-primary/20 shadow-md flex items-center justify-center mb-5">
                         <span class="font-heading text-2xl font-bold text-primary">2</span>
                     </div>
-                    <h3 class="font-heading text-lg font-bold text-gray-900 mb-2">
+                    <h3 class="font-heading text-lg font-bold text-gray-900 mb-2" data-i18n="consulenza.process.step2.title">
                         Diagnosi
                     </h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">
+                    <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.process.step2.desc">
                         Identifichiamo dove l'AI crea valore reale e misurabile
                     </p>
                 </div>
@@ -222,10 +222,10 @@
                     <div class="w-20 h-20 rounded-2xl bg-white border-2 border-primary/20 shadow-md flex items-center justify-center mb-5">
                         <span class="font-heading text-2xl font-bold text-primary">3</span>
                     </div>
-                    <h3 class="font-heading text-lg font-bold text-gray-900 mb-2">
+                    <h3 class="font-heading text-lg font-bold text-gray-900 mb-2" data-i18n="consulenza.process.step3.title">
                         Progettazione
                     </h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">
+                    <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.process.step3.desc">
                         Progettiamo soluzioni che si integrano con i tuoi sistemi e budget
                     </p>
                 </div>
@@ -235,10 +235,10 @@
                     <div class="w-20 h-20 rounded-2xl bg-white border-2 border-primary/20 shadow-md flex items-center justify-center mb-5">
                         <span class="font-heading text-2xl font-bold text-primary">4</span>
                     </div>
-                    <h3 class="font-heading text-lg font-bold text-gray-900 mb-2">
+                    <h3 class="font-heading text-lg font-bold text-gray-900 mb-2" data-i18n="consulenza.process.step4.title">
                         Consegna
                     </h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">
+                    <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.process.step4.desc">
                         Costruiamo, testiamo e implementiamo in sprint focalizzati
                     </p>
                 </div>
@@ -248,10 +248,10 @@
                     <div class="w-20 h-20 rounded-2xl bg-white border-2 border-primary/20 shadow-md flex items-center justify-center mb-5">
                         <span class="font-heading text-2xl font-bold text-primary">5</span>
                     </div>
-                    <h3 class="font-heading text-lg font-bold text-gray-900 mb-2">
+                    <h3 class="font-heading text-lg font-bold text-gray-900 mb-2" data-i18n="consulenza.process.step5.title">
                         Supporto
                     </h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">
+                    <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.process.step5.desc">
                         Monitoriamo, ottimizziamo e scaliamo ci&ograve; che funziona
                     </p>
                 </div>
@@ -265,37 +265,37 @@
     <section class="section bg-section-alt">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-14">
-                <h2 class="section-title mb-4">Casi Studio</h2>
-                <p class="section-sub mx-auto">Risultati concreti dai nostri progetti.</p>
+                <h2 class="section-title mb-4" data-i18n="consulenza.cases.title">Casi Studio</h2>
+                <p class="section-sub mx-auto" data-i18n="consulenza.cases.sub">Risultati concreti dai nostri progetti.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
                 {{-- Case Study 1 --}}
                 <div class="relative bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 rounded-2xl p-8 flex flex-col">
-                    <span class="absolute top-4 right-4 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-700">
+                    <span class="absolute top-4 right-4 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-700" data-i18n="consulenza.cases.coming">
                         In arrivo
                     </span>
-                    <p class="text-gray-600 text-sm leading-relaxed mt-4">
+                    <p class="text-gray-600 text-sm leading-relaxed mt-4" data-i18n="consulenza.cases.1">
                         Come una PMI europea ha ridotto i tempi di elaborazione documenti del 60% con workflow AI-assistiti
                     </p>
                 </div>
 
                 {{-- Case Study 2 --}}
                 <div class="relative bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 rounded-2xl p-8 flex flex-col">
-                    <span class="absolute top-4 right-4 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-700">
+                    <span class="absolute top-4 right-4 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-700" data-i18n="consulenza.cases.coming">
                         In arrivo
                     </span>
-                    <p class="text-gray-600 text-sm leading-relaxed mt-4">
+                    <p class="text-gray-600 text-sm leading-relaxed mt-4" data-i18n="consulenza.cases.2">
                         Automazione del controllo qualit&agrave; per un'azienda di servizi: dalla gestione manuale dei processi all'efficienza operativa
                     </p>
                 </div>
 
                 {{-- Case Study 3 --}}
                 <div class="relative bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 rounded-2xl p-8 flex flex-col">
-                    <span class="absolute top-4 right-4 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-700">
+                    <span class="absolute top-4 right-4 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-700" data-i18n="consulenza.cases.coming">
                         In arrivo
                     </span>
-                    <p class="text-gray-600 text-sm leading-relaxed mt-4">
+                    <p class="text-gray-600 text-sm leading-relaxed mt-4" data-i18n="consulenza.cases.3">
                         Trasformazione digitale di un'azienda commerciale: dall'analisi dei processi all'implementazione AI in 8 settimane
                     </p>
                 </div>
@@ -308,7 +308,7 @@
     <section class="section bg-white">
         <div class="max-w-3xl mx-auto px-6">
             <div class="text-center mb-14">
-                <h2 class="section-title mb-4">Domande Frequenti</h2>
+                <h2 class="section-title mb-4" data-i18n="consulenza.faq.title">Domande Frequenti</h2>
             </div>
 
             <div class="space-y-4">
@@ -316,78 +316,78 @@
                 {{-- FAQ 1 --}}
                 <div x-data="{ open: false }" class="border border-gray-200 rounded-xl overflow-hidden">
                     <button @click="open = !open" class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors duration-200">
-                        <span class="font-semibold text-gray-900">Quanto dura una valutazione tipica?</span>
+                        <span class="font-semibold text-gray-900" data-i18n="consulenza.faq.q1">Quanto dura una valutazione tipica?</span>
                         <svg :class="open && 'rotate-180'" class="w-5 h-5 text-gray-400 flex-shrink-0 ml-4 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div x-show="open" x-collapse class="px-6 pb-5">
-                        <p class="text-gray-500 text-sm leading-relaxed">Generalmente 2-3 settimane, a seconda della complessit&agrave; dell'organizzazione e del numero di processi da analizzare.</p>
+                        <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.faq.a1">Generalmente 2-3 settimane, a seconda della complessit&agrave; dell'organizzazione e del numero di processi da analizzare.</p>
                     </div>
                 </div>
 
                 {{-- FAQ 2 --}}
                 <div x-data="{ open: false }" class="border border-gray-200 rounded-xl overflow-hidden">
                     <button @click="open = !open" class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors duration-200">
-                        <span class="font-semibold text-gray-900">Devo avere conoscenze tecniche per lavorare con voi?</span>
+                        <span class="font-semibold text-gray-900" data-i18n="consulenza.faq.q2">Devo avere conoscenze tecniche per lavorare con voi?</span>
                         <svg :class="open && 'rotate-180'" class="w-5 h-5 text-gray-400 flex-shrink-0 ml-4 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div x-show="open" x-collapse class="px-6 pb-5">
-                        <p class="text-gray-500 text-sm leading-relaxed">No, gestiamo tutto noi. Il nostro approccio &egrave; pensato per imprenditori e manager, non per tecnici. Vi guidiamo in ogni fase.</p>
+                        <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.faq.a2">No, gestiamo tutto noi. Il nostro approccio &egrave; pensato per imprenditori e manager, non per tecnici. Vi guidiamo in ogni fase.</p>
                     </div>
                 </div>
 
                 {{-- FAQ 3 --}}
                 <div x-data="{ open: false }" class="border border-gray-200 rounded-xl overflow-hidden">
                     <button @click="open = !open" class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors duration-200">
-                        <span class="font-semibold text-gray-900">Con quali dimensioni di azienda lavorate?</span>
+                        <span class="font-semibold text-gray-900" data-i18n="consulenza.faq.q3">Con quali dimensioni di azienda lavorate?</span>
                         <svg :class="open && 'rotate-180'" class="w-5 h-5 text-gray-400 flex-shrink-0 ml-4 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div x-show="open" x-collapse class="px-6 pb-5">
-                        <p class="text-gray-500 text-sm leading-relaxed">Tipicamente con imprese da 5 a 250 dipendenti. Le nostre soluzioni sono progettate specificamente per micro, piccole e medie imprese.</p>
+                        <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.faq.a3">Tipicamente con imprese da 5 a 250 dipendenti. Le nostre soluzioni sono progettate specificamente per micro, piccole e medie imprese.</p>
                     </div>
                 </div>
 
                 {{-- FAQ 4 --}}
                 <div x-data="{ open: false }" class="border border-gray-200 rounded-xl overflow-hidden">
                     <button @click="open = !open" class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors duration-200">
-                        <span class="font-semibold text-gray-900">Lavorate da remoto?</span>
+                        <span class="font-semibold text-gray-900" data-i18n="consulenza.faq.q4">Lavorate da remoto?</span>
                         <svg :class="open && 'rotate-180'" class="w-5 h-5 text-gray-400 flex-shrink-0 ml-4 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div x-show="open" x-collapse class="px-6 pb-5">
-                        <p class="text-gray-500 text-sm leading-relaxed">S&igrave;, siamo un team remote-first. Lavoriamo principalmente da remoto con workshop on-site quando necessario per le fasi di discovery e formazione.</p>
+                        <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.faq.a4">S&igrave;, siamo un team remote-first. Lavoriamo principalmente da remoto con workshop on-site quando necessario per le fasi di discovery e formazione.</p>
                     </div>
                 </div>
 
                 {{-- FAQ 5 --}}
                 <div x-data="{ open: false }" class="border border-gray-200 rounded-xl overflow-hidden">
                     <button @click="open = !open" class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors duration-200">
-                        <span class="font-semibold text-gray-900">Quali settori servite?</span>
+                        <span class="font-semibold text-gray-900" data-i18n="consulenza.faq.q5">Quali settori servite?</span>
                         <svg :class="open && 'rotate-180'" class="w-5 h-5 text-gray-400 flex-shrink-0 ml-4 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div x-show="open" x-collapse class="px-6 pb-5">
-                        <p class="text-gray-500 text-sm leading-relaxed">Lavoriamo con aziende di ogni settore: servizi, commercio, manifatturiero, tecnologia e altri. Il nostro approccio si basa sul miglioramento dei processi, applicabile a qualsiasi tipo di business.</p>
+                        <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.faq.a5">Lavoriamo con aziende di ogni settore: servizi, commercio, manifatturiero, tecnologia e altri. Il nostro approccio si basa sul miglioramento dei processi, applicabile a qualsiasi tipo di business.</p>
                     </div>
                 </div>
 
                 {{-- FAQ 6 --}}
                 <div x-data="{ open: false }" class="border border-gray-200 rounded-xl overflow-hidden">
                     <button @click="open = !open" class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors duration-200">
-                        <span class="font-semibold text-gray-900">Quanto costa iniziare?</span>
+                        <span class="font-semibold text-gray-900" data-i18n="consulenza.faq.q6">Quanto costa iniziare?</span>
                         <svg :class="open && 'rotate-180'" class="w-5 h-5 text-gray-400 flex-shrink-0 ml-4 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div x-show="open" x-collapse class="px-6 pb-5">
-                        <p class="text-gray-500 text-sm leading-relaxed">Ogni progetto &egrave; unico e il costo dipende dalla complessit&agrave; e dall'ambito. Offriamo una discovery call gratuita di 30 minuti per capire le tue esigenze e preparare un preventivo personalizzato senza impegno.</p>
+                        <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.faq.a6">Ogni progetto &egrave; unico e il costo dipende dalla complessit&agrave; e dall'ambito. Offriamo una discovery call gratuita di 30 minuti per capire le tue esigenze e preparare un preventivo personalizzato senza impegno.</p>
                     </div>
                 </div>
 
@@ -403,31 +403,31 @@
                     <svg class="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
-                    20+ anni di esperienza
+                    <span data-i18n="consulenza.trust.item1">20+ anni di esperienza</span>
                 </span>
                 <span class="flex items-center gap-2">
                     <svg class="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
-                    CSCP | SCOR-P | PRINCE2
+                    <span data-i18n="consulenza.trust.item2">CSCP | SCOR-P | PRINCE2</span>
                 </span>
                 <span class="flex items-center gap-2">
                     <svg class="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
-                    Miglioramento Processi
+                    <span data-i18n="consulenza.trust.item3">Miglioramento Processi</span>
                 </span>
                 <span class="flex items-center gap-2">
                     <svg class="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
-                    GDPR & AI Act Ready
+                    <span data-i18n="consulenza.trust.item4">GDPR & AI Act Ready</span>
                 </span>
                 <span class="flex items-center gap-2">
                     <svg class="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
-                    EU-Based
+                    <span data-i18n="consulenza.trust.item5">EU-Based</span>
                 </span>
             </div>
         </div>
@@ -437,10 +437,10 @@
     <section class="bg-hero text-white section-sm">
         <div class="max-w-4xl mx-auto px-6 text-center">
 
-            <h2 class="font-heading text-3xl sm:text-4xl font-bold mb-4">
+            <h2 class="font-heading text-3xl sm:text-4xl font-bold mb-4" data-i18n="consulenza.cta.title">
                 Pronto a esplorare cosa pu&ograve; fare l'AI per la tua azienda?
             </h2>
-            <p class="text-white/70 text-lg mb-10 max-w-xl mx-auto">
+            <p class="text-white/70 text-lg mb-10 max-w-xl mx-auto" data-i18n="consulenza.cta.sub">
                 Prenota una discovery call gratuita di 30 minuti. Nessun impegno, solo una conversazione per capire come possiamo aiutarti.
             </p>
 
@@ -449,12 +449,14 @@
                     href="{{ config('corvalys.calendly_url', route('contatto')) }}"
                     target="{{ config('corvalys.calendly_url') ? '_blank' : '_self' }}"
                     class="btn-white"
+                    data-i18n="consulenza.cta.primary"
                 >
                     Prenota una Discovery Call
                 </a>
                 <a
                     href="{{ route('contatto') }}"
                     class="inline-flex items-center px-6 py-3 border-2 border-white/30 text-white rounded-xl font-semibold hover:bg-white/10 transition-colors duration-200"
+                    data-i18n="consulenza.cta.secondary"
                 >
                     Contattaci
                 </a>

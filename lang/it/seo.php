@@ -77,11 +77,11 @@ return [
         'description' => 'Un assessment strutturato per individuare le opportunità AI nella tua azienda. Gratuito, riservato e operativo.',
     ],
     'privacy' => [
-        'title' => 'Privacy Policy — Corvalys',
+        'title' => 'Informativa sulla Privacy — Corvalys',
         'description' => 'Come Corvalys LTD tratta i tuoi dati personali. Informativa privacy conforme al GDPR per il sito Corvalys.',
     ],
     'cookie' => [
-        'title' => 'Cookie Policy — Corvalys',
+        'title' => 'Informativa sui Cookie — Corvalys',
         'description' => 'Informazioni sui cookie e sulle tecnologie di tracciamento utilizzate su corvalys.eu.',
     ],
     'termini' => [

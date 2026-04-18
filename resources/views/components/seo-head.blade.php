@@ -29,8 +29,10 @@
 
     // Fallback to @section('title', ...) / @section('meta_description', ...) for
     // backward compatibility with pages that still use the section-based pattern.
-    $sectionTitle = trim((string) \Illuminate\Support\Facades\View::yieldContent('title'));
-    $sectionDescription = trim((string) \Illuminate\Support\Facades\View::yieldContent('meta_description'));
+    // NOTE: Blade's 2-arg @section(name, content) pre-escapes the value via e(),
+    // so decode once to prevent double-escape when {{ }} re-escapes below.
+    $sectionTitle = trim(html_entity_decode((string) \Illuminate\Support\Facades\View::yieldContent('title'), ENT_QUOTES | ENT_HTML5, 'UTF-8'));
+    $sectionDescription = trim(html_entity_decode((string) \Illuminate\Support\Facades\View::yieldContent('meta_description'), ENT_QUOTES | ENT_HTML5, 'UTF-8'));
 
     $finalTitle = $title ?: ($sectionTitle !== '' ? $sectionTitle : $defaultTitle);
     $finalDescription = $description ?: ($sectionDescription !== '' ? $sectionDescription : $defaultDescription);

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ProdottiController;
 use App\Http\Controllers\PrezziController;
 use App\Http\Controllers\ConsulenzaController;
@@ -41,6 +42,11 @@ Route::post('/ai-readiness', [SurveyController::class, 'store'])->name('survey.s
 Route::get('/survey', [BusinessSurveyController::class, 'index'])->name('business-survey');
 Route::post('/survey', [BusinessSurveyController::class, 'store'])->name('business-survey.store');
 Route::get('/sitemap.xml', [HomeController::class, 'sitemap'])->name('sitemap');
+
+// Language switcher — sets `locale` cookie and redirects back
+Route::post('/language/{locale}', [LanguageController::class, 'switch'])
+    ->where('locale', 'en|it|fr')
+    ->name('language.switch');
 
 // GDPR cookie consent logging (session + CSRF)
 Route::post('/api/consent', [\App\Http\Controllers\Api\ConsentController::class, 'store'])

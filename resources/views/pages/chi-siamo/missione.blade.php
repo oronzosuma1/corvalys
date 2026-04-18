@@ -23,27 +23,20 @@
         </div>
     </section>
 
-    {{-- ── CMS / Fallback Content ── --}}
+    {{-- ── Mission Content (i18n) ── --}}
     <section class="section bg-white">
         <div class="max-w-4xl mx-auto px-6">
-            @if($page && $page->body)
-                <div class="prose prose-lg prose-gray max-w-none
-                            prose-headings:font-heading prose-headings:text-gray-900
-                            prose-a:text-primary prose-a:no-underline hover:prose-a:underline">
-                    {!! $page->body !!}
-                </div>
-            @else
-                <div
-                    class="prose prose-lg prose-gray max-w-none
-                           prose-headings:font-heading prose-headings:text-gray-900"
-                    data-i18n-html="about.mission.content"
-                >
-                    <p>
-                        La nostra missione è democratizzare l'accesso all'intelligenza artificiale, abbattendo le barriere
-                        tecniche ed economiche che oggi escludono molte PMI dai benefici di questa rivoluzione.
-                    </p>
-                </div>
-            @endif
+            <div
+                class="prose prose-lg prose-gray max-w-none
+                       prose-headings:font-heading prose-headings:text-gray-900
+                       prose-a:text-primary prose-a:no-underline hover:prose-a:underline"
+                data-i18n-html="about.mission.content"
+            >
+                <p>
+                    La nostra missione è democratizzare l'accesso all'intelligenza artificiale, abbattendo le barriere
+                    tecniche ed economiche che oggi escludono molte PMI dai benefici di questa rivoluzione.
+                </p>
+            </div>
         </div>
     </section>
 

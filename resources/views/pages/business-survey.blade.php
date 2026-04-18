@@ -27,7 +27,7 @@
                         class="flex items-center gap-1 text-sm text-gray-500 hover:text-gray-700 transition-colors min-h-[44px] px-2"
                         type="button">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                    Back
+                    <span data-i18n="survey.biz.back">Back</span>
                 </button>
                 <div x-show="step < 1" class="w-16"></div>
                 <span class="text-sm text-gray-400 font-medium" x-text="step + ' of ' + totalQuestions"></span>
@@ -48,25 +48,28 @@
                         <div class="w-16 h-16 rounded-2xl bg-[#0F7B6C]/10 flex items-center justify-center mb-6">
                             <svg class="w-8 h-8 text-[#0F7B6C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
                         </div>
-                        <h1 class="font-heading text-2xl sm:text-3xl font-bold text-[#1B3A5C] mb-4 leading-tight">
+                        <h1 class="font-heading text-2xl sm:text-3xl font-bold text-[#1B3A5C] mb-4 leading-tight"
+                            data-i18n="survey.biz.hero.title">
                             What is slowing down your business?
                         </h1>
-                        <p class="text-gray-500 text-base sm:text-lg mb-8 max-w-md leading-relaxed">
+                        <p class="text-gray-500 text-base sm:text-lg mb-8 max-w-md leading-relaxed"
+                           data-i18n="survey.biz.hero.sub">
                             This short survey helps us understand the repetitive, frustrating, and time-consuming tasks businesses want to solve first.
                         </p>
                         <div class="flex flex-wrap justify-center gap-3 mb-8">
                             <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-100 text-sm text-gray-600">
                                 <svg class="w-4 h-4 text-[#0F7B6C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                                Takes 3-5 minutes
+                                <span data-i18n="survey.cta.subtitle">Takes 3-5 minutes</span>
                             </span>
                             <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-100 text-sm text-gray-600">
                                 <svg class="w-4 h-4 text-[#0F7B6C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-                                Anonymous by default
+                                <span data-i18n="survey.cta.anonymous">Anonymous by default</span>
                             </span>
                         </div>
                         <button @click="step = 1"
                                 class="w-full sm:w-auto px-8 py-4 bg-[#0F7B6C] hover:bg-[#0a5f54] text-white font-semibold rounded-xl transition-colors text-lg min-h-[48px]"
-                                type="button">
+                                type="button"
+                                data-i18n="survey.cta.primary">
                             Start Survey
                         </button>
                     </div>
@@ -130,12 +133,14 @@
                                     </template>
                                 </div>
                                 <div class="flex items-center justify-between mt-6 pt-4 border-t border-gray-100">
-                                    <button @click="goForward()" class="text-sm text-gray-400 hover:text-gray-600 transition-colors min-h-[44px] px-2" type="button">
+                                    <button @click="goForward()" class="text-sm text-gray-400 hover:text-gray-600 transition-colors min-h-[44px] px-2" type="button"
+                                            data-i18n="survey.biz.skip">
                                         Skip
                                     </button>
                                     <button @click="goForward()"
                                             class="px-6 py-3 bg-[#0F7B6C] hover:bg-[#0a5f54] text-white font-semibold rounded-xl transition-colors min-h-[48px]"
-                                            type="button">
+                                            type="button"
+                                            data-i18n="survey.biz.next">
                                         Next
                                     </button>
                                 </div>
@@ -161,8 +166,8 @@
                                     </template>
                                 </div>
                                 <div class="flex justify-between w-full max-w-xs text-sm text-gray-400">
-                                    <span>Minor</span>
-                                    <span>Serious</span>
+                                    <span data-i18n="survey.biz.scale.minor">Minor</span>
+                                    <span data-i18n="survey.biz.scale.serious">Serious</span>
                                 </div>
                             </div>
                         </template>
@@ -173,7 +178,7 @@
                                 <select x-model="answers[currentQuestion.field]"
                                         @change="saveAnswers()"
                                         class="w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:border-[#0F7B6C] focus:ring-2 focus:ring-[#0F7B6C]/20 outline-none text-gray-700 bg-white min-h-[48px] text-base transition-colors">
-                                    <option value="">Select an option...</option>
+                                    <option value="" data-i18n="survey.biz.select_placeholder">Select an option...</option>
                                     <template x-for="opt in currentQuestion.options" :key="opt.value">
                                         <option :value="opt.value" x-text="opt.label"></option>
                                     </template>
@@ -183,7 +188,8 @@
                                             :disabled="!answers[currentQuestion.field]"
                                             :class="answers[currentQuestion.field] ? 'bg-[#0F7B6C] hover:bg-[#0a5f54] text-white' : 'bg-gray-200 text-gray-400 cursor-not-allowed'"
                                             class="px-6 py-3 font-semibold rounded-xl transition-colors min-h-[48px]"
-                                            type="button">
+                                            type="button"
+                                            data-i18n="survey.biz.next">
                                         Next
                                     </button>
                                 </div>
@@ -231,12 +237,14 @@
                                 <p class="text-xs text-gray-400 mt-3" x-show="currentQuestion.maxSelect"
                                    x-text="'Selected: ' + ((answers[currentQuestion.field] || []).length) + ' / ' + currentQuestion.maxSelect"></p>
                                 <div class="flex items-center justify-between mt-6 pt-4 border-t border-gray-100">
-                                    <button @click="goForward()" class="text-sm text-gray-400 hover:text-gray-600 transition-colors min-h-[44px] px-2" type="button">
+                                    <button @click="goForward()" class="text-sm text-gray-400 hover:text-gray-600 transition-colors min-h-[44px] px-2" type="button"
+                                            data-i18n="survey.biz.skip">
                                         Skip
                                     </button>
                                     <button @click="goForward()"
                                             class="px-6 py-3 bg-[#0F7B6C] hover:bg-[#0a5f54] text-white font-semibold rounded-xl transition-colors min-h-[48px]"
-                                            type="button">
+                                            type="button"
+                                            data-i18n="survey.biz.next">
                                         Next
                                     </button>
                                 </div>
@@ -256,44 +264,55 @@
                          class="flex flex-col flex-1">
 
                         <div class="mb-6">
-                            <h2 class="font-heading text-xl sm:text-2xl font-bold text-[#1B3A5C] mb-2">
+                            <h2 class="font-heading text-xl sm:text-2xl font-bold text-[#1B3A5C] mb-2"
+                                data-i18n="survey.biz.contact.title">
                                 Stay in touch, if you want
                             </h2>
-                            <p class="text-gray-500 text-sm sm:text-base leading-relaxed">
+                            <p class="text-gray-500 text-sm sm:text-base leading-relaxed"
+                               data-i18n="survey.biz.contact.sub">
                                 You can submit the survey without leaving your contact details. If you'd like to receive insights or hear from Corvalys, you can leave your information below.
                             </p>
                         </div>
 
                         <div class="space-y-4 flex-1">
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                                <label class="block text-sm font-medium text-gray-700 mb-1"
+                                       data-i18n="survey.biz.field.name">Name</label>
                                 <input type="text" x-model="answers.contact_name" @input="saveAnswers()"
                                        class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[#0F7B6C] focus:ring-2 focus:ring-[#0F7B6C]/20 outline-none min-h-[48px] text-base transition-colors"
+                                       data-i18n-placeholder="survey.biz.placeholder.name"
                                        placeholder="Your name">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Company</label>
+                                <label class="block text-sm font-medium text-gray-700 mb-1"
+                                       data-i18n="survey.biz.field.company">Company</label>
                                 <input type="text" x-model="answers.contact_company" @input="saveAnswers()"
                                        class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[#0F7B6C] focus:ring-2 focus:ring-[#0F7B6C]/20 outline-none min-h-[48px] text-base transition-colors"
+                                       data-i18n-placeholder="survey.biz.placeholder.company"
                                        placeholder="Your company">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <label class="block text-sm font-medium text-gray-700 mb-1"
+                                       data-i18n="survey.biz.field.email">Email</label>
                                 <input type="email" x-model="answers.contact_email" @input="saveAnswers()"
                                        class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[#0F7B6C] focus:ring-2 focus:ring-[#0F7B6C]/20 outline-none min-h-[48px] text-base transition-colors"
+                                       data-i18n-placeholder="survey.biz.placeholder.email"
                                        placeholder="you@company.com">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                                <label class="block text-sm font-medium text-gray-700 mb-1"
+                                       data-i18n="survey.biz.field.phone">Phone</label>
                                 <input type="tel" x-model="answers.contact_phone" @input="saveAnswers()"
                                        class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[#0F7B6C] focus:ring-2 focus:ring-[#0F7B6C]/20 outline-none min-h-[48px] text-base transition-colors"
+                                       data-i18n-placeholder="survey.biz.placeholder.phone"
                                        placeholder="+39 ...">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Country</label>
+                                <label class="block text-sm font-medium text-gray-700 mb-1"
+                                       data-i18n="survey.biz.field.country">Country</label>
                                 <select x-model="answers.contact_country" @change="saveAnswers()"
                                         class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[#0F7B6C] focus:ring-2 focus:ring-[#0F7B6C]/20 outline-none min-h-[48px] text-base bg-white transition-colors">
-                                    <option value="">Select country...</option>
+                                    <option value="" data-i18n="survey.biz.country_placeholder">Select country...</option>
                                     <template x-for="c in countryOptions" :key="c">
                                         <option :value="c" x-text="c"></option>
                                     </template>
@@ -304,17 +323,20 @@
                                 <label class="flex items-start gap-3 cursor-pointer">
                                     <input type="checkbox" x-model="answers.wants_insights" @change="saveAnswers()"
                                            class="mt-0.5 w-5 h-5 rounded border-gray-300 text-[#0F7B6C] focus:ring-[#0F7B6C]">
-                                    <span class="text-sm text-gray-700">Send me a summary of the survey insights</span>
+                                    <span class="text-sm text-gray-700"
+                                          data-i18n="survey.biz.opt.insights">Send me a summary of the survey insights</span>
                                 </label>
                                 <label class="flex items-start gap-3 cursor-pointer">
                                     <input type="checkbox" x-model="answers.wants_solutions_contact" @change="saveAnswers()"
                                            class="mt-0.5 w-5 h-5 rounded border-gray-300 text-[#0F7B6C] focus:ring-[#0F7B6C]">
-                                    <span class="text-sm text-gray-700">Contact me about possible AI solutions for my business</span>
+                                    <span class="text-sm text-gray-700"
+                                          data-i18n="survey.biz.opt.solutions">Contact me about possible AI solutions for my business</span>
                                 </label>
                                 <label class="flex items-start gap-3 cursor-pointer">
                                     <input type="checkbox" x-model="answers.wants_pilot" @change="saveAnswers()"
                                            class="mt-0.5 w-5 h-5 rounded border-gray-300 text-[#0F7B6C] focus:ring-[#0F7B6C]">
-                                    <span class="text-sm text-gray-700">Contact me about pilot opportunities</span>
+                                    <span class="text-sm text-gray-700"
+                                          data-i18n="survey.biz.opt.pilot">Contact me about pilot opportunities</span>
                                 </label>
                             </div>
 
@@ -324,8 +346,9 @@
                                     <input type="checkbox" x-model="answers.gdpr_consent" @change="saveAnswers()"
                                            class="mt-0.5 w-5 h-5 rounded border-gray-300 text-[#0F7B6C] focus:ring-[#0F7B6C]">
                                     <span class="text-sm text-gray-600">
-                                        I consent to Corvalys processing my data to respond to my request, in accordance with GDPR and the
-                                        <a href="{{ route('privacy') }}" target="_blank" class="text-[#0F7B6C] underline hover:text-[#0a5f54]">Privacy Policy</a>.
+                                        <span data-i18n="survey.biz.gdpr.text">I consent to Corvalys processing my data to respond to my request, in accordance with GDPR and the</span>
+                                        <a href="{{ route('privacy') }}" target="_blank" class="text-[#0F7B6C] underline hover:text-[#0a5f54]"
+                                           data-i18n="survey.biz.gdpr.link">Privacy Policy</a>.
                                     </span>
                                 </label>
                             </div>
@@ -335,7 +358,8 @@
                             <button @click="submitSurvey(true)"
                                     :disabled="submitting"
                                     class="flex-1 px-6 py-3 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold rounded-xl transition-colors min-h-[48px] text-sm"
-                                    type="button">
+                                    type="button"
+                                    data-i18n="survey.biz.submit.skip_contact">
                                 Submit without contact info
                             </button>
                             <button @click="submitSurvey(false)"
@@ -345,10 +369,10 @@
                                         : 'bg-[#0F7B6C] hover:bg-[#0a5f54] text-white'"
                                     class="flex-1 px-6 py-3 font-semibold rounded-xl transition-colors min-h-[48px] text-sm"
                                     type="button">
-                                <span x-show="!submitting">Submit</span>
+                                <span x-show="!submitting" data-i18n="survey.biz.submit.send">Submit</span>
                                 <span x-show="submitting" class="flex items-center justify-center gap-2">
                                     <svg class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"/></svg>
-                                    Submitting...
+                                    <span data-i18n="survey.biz.submit.sending">Submitting...</span>
                                 </span>
                             </button>
                         </div>
@@ -366,16 +390,20 @@
                         <div class="w-20 h-20 rounded-full bg-[#0F7B6C]/10 flex items-center justify-center mb-6">
                             <svg class="w-10 h-10 text-[#0F7B6C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                         </div>
-                        <h2 class="font-heading text-2xl sm:text-3xl font-bold text-[#1B3A5C] mb-4">Thank you!</h2>
-                        <p class="text-gray-500 text-base sm:text-lg max-w-md leading-relaxed mb-2">
+                        <h2 class="font-heading text-2xl sm:text-3xl font-bold text-[#1B3A5C] mb-4"
+                            data-i18n="survey.biz.thanks.title">Thank you!</h2>
+                        <p class="text-gray-500 text-base sm:text-lg max-w-md leading-relaxed mb-2"
+                           data-i18n="survey.biz.thanks.body">
                             Your responses help us understand what European businesses really need. Together, we're building smarter tools for real work.
                         </p>
-                        <p x-show="hasContactInfo" class="text-[#0F7B6C] font-medium mb-8">
+                        <p x-show="hasContactInfo" class="text-[#0F7B6C] font-medium mb-8"
+                           data-i18n="survey.biz.thanks.followup">
                             We'll be in touch soon.
                         </p>
                         <div x-show="!hasContactInfo" class="mb-8"></div>
                         <a href="{{ url('/') }}"
-                           class="px-8 py-4 bg-[#0F7B6C] hover:bg-[#0a5f54] text-white font-semibold rounded-xl transition-colors text-lg min-h-[48px] inline-flex items-center">
+                           class="px-8 py-4 bg-[#0F7B6C] hover:bg-[#0a5f54] text-white font-semibold rounded-xl transition-colors text-lg min-h-[48px] inline-flex items-center"
+                           data-i18n="survey.biz.thanks.cta">
                             Go to Homepage
                         </a>
                     </div>

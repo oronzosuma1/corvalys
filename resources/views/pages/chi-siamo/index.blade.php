@@ -23,27 +23,20 @@
         </div>
     </section>
 
-    {{-- ── CMS / Intro Content ── --}}
+    {{-- ── Intro Content (i18n) ── --}}
     <section class="section bg-white">
         <div class="max-w-4xl mx-auto px-6">
-            @if($page && $page->body)
-                <div class="prose prose-lg prose-gray max-w-none
-                            prose-headings:font-heading prose-headings:text-gray-900
-                            prose-a:text-primary prose-a:no-underline hover:prose-a:underline">
-                    {!! $page->body !!}
-                </div>
-            @else
-                <div
-                    class="prose prose-lg prose-gray max-w-none
-                           prose-headings:font-heading prose-headings:text-gray-900"
-                    data-i18n-html="about.intro"
-                >
-                    <p>
-                        Corvalys nasce con un obiettivo chiaro: rendere l'intelligenza artificiale accessibile,
-                        comprensibile e concretamente utile per le piccole e medie imprese europee.
-                    </p>
-                </div>
-            @endif
+            <div
+                class="prose prose-lg prose-gray max-w-none
+                       prose-headings:font-heading prose-headings:text-gray-900
+                       prose-a:text-primary prose-a:no-underline hover:prose-a:underline"
+                data-i18n-html="about.intro"
+            >
+                <p>
+                    Corvalys nasce con un obiettivo chiaro: rendere l'intelligenza artificiale accessibile,
+                    comprensibile e concretamente utile per le piccole e medie imprese europee.
+                </p>
+            </div>
         </div>
     </section>
 

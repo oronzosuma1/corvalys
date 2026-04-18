@@ -1,8 +1,19 @@
 import { translations } from './translations.js';
 
 /* ── i18n System ── */
+function readLocaleCookie() {
+    const m = document.cookie.match(/(?:^|;\s*)locale=(en|it|fr)(?:;|$)/);
+    return m ? m[1] : null;
+}
+function writeLocaleCookie(lang) {
+    try {
+        const oneYear = 60 * 60 * 24 * 365;
+        document.cookie = 'locale=' + lang + '; path=/; max-age=' + oneYear + '; samesite=lax';
+    } catch (e) {}
+}
 const i18n = {
-    current: localStorage.getItem('lang') || 'en',
+    // Priority: cookie (server-authoritative) > localStorage > 'en'.
+    current: readLocaleCookie() || localStorage.getItem('lang') || 'en',
 
     t(key, params = {}) {
         const lang = translations[this.current] || translations.en;
@@ -33,11 +44,20 @@ const i18n = {
         document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
             el.placeholder = this.t(el.getAttribute('data-i18n-placeholder'));
         });
+
+        document.querySelectorAll('[data-i18n-aria-label]').forEach(el => {
+            el.setAttribute('aria-label', this.t(el.getAttribute('data-i18n-aria-label')));
+        });
+
+        document.querySelectorAll('[data-i18n-title]').forEach(el => {
+            el.setAttribute('title', this.t(el.getAttribute('data-i18n-title')));
+        });
     },
 
     setLang(lang) {
         this.current = lang;
-        localStorage.setItem('lang', lang);
+        try { localStorage.setItem('lang', lang); } catch (e) {}
+        writeLocaleCookie(lang); // keep server + client in sync
         this.apply();
         window.dispatchEvent(new CustomEvent('lang-changed', { detail: lang }));
     },
