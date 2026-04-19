@@ -10,21 +10,20 @@
             <form action="{{ route('newsletter') }}" method="POST"
                   class="flex w-full sm:w-auto gap-2">
                 @csrf
+                <label for="nl-email" class="sr-only">{{ __('newsletter.email_label') }}</label>
                 <input
+                    id="nl-email"
                     type="email"
                     name="email"
                     required
-                    data-i18n-placeholder="footer.newsletter.placeholder"
-                    placeholder="{{ __('newsletter.email_placeholder') }}"
-                    data-i18n-aria-label="newsletter.email_label"
                     aria-label="{{ __('newsletter.email_label') }}"
+                    placeholder="{{ __('newsletter.email_placeholder') }}"
                     class="flex-1 sm:w-64 px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-sm text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/30 transition"
                 />
                 <button
                     type="submit"
-                    class="px-5 py-2.5 rounded-lg bg-white text-[#1B3A5C] text-sm font-semibold hover:bg-white/90 transition whitespace-nowrap"
-                    data-i18n="footer.newsletter.btn">
-                    Subscribe
+                    class="px-5 py-2.5 rounded-lg bg-white text-[#1B3A5C] text-sm font-semibold hover:bg-white/90 transition whitespace-nowrap">
+                    {{ __('newsletter.cta') }}
                 </button>
             </form>
         </div>
