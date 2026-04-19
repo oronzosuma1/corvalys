@@ -49,7 +49,10 @@
     <x-cookie-banner />
     <x-cookie-preferences-button />
 
-    @livewireScripts
+    {{-- @livewireScriptConfig (no auto-start): our resources/js/app.js
+         imports Livewire ESM and calls Livewire.start() manually.
+         This is the single Alpine boot path. --}}
+    @livewireScriptConfig
     @stack('scripts')
 </body>
 </html>
