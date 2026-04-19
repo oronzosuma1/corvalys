@@ -34,6 +34,30 @@
 @section('meta_description', $excerpt ?: __('seo.blog_show.description'))
 
 @php
+    // Hreflang honesty: only emit alternates for locales where this article
+    // actually has a translation. Legacy Article model is single-locale
+    // (currently Italian-only) so we emit only the IT URL for it.
+    $seoAlternates = [];
+    if (!empty($translation) && !empty($post)) {
+        foreach ($post->availableLocales() as $loc) {
+            $slug = $post->slugFor($loc);
+            if ($slug) {
+                $seoAlternates[$loc] = \App\Support\LocalizedRoutes::urlFor(
+                    'blog.show',
+                    ['slug' => $slug],
+                    $loc
+                );
+            }
+        }
+    } else {
+        // Legacy Article: single-language content. Emit only the current IT URL.
+        $seoAlternates = [
+            'it' => \App\Support\LocalizedRoutes::urlFor('blog.show', ['slug' => $slugForUrl], 'it'),
+        ];
+    }
+@endphp
+
+@php
     $articleSchema = \App\Support\JsonLd::article([
         'headline' => $title,
         'description' => $excerpt ?? '',

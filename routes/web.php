@@ -26,6 +26,18 @@ Route::redirect('/business-survey', '/it/business-survey', 301);
 Route::redirect('/it/survey', '/it/business-survey', 301);
 Route::redirect('/fr/survey', '/fr/sondage', 301);
 
+// Courtesy redirects for common localized slugs typed without /it or /fr prefix.
+// These are NOT legacy URLs — they exist to catch users who guess the slug in
+// their language and to keep 301s consistent across the domain.
+Route::permanentRedirect('/a-propos', '/fr/a-propos');
+Route::permanentRedirect('/conseil', '/fr/conseil');
+Route::permanentRedirect('/produits', '/fr/produits');
+Route::permanentRedirect('/tarifs', '/fr/tarifs');
+Route::permanentRedirect('/ressources', '/fr/ressources');
+Route::permanentRedirect('/contatti', '/it/contatto');
+Route::permanentRedirect('/servizi', '/it/consulenza');
+Route::permanentRedirect('/sondage', '/fr/sondage');
+
 // Home shortcut — keep non-suffixed `home` name for backward compat
 Route::redirect('/home', '/', 301);
 

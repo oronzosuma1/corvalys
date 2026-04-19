@@ -1,8 +1,9 @@
 import { translations } from './translations.js';
 
 /* ── Alpine.js (bundled, no CDN) ──
- * Livewire v3 starts Alpine automatically, so we must NOT call Alpine.start().
- * Expose Alpine on window so existing inline x-data components work.
+ * Livewire v3 bootstraps Alpine itself, so we MUST NOT call the start
+ * method here (else double-boot warning). Expose Alpine on window so
+ * existing inline x-data components work.
  */
 import Alpine from 'alpinejs';
 import intersect from '@alpinejs/intersect';

@@ -19,11 +19,29 @@ class SetLocale
 
     public function handle(Request $request, Closure $next): Response
     {
-        $locale = $this->resolveLocale($request);
+        $locale = $this->resolveLocale($request) ?? config('app.fallback_locale', 'en');
 
-        if ($locale) {
-            app()->setLocale($locale);
+        app()->setLocale($locale);
+
+        // Carbon + setlocale for dates, numbers, etc.
+        try {
+            \Carbon\Carbon::setLocale($locale);
+            // Best-effort setlocale — platforms vary in available C locales.
+            @setlocale(LC_TIME, "{$locale}_" . strtoupper($locale) . ".UTF-8", $locale);
+        } catch (\Throwable $e) {
+            // ignore — locale formatting is non-critical
         }
+
+        // Persist to session so subsequent requests (POST forms, Livewire updates)
+        // resolve the same locale without re-parsing the URL.
+        if ($request->hasSession()) {
+            session(['locale' => $locale]);
+        }
+
+        // Share to every Blade view + auto-inject {locale} into generated URLs
+        // when a route accepts it.
+        view()->share('currentLocale', $locale);
+        \Illuminate\Support\Facades\URL::defaults(['locale' => $locale === 'en' ? null : $locale]);
 
         return $next($request);
     }

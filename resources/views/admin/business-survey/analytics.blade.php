@@ -3,7 +3,7 @@
 @section('title', 'Business Survey Analytics')
 
 @push('head')
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+@vite('resources/js/admin-charts.js')
 @endpush
 
 @section('content')
