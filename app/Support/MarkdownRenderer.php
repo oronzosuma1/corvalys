@@ -27,7 +27,9 @@ class MarkdownRenderer
             'heading_permalink' => [
                 'html_class' => 'heading-permalink',
                 'symbol' => '#',
-                'insert' => 'before',
+                // "after" so heading text sits immediately after <h2>:
+                // grep-friendly, cleaner screen-reader output.
+                'insert' => 'after',
                 'min_heading_level' => 2,
                 'max_heading_level' => 4,
             ],

@@ -8,9 +8,9 @@ return [
     |--------------------------------------------------------------------------
     */
     'privacy' => [
-        'meta_title'       => 'Informativa Privacy — Corvalys',
+        'meta_title'       => 'Informativa sulla Privacy — Corvalys',
         'meta_description' => 'Informativa sulla privacy di Corvalys LTD — come raccogliamo, trattiamo e proteggiamo i dati personali ai sensi del GDPR, della Direttiva ePrivacy e della normativa italiana sulla protezione dei dati.',
-        'title'            => 'Informativa Privacy',
+        'title'            => 'Informativa sulla Privacy',
         'updated'          => 'Ultimo aggiornamento: 18 aprile 2026',
         'body'             => <<<'MARKDOWN'
 ## 1. Titolare del trattamento

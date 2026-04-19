@@ -6,10 +6,10 @@
 @php
     $consulenzaFaqs = [];
     for ($i = 1; $i <= 6; $i++) {
-        $q = __("consulenza.faq.q{$i}");
-        $a = __("consulenza.faq.a{$i}");
+        $q = __("consulting.faq.q{$i}");
+        $a = __("consulting.faq.a{$i}");
         // Skip if translation is missing
-        if ($q !== "consulenza.faq.q{$i}" && $a !== "consulenza.faq.a{$i}") {
+        if ($q !== "consulting.faq.q{$i}" && $a !== "consulting.faq.a{$i}") {
             $consulenzaFaqs[] = ['q' => $q, 'a' => $a];
         }
     }
@@ -34,13 +34,13 @@
                 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6"
                 data-i18n="consulting.hero.title"
             >
-                Servizi AI & Consulenza
+                {{ __('consulting.hero.title') }}
             </h1>
             <p
                 class="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed"
                 data-i18n="consulting.hero.sub"
             >
-                Aiutiamo le micro, piccole e medie imprese europee a identificare dove l'AI crea valore reale, implementarla correttamente e misurarne i risultati.
+                {{ __('consulting.hero.sub') }}
             </p>
         </div>
     </section>
@@ -49,8 +49,8 @@
     <section class="section bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-14">
-                <h2 class="section-title mb-4" data-i18n="consulenza.tiers.title">Come Lavoriamo</h2>
-                <p class="section-sub mx-auto" data-i18n="consulenza.tiers.sub">Un modello a tre livelli per ogni fase del tuo percorso AI.</p>
+                <h2 class="section-title mb-4" data-i18n="consulenza.tiers.title">{{ __('consulting.tiers.title') }}</h2>
+                <p class="section-sub mx-auto" data-i18n="consulenza.tiers.sub">{{ __('consulting.tiers.sub') }}</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -59,7 +59,7 @@
                 <div class="relative bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl hover:border-primary/30 transition-all duration-300 flex flex-col">
                     {{-- Badge --}}
                     <span class="absolute top-4 right-4 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-700" data-i18n="consulenza.tier1.badge">
-                        Inizia da qui
+                        {{ __('consulting.tier1.badge') }}
                     </span>
                     {{-- Icon --}}
                     <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 mb-5">
@@ -68,13 +68,13 @@
                         </svg>
                     </div>
                     {{-- Content --}}
-                    <h3 class="font-heading text-xl font-bold text-gray-900 mb-1" data-i18n="consulenza.tier1.title">Consulenza Strategica</h3>
-                    <p class="text-sm text-primary font-medium mb-3" data-i18n="consulenza.tier1.subtitle">Inizia da qui</p>
+                    <h3 class="font-heading text-xl font-bold text-gray-900 mb-1" data-i18n="consulenza.tier1.title">{{ __('consulting.tier1.title') }}</h3>
+                    <p class="text-sm text-primary font-medium mb-3" data-i18n="consulenza.tier1.subtitle">{{ __('consulting.tier1.subtitle') }}</p>
                     <p class="text-gray-500 text-sm leading-relaxed flex-1 mb-5" data-i18n="consulenza.tier1.desc">
-                        Assessment AI, analisi dei processi, roadmap strategiche e valutazione della prontezza digitale.
+                        {{ __('consulting.tier1.desc') }}
                     </p>
                     <a href="{{ route('contatto') }}" class="text-primary text-sm font-semibold hover:text-primary-dark transition-colors duration-200" data-i18n="consulenza.tier1.cta">
-                        Richiedi un preventivo &rarr;
+                        {{ __('consulting.tier1.cta') }}
                     </a>
                 </div>
 
@@ -82,7 +82,7 @@
                 <div class="relative bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl hover:border-primary/30 transition-all duration-300 flex flex-col ring-2 ring-primary/20">
                     {{-- Badge --}}
                     <span class="absolute top-4 right-4 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary text-white" data-i18n="consulenza.tier2.badge">
-                        Pi&ugrave; richiesto
+                        {{ __('consulting.tier2.badge') }}
                     </span>
                     {{-- Icon --}}
                     <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 mb-5">
@@ -92,13 +92,13 @@
                         </svg>
                     </div>
                     {{-- Content --}}
-                    <h3 class="font-heading text-xl font-bold text-gray-900 mb-1" data-i18n="consulenza.tier2.title">Implementazione</h3>
-                    <p class="text-sm text-primary font-medium mb-3" data-i18n="consulenza.tier2.subtitle">Vai in profondit&agrave;</p>
+                    <h3 class="font-heading text-xl font-bold text-gray-900 mb-1" data-i18n="consulenza.tier2.title">{{ __('consulting.tier2.title') }}</h3>
+                    <p class="text-sm text-primary font-medium mb-3" data-i18n="consulenza.tier2.subtitle">{{ __('consulting.tier2.subtitle') }}</p>
                     <p class="text-gray-500 text-sm leading-relaxed flex-1 mb-5" data-i18n="consulenza.tier2.desc">
-                        Sprint di sviluppo AI, automazione dei workflow, integrazione con i sistemi esistenti e formazione del team.
+                        {{ __('consulting.tier2.desc') }}
                     </p>
                     <a href="{{ route('contatto') }}" class="text-primary text-sm font-semibold hover:text-primary-dark transition-colors duration-200" data-i18n="consulenza.tier2.cta">
-                        Richiedi un preventivo &rarr;
+                        {{ __('consulting.tier2.cta') }}
                     </a>
                 </div>
 
@@ -106,7 +106,7 @@
                 <div class="relative bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl hover:border-primary/30 transition-all duration-300 flex flex-col">
                     {{-- Badge --}}
                     <span class="absolute top-4 right-4 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-800 text-white" data-i18n="consulenza.tier3.badge">
-                        Continuativo
+                        {{ __('consulting.tier3.badge') }}
                     </span>
                     {{-- Icon --}}
                     <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 mb-5">
@@ -115,13 +115,13 @@
                         </svg>
                     </div>
                     {{-- Content --}}
-                    <h3 class="font-heading text-xl font-bold text-gray-900 mb-1" data-i18n="consulenza.tier3.title">Supporto Gestito</h3>
-                    <p class="text-sm text-primary font-medium mb-3" data-i18n="consulenza.tier3.subtitle">Resta supportato</p>
+                    <h3 class="font-heading text-xl font-bold text-gray-900 mb-1" data-i18n="consulenza.tier3.title">{{ __('consulting.tier3.title') }}</h3>
+                    <p class="text-sm text-primary font-medium mb-3" data-i18n="consulenza.tier3.subtitle">{{ __('consulting.tier3.subtitle') }}</p>
                     <p class="text-gray-500 text-sm leading-relaxed flex-1 mb-5" data-i18n="consulenza.tier3.desc">
-                        Supporto gestito continuativo, monitoraggio delle performance, ottimizzazione e accesso ai nostri strumenti SaaS.
+                        {{ __('consulting.tier3.desc') }}
                     </p>
                     <a href="{{ route('contatto') }}" class="text-primary text-sm font-semibold hover:text-primary-dark transition-colors duration-200" data-i18n="consulenza.tier3.cta">
-                        Richiedi un preventivo &rarr;
+                        {{ __('consulting.tier3.cta') }}
                     </a>
                 </div>
 
@@ -138,20 +138,20 @@
                     class="section-title mb-4"
                     data-i18n="consulting.services.title"
                 >
-                    I Nostri Servizi
+                    {{ __('consulting.services.title') }}
                 </h2>
                 <p
                     class="section-sub mx-auto"
                     data-i18n="consulting.services.sub"
                 >
-                    Soluzioni su misura per le sfide reali delle imprese europee.
+                    {{ __('consulting.services.sub') }}
                 </p>
             </div>
 
             @if($services->isEmpty())
                 <div class="text-center py-16">
                     <p class="text-gray-400 text-lg" data-i18n="consulting.services.empty">
-                        Nessun servizio disponibile al momento.
+                        {{ __('consulting.services.empty') }}
                     </p>
                 </div>
             @else
@@ -198,13 +198,13 @@
                     class="section-title mb-4"
                     data-i18n="consulting.process.title"
                 >
-                    Il Nostro Processo
+                    {{ __('consulting.process.title') }}
                 </h2>
                 <p
                     class="section-sub mx-auto"
                     data-i18n="consulting.process.sub"
                 >
-                    Un approccio strutturato per risultati concreti e misurabili.
+                    {{ __('consulting.process.sub') }}
                 </p>
             </div>
 
@@ -219,10 +219,10 @@
                         <span class="font-heading text-2xl font-bold text-primary">1</span>
                     </div>
                     <h3 class="font-heading text-lg font-bold text-gray-900 mb-2" data-i18n="consulenza.process.step1.title">
-                        Scoperta
+                        {{ __('consulting.process.step1.title') }}
                     </h3>
                     <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.process.step1.desc">
-                        Analizziamo in profondit&agrave; le tue operazioni, i punti critici e gli obiettivi
+                        {{ __('consulting.process.step1.desc') }}
                     </p>
                 </div>
 
@@ -232,10 +232,10 @@
                         <span class="font-heading text-2xl font-bold text-primary">2</span>
                     </div>
                     <h3 class="font-heading text-lg font-bold text-gray-900 mb-2" data-i18n="consulenza.process.step2.title">
-                        Diagnosi
+                        {{ __('consulting.process.step2.title') }}
                     </h3>
                     <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.process.step2.desc">
-                        Identifichiamo dove l'AI crea valore reale e misurabile
+                        {{ __('consulting.process.step2.desc') }}
                     </p>
                 </div>
 
@@ -245,10 +245,10 @@
                         <span class="font-heading text-2xl font-bold text-primary">3</span>
                     </div>
                     <h3 class="font-heading text-lg font-bold text-gray-900 mb-2" data-i18n="consulenza.process.step3.title">
-                        Progettazione
+                        {{ __('consulting.process.step3.title') }}
                     </h3>
                     <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.process.step3.desc">
-                        Progettiamo soluzioni che si integrano con i tuoi sistemi e budget
+                        {{ __('consulting.process.step3.desc') }}
                     </p>
                 </div>
 
@@ -258,10 +258,10 @@
                         <span class="font-heading text-2xl font-bold text-primary">4</span>
                     </div>
                     <h3 class="font-heading text-lg font-bold text-gray-900 mb-2" data-i18n="consulenza.process.step4.title">
-                        Consegna
+                        {{ __('consulting.process.step4.title') }}
                     </h3>
                     <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.process.step4.desc">
-                        Costruiamo, testiamo e implementiamo in sprint focalizzati
+                        {{ __('consulting.process.step4.desc') }}
                     </p>
                 </div>
 
@@ -271,10 +271,10 @@
                         <span class="font-heading text-2xl font-bold text-primary">5</span>
                     </div>
                     <h3 class="font-heading text-lg font-bold text-gray-900 mb-2" data-i18n="consulenza.process.step5.title">
-                        Supporto
+                        {{ __('consulting.process.step5.title') }}
                     </h3>
                     <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.process.step5.desc">
-                        Monitoriamo, ottimizziamo e scaliamo ci&ograve; che funziona
+                        {{ __('consulting.process.step5.desc') }}
                     </p>
                 </div>
 
@@ -287,38 +287,38 @@
     <section class="section bg-section-alt">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-14">
-                <h2 class="section-title mb-4" data-i18n="consulenza.cases.title">Casi Studio</h2>
-                <p class="section-sub mx-auto" data-i18n="consulenza.cases.sub">Risultati concreti dai nostri progetti.</p>
+                <h2 class="section-title mb-4" data-i18n="consulenza.cases.title">{{ __('consulting.cases.title') }}</h2>
+                <p class="section-sub mx-auto" data-i18n="consulenza.cases.sub">{{ __('consulting.cases.sub') }}</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
                 {{-- Case Study 1 --}}
                 <div class="relative bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 rounded-2xl p-8 flex flex-col">
                     <span class="absolute top-4 right-4 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-700" data-i18n="consulenza.cases.coming">
-                        In arrivo
+                        {{ __('consulting.cases.coming') }}
                     </span>
                     <p class="text-gray-600 text-sm leading-relaxed mt-4" data-i18n="consulenza.cases.1">
-                        Come una PMI europea ha ridotto i tempi di elaborazione documenti del 60% con workflow AI-assistiti
+                        {{ __('consulting.cases.1') }}
                     </p>
                 </div>
 
                 {{-- Case Study 2 --}}
                 <div class="relative bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 rounded-2xl p-8 flex flex-col">
                     <span class="absolute top-4 right-4 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-700" data-i18n="consulenza.cases.coming">
-                        In arrivo
+                        {{ __('consulting.cases.coming') }}
                     </span>
                     <p class="text-gray-600 text-sm leading-relaxed mt-4" data-i18n="consulenza.cases.2">
-                        Automazione del controllo qualit&agrave; per un'azienda di servizi: dalla gestione manuale dei processi all'efficienza operativa
+                        {{ __('consulting.cases.2') }}
                     </p>
                 </div>
 
                 {{-- Case Study 3 --}}
                 <div class="relative bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 rounded-2xl p-8 flex flex-col">
                     <span class="absolute top-4 right-4 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-700" data-i18n="consulenza.cases.coming">
-                        In arrivo
+                        {{ __('consulting.cases.coming') }}
                     </span>
                     <p class="text-gray-600 text-sm leading-relaxed mt-4" data-i18n="consulenza.cases.3">
-                        Trasformazione digitale di un'azienda commerciale: dall'analisi dei processi all'implementazione AI in 8 settimane
+                        {{ __('consulting.cases.3') }}
                     </p>
                 </div>
 
@@ -330,7 +330,7 @@
     <section class="section bg-white">
         <div class="max-w-3xl mx-auto px-6">
             <div class="text-center mb-14">
-                <h2 class="section-title mb-4" data-i18n="consulenza.faq.title">Domande Frequenti</h2>
+                <h2 class="section-title mb-4" data-i18n="consulenza.faq.title">{{ __('consulting.faq.title') }}</h2>
             </div>
 
             <div class="space-y-4">
@@ -338,78 +338,78 @@
                 {{-- FAQ 1 --}}
                 <div x-data="{ open: false }" class="border border-gray-200 rounded-xl overflow-hidden">
                     <button @click="open = !open" class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors duration-200">
-                        <span class="font-semibold text-gray-900" data-i18n="consulenza.faq.q1">Quanto dura una valutazione tipica?</span>
+                        <span class="font-semibold text-gray-900" data-i18n="consulenza.faq.q1">{{ __('consulting.faq.q1') }}</span>
                         <svg :class="open && 'rotate-180'" class="w-5 h-5 text-gray-400 flex-shrink-0 ml-4 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div x-show="open" x-collapse class="px-6 pb-5">
-                        <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.faq.a1">Generalmente 2-3 settimane, a seconda della complessit&agrave; dell'organizzazione e del numero di processi da analizzare.</p>
+                        <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.faq.a1">{{ __('consulting.faq.a1') }}</p>
                     </div>
                 </div>
 
                 {{-- FAQ 2 --}}
                 <div x-data="{ open: false }" class="border border-gray-200 rounded-xl overflow-hidden">
                     <button @click="open = !open" class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors duration-200">
-                        <span class="font-semibold text-gray-900" data-i18n="consulenza.faq.q2">Devo avere conoscenze tecniche per lavorare con voi?</span>
+                        <span class="font-semibold text-gray-900" data-i18n="consulenza.faq.q2">{{ __('consulting.faq.q2') }}</span>
                         <svg :class="open && 'rotate-180'" class="w-5 h-5 text-gray-400 flex-shrink-0 ml-4 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div x-show="open" x-collapse class="px-6 pb-5">
-                        <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.faq.a2">No, gestiamo tutto noi. Il nostro approccio &egrave; pensato per imprenditori e manager, non per tecnici. Vi guidiamo in ogni fase.</p>
+                        <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.faq.a2">{{ __('consulting.faq.a2') }}</p>
                     </div>
                 </div>
 
                 {{-- FAQ 3 --}}
                 <div x-data="{ open: false }" class="border border-gray-200 rounded-xl overflow-hidden">
                     <button @click="open = !open" class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors duration-200">
-                        <span class="font-semibold text-gray-900" data-i18n="consulenza.faq.q3">Con quali dimensioni di azienda lavorate?</span>
+                        <span class="font-semibold text-gray-900" data-i18n="consulenza.faq.q3">{{ __('consulting.faq.q3') }}</span>
                         <svg :class="open && 'rotate-180'" class="w-5 h-5 text-gray-400 flex-shrink-0 ml-4 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div x-show="open" x-collapse class="px-6 pb-5">
-                        <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.faq.a3">Tipicamente con imprese da 5 a 250 dipendenti. Le nostre soluzioni sono progettate specificamente per micro, piccole e medie imprese.</p>
+                        <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.faq.a3">{{ __('consulting.faq.a3') }}</p>
                     </div>
                 </div>
 
                 {{-- FAQ 4 --}}
                 <div x-data="{ open: false }" class="border border-gray-200 rounded-xl overflow-hidden">
                     <button @click="open = !open" class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors duration-200">
-                        <span class="font-semibold text-gray-900" data-i18n="consulenza.faq.q4">Lavorate da remoto?</span>
+                        <span class="font-semibold text-gray-900" data-i18n="consulenza.faq.q4">{{ __('consulting.faq.q4') }}</span>
                         <svg :class="open && 'rotate-180'" class="w-5 h-5 text-gray-400 flex-shrink-0 ml-4 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div x-show="open" x-collapse class="px-6 pb-5">
-                        <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.faq.a4">S&igrave;, siamo un team remote-first. Lavoriamo principalmente da remoto con workshop on-site quando necessario per le fasi di discovery e formazione.</p>
+                        <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.faq.a4">{{ __('consulting.faq.a4') }}</p>
                     </div>
                 </div>
 
                 {{-- FAQ 5 --}}
                 <div x-data="{ open: false }" class="border border-gray-200 rounded-xl overflow-hidden">
                     <button @click="open = !open" class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors duration-200">
-                        <span class="font-semibold text-gray-900" data-i18n="consulenza.faq.q5">Quali settori servite?</span>
+                        <span class="font-semibold text-gray-900" data-i18n="consulenza.faq.q5">{{ __('consulting.faq.q5') }}</span>
                         <svg :class="open && 'rotate-180'" class="w-5 h-5 text-gray-400 flex-shrink-0 ml-4 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div x-show="open" x-collapse class="px-6 pb-5">
-                        <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.faq.a5">Lavoriamo con aziende di ogni settore: servizi, commercio, manifatturiero, tecnologia e altri. Il nostro approccio si basa sul miglioramento dei processi, applicabile a qualsiasi tipo di business.</p>
+                        <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.faq.a5">{{ __('consulting.faq.a5') }}</p>
                     </div>
                 </div>
 
                 {{-- FAQ 6 --}}
                 <div x-data="{ open: false }" class="border border-gray-200 rounded-xl overflow-hidden">
                     <button @click="open = !open" class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors duration-200">
-                        <span class="font-semibold text-gray-900" data-i18n="consulenza.faq.q6">Quanto costa iniziare?</span>
+                        <span class="font-semibold text-gray-900" data-i18n="consulenza.faq.q6">{{ __('consulting.faq.q6') }}</span>
                         <svg :class="open && 'rotate-180'" class="w-5 h-5 text-gray-400 flex-shrink-0 ml-4 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div x-show="open" x-collapse class="px-6 pb-5">
-                        <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.faq.a6">Ogni progetto &egrave; unico e il costo dipende dalla complessit&agrave; e dall'ambito. Offriamo una discovery call gratuita di 30 minuti per capire le tue esigenze e preparare un preventivo personalizzato senza impegno.</p>
+                        <p class="text-gray-500 text-sm leading-relaxed" data-i18n="consulenza.faq.a6">{{ __('consulting.faq.a6') }}</p>
                     </div>
                 </div>
 
@@ -425,31 +425,31 @@
                     <svg class="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
-                    <span data-i18n="consulenza.trust.item1">20+ anni di esperienza</span>
+                    <span data-i18n="consulenza.trust.item1">{{ __('consulting.trust.item1') }}</span>
                 </span>
                 <span class="flex items-center gap-2">
                     <svg class="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
-                    <span data-i18n="consulenza.trust.item2">CSCP | SCOR-P | PRINCE2</span>
+                    <span data-i18n="consulenza.trust.item2">{{ __('consulting.trust.item2') }}</span>
                 </span>
                 <span class="flex items-center gap-2">
                     <svg class="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
-                    <span data-i18n="consulenza.trust.item3">Miglioramento Processi</span>
+                    <span data-i18n="consulenza.trust.item3">{{ __('consulting.trust.item3') }}</span>
                 </span>
                 <span class="flex items-center gap-2">
                     <svg class="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
-                    <span data-i18n="consulenza.trust.item4">GDPR & AI Act Ready</span>
+                    <span data-i18n="consulenza.trust.item4">{{ __('consulting.trust.item4') }}</span>
                 </span>
                 <span class="flex items-center gap-2">
                     <svg class="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
-                    <span data-i18n="consulenza.trust.item5">EU-Based</span>
+                    <span data-i18n="consulenza.trust.item5">{{ __('consulting.trust.item5') }}</span>
                 </span>
             </div>
         </div>
@@ -460,10 +460,10 @@
         <div class="max-w-4xl mx-auto px-6 text-center">
 
             <h2 class="font-heading text-3xl sm:text-4xl font-bold mb-4" data-i18n="consulenza.cta.title">
-                Pronto a esplorare cosa pu&ograve; fare l'AI per la tua azienda?
+                {{ __('consulting.cta.title') }}
             </h2>
             <p class="text-white/70 text-lg mb-10 max-w-xl mx-auto" data-i18n="consulenza.cta.sub">
-                Prenota una discovery call gratuita di 30 minuti. Nessun impegno, solo una conversazione per capire come possiamo aiutarti.
+                {{ __('consulting.cta.sub') }}
             </p>
 
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -473,14 +473,14 @@
                     class="btn-white"
                     data-i18n="consulenza.cta.primary"
                 >
-                    Prenota una Discovery Call
+                    {{ __('consulting.cta.primary') }}
                 </a>
                 <a
                     href="{{ route('contatto') }}"
                     class="inline-flex items-center px-6 py-3 border-2 border-white/30 text-white rounded-xl font-semibold hover:bg-white/10 transition-colors duration-200"
                     data-i18n="consulenza.cta.secondary"
                 >
-                    Contattaci
+                    {{ __('consulting.cta.secondary') }}
                 </a>
             </div>
 

@@ -31,7 +31,7 @@
         >
             <span class="badge bg-primary/20 text-primary-light border border-primary/30 text-xs font-semibold tracking-widest uppercase backdrop-blur-sm px-4 py-1.5 rounded-full"
                   data-i18n="home.hero.badge">
-                Consultancy-First for European SMEs
+                {{ __('home.hero.badge') }}
             </span>
         </div>
 
@@ -43,10 +43,7 @@
             class="font-heading text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-white tracking-tight leading-[1.05] mb-7 transition-all duration-700 ease-out"
             data-i18n-html="home.hero.title"
         >
-            AI That Works<br>
-            <span class="bg-gradient-to-r from-primary-light via-[#34d399] to-[#6ee7b7] bg-clip-text text-transparent">
-                for Your Business
-            </span>
+            {!! __('home.hero.title') !!}
         </h1>
 
         {{-- Subtitle --}}
@@ -57,7 +54,7 @@
             class="text-lg sm:text-xl lg:text-2xl text-white/70 max-w-3xl mx-auto leading-relaxed mb-12 transition-all duration-700 ease-out"
             data-i18n="home.hero.sub"
         >
-            We help micro, small, and medium enterprises identify where AI creates real value, implement it properly, and measure the results. Consultancy-first. Process-driven. Quality-embedded.
+            {{ __('home.hero.sub') }}
         </p>
 
         {{-- CTA Buttons --}}
@@ -72,7 +69,7 @@
                rel="noopener noreferrer"
                class="btn-primary text-base px-8 py-4 rounded-xl shadow-xl shadow-primary/30 hover:shadow-primary/50 hover:scale-[1.03] transition-all duration-200 gap-2"
                data-i18n="home.hero.cta1">
-                Book a Free Discovery Call
+                {{ __('home.hero.cta1') }}
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/>
                 </svg>
@@ -80,7 +77,7 @@
             <a href="{{ route('consulenza') }}"
                class="btn-white text-base px-8 py-4 rounded-xl hover:scale-[1.03] transition-all duration-200 gap-2"
                data-i18n="home.hero.cta2">
-                Explore Our Services
+                {{ __('home.hero.cta2') }}
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
                 </svg>
@@ -100,7 +97,7 @@
                     {{ $stats['sme'] ?? '26.1M' }}
                 </div>
                 <div class="text-xs sm:text-sm text-white/60 font-medium leading-tight" data-i18n="home.hero.stat.sme">
-                    SMEs in Europe
+                    {{ __('home.hero.stat.sme') }}
                 </div>
             </div>
 
@@ -110,7 +107,7 @@
                     {{ $stats['ore'] ?? '9.85h' }}
                 </div>
                 <div class="text-xs sm:text-sm text-white/60 font-medium leading-tight" data-i18n="home.hero.stat.ore">
-                    saved per week
+                    {{ __('home.hero.stat.ore') }}
                 </div>
             </div>
 
@@ -120,7 +117,7 @@
                     {{ $stats['pct'] ?? '52%' }}
                 </div>
                 <div class="text-xs sm:text-sm text-white/60 font-medium leading-tight" data-i18n="home.hero.stat.pct">
-                    of SMEs want AI
+                    {{ __('home.hero.stat.pct') }}
                 </div>
             </div>
 
@@ -130,7 +127,7 @@
                     {{ $stats['giorni'] ?? '—' }}
                 </div>
                 <div class="text-xs sm:text-sm text-amber-light/80 font-medium leading-tight" data-i18n="home.hero.stat.giorni">
-                    days to AI Act
+                    {{ __('home.hero.stat.giorni') }}
                 </div>
             </div>
         </div>
@@ -161,13 +158,13 @@
         >
             <span class="badge bg-primary/10 text-primary mb-4 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest"
                   data-i18n="home.help.badge">
-                How We Help
+                {{ __('home.help.badge') }}
             </span>
             <h2 class="section-title mb-5" data-i18n="home.help.title">
-                From Assessment to Implementation
+                {{ __('home.help.title') }}
             </h2>
             <p class="section-sub mx-auto text-center" data-i18n="home.help.sub">
-                A structured approach that starts with understanding your business, not selling you software.
+                {{ __('home.help.sub') }}
             </p>
         </div>
 
@@ -190,16 +187,16 @@
                 </div>
                 <h3 class="font-heading text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-200"
                     data-i18n="home.help.assess.title">
-                    Assess
+                    {{ __('home.help.assess.title') }}
                 </h3>
                 <p class="text-gray-500 text-sm leading-relaxed" data-i18n="home.help.assess.desc">
-                    We map your processes, identify AI opportunities, and define a realistic roadmap tailored to your business.
+                    {{ __('home.help.assess.desc') }}
                 </p>
                 <div class="mt-7 pt-6 border-t border-gray-100">
                     <a href="{{ route('consulenza') }}"
                        class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary-dark transition-colors duration-200 group/link"
                        data-i18n="home.help.assess.link">
-                        AI Opportunity Assessment &rarr;
+                        {{ __('home.help.assess.link') }}
                     </a>
                 </div>
                 <div class="mt-4 w-8 h-0.5 bg-primary/30 group-hover:w-16 transition-all duration-400 rounded-full"></div>
@@ -221,16 +218,16 @@
                 </div>
                 <h3 class="font-heading text-xl font-bold text-gray-900 mb-3 group-hover:text-amber transition-colors duration-200"
                     data-i18n="home.help.implement.title">
-                    Implement
+                    {{ __('home.help.implement.title') }}
                 </h3>
                 <p class="text-gray-500 text-sm leading-relaxed" data-i18n="home.help.implement.desc">
-                    We build and deploy AI solutions, workflow automations, and quality systems that integrate with your existing operations.
+                    {{ __('home.help.implement.desc') }}
                 </p>
                 <div class="mt-7 pt-6 border-t border-gray-100">
                     <a href="{{ route('consulenza') }}"
                        class="inline-flex items-center gap-2 text-sm font-semibold text-amber hover:text-amber-dark transition-colors duration-200 group/link"
                        data-i18n="home.help.implement.link">
-                        Implementation Sprints &rarr;
+                        {{ __('home.help.implement.link') }}
                     </a>
                 </div>
                 <div class="mt-4 w-8 h-0.5 bg-amber/40 group-hover:w-16 transition-all duration-400 rounded-full"></div>
@@ -252,16 +249,16 @@
                 </div>
                 <h3 class="font-heading text-xl font-bold text-gray-900 mb-3 group-hover:text-navy transition-colors duration-200"
                     data-i18n="home.help.support.title">
-                    Support
+                    {{ __('home.help.support.title') }}
                 </h3>
                 <p class="text-gray-500 text-sm leading-relaxed" data-i18n="home.help.support.desc">
-                    Ongoing managed support, training, and optimisation to ensure your AI investment keeps delivering results.
+                    {{ __('home.help.support.desc') }}
                 </p>
                 <div class="mt-7 pt-6 border-t border-gray-100">
                     <a href="{{ route('consulenza') }}"
                        class="inline-flex items-center gap-2 text-sm font-semibold text-navy hover:text-navy-dark transition-colors duration-200 group/link"
                        data-i18n="home.help.support.link">
-                        Managed Support &rarr;
+                        {{ __('home.help.support.link') }}
                     </a>
                 </div>
                 <div class="mt-4 w-8 h-0.5 bg-navy/30 group-hover:w-16 transition-all duration-400 rounded-full"></div>
@@ -291,10 +288,10 @@
         >
             <span class="badge bg-navy/10 text-navy mb-4 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest"
                   data-i18n="home.approach.badge">
-                Our Approach
+                {{ __('home.approach.badge') }}
             </span>
             <h2 class="section-title mb-4" data-i18n="home.approach.title">
-                A Proven 5-Phase Methodology
+                {{ __('home.approach.title') }}
             </h2>
         </div>
 
@@ -334,10 +331,10 @@
                             <span class="font-heading text-2xl font-bold text-primary">{{ $phase['num'] }}</span>
                         </div>
                         <h3 class="font-heading text-lg font-bold text-gray-900 mb-2" data-i18n="home.approach.phase{{ $phase['num'] }}.title">
-                            {{ $phase['title'] }}
+                            {{ __('home.approach.phase' . $phase['num'] . '.title') }}
                         </h3>
                         <p class="text-gray-500 text-sm leading-relaxed" data-i18n="home.approach.phase{{ $phase['num'] }}.desc">
-                            {{ $phase['desc'] }}
+                            {{ __('home.approach.phase' . $phase['num'] . '.desc') }}
                         </p>
                     </div>
                     @endforeach
@@ -359,10 +356,10 @@
                     </div>
                     <div>
                         <h3 class="font-heading text-lg font-bold text-gray-900 mb-1" data-i18n="home.approach.phase{{ $phase['num'] }}.title">
-                            {{ $phase['title'] }}
+                            {{ __('home.approach.phase' . $phase['num'] . '.title') }}
                         </h3>
                         <p class="text-gray-500 text-sm leading-relaxed" data-i18n="home.approach.phase{{ $phase['num'] }}.desc">
-                            {{ $phase['desc'] }}
+                            {{ __('home.approach.phase' . $phase['num'] . '.desc') }}
                         </p>
                     </div>
                 </div>
@@ -388,13 +385,13 @@
         >
             <span class="badge bg-primary/10 text-primary mb-4 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest"
                   data-i18n="home.sectors.badge">
-                Who We Work With
+                {{ __('home.sectors.badge') }}
             </span>
             <h2 class="section-title mb-5" data-i18n="home.sectors.title">
-                AI for Every Business
+                {{ __('home.sectors.title') }}
             </h2>
             <p class="section-sub mx-auto text-center" data-i18n="home.sectors.sub">
-                We work with businesses across all sectors, helping them improve operations, reduce costs, and grow smarter.
+                {{ __('home.sectors.sub') }}
             </p>
         </div>
 
@@ -418,10 +415,10 @@
                 </div>
                 <h3 class="font-heading text-lg font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-200"
                     data-i18n="home.sectors.operations.title">
-                    Operations & Processes
+                    {{ __('home.sectors.operations.title') }}
                 </h3>
                 <p class="text-gray-500 text-sm leading-relaxed" data-i18n="home.sectors.operations.desc">
-                    Workflow automation, process mapping, operational efficiency, and performance monitoring across your entire organisation.
+                    {{ __('home.sectors.operations.desc') }}
                 </p>
                 <div class="mt-6 w-8 h-0.5 bg-primary/30 group-hover:w-16 transition-all duration-400 rounded-full"></div>
             </div>
@@ -442,10 +439,10 @@
                 </div>
                 <h3 class="font-heading text-lg font-bold text-gray-900 mb-3 group-hover:text-amber transition-colors duration-200"
                     data-i18n="home.sectors.finance.title">
-                    Finance & Administration
+                    {{ __('home.sectors.finance.title') }}
                 </h3>
                 <p class="text-gray-500 text-sm leading-relaxed" data-i18n="home.sectors.finance.desc">
-                    Invoice processing, expense management, financial reporting automation, and cash flow optimisation.
+                    {{ __('home.sectors.finance.desc') }}
                 </p>
                 <div class="mt-6 w-8 h-0.5 bg-amber/40 group-hover:w-16 transition-all duration-400 rounded-full"></div>
             </div>
@@ -466,10 +463,10 @@
                 </div>
                 <h3 class="font-heading text-lg font-bold text-gray-900 mb-3 group-hover:text-navy transition-colors duration-200"
                     data-i18n="home.sectors.quality.title">
-                    Quality & Compliance
+                    {{ __('home.sectors.quality.title') }}
                 </h3>
                 <p class="text-gray-500 text-sm leading-relaxed" data-i18n="home.sectors.quality.desc">
-                    Quality management systems, regulatory compliance, document control, and audit preparation.
+                    {{ __('home.sectors.quality.desc') }}
                 </p>
                 <div class="mt-6 w-8 h-0.5 bg-navy/30 group-hover:w-16 transition-all duration-400 rounded-full"></div>
             </div>
@@ -490,10 +487,10 @@
                 </div>
                 <h3 class="font-heading text-lg font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-200"
                     data-i18n="home.sectors.sales.title">
-                    Sales & Customer Service
+                    {{ __('home.sectors.sales.title') }}
                 </h3>
                 <p class="text-gray-500 text-sm leading-relaxed" data-i18n="home.sectors.sales.desc">
-                    CRM automation, lead management, customer communication workflows, and service delivery improvement.
+                    {{ __('home.sectors.sales.desc') }}
                 </p>
                 <div class="mt-6 w-8 h-0.5 bg-primary/30 group-hover:w-16 transition-all duration-400 rounded-full"></div>
             </div>
@@ -530,7 +527,7 @@
                     {{ $stats['giorni'] ?? '—' }}
                 </span>
                 <span class="text-amber-light/70 text-sm font-semibold mt-2 tracking-wide" data-i18n="home.aiact.days">
-                    days
+                    {{ __('home.aiact.days') }}
                 </span>
             </div>
         </div>
@@ -548,17 +545,17 @@
 
             <h2 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6"
                 data-i18n="home.aiact.title">
-                Is Your Business Ready?
+                {{ __('home.aiact.title') }}
             </h2>
             <p class="text-lg sm:text-xl text-white/65 max-w-2xl mx-auto leading-relaxed mb-10"
                data-i18n="home.aiact.desc">
-                The EU AI Act enters full force on August 2, 2026. Non-compliant businesses face fines up to 3% of global turnover. Corvalys helps you prepare — starting today.
+                {{ __('home.aiact.desc') }}
             </p>
 
             <a href="{{ route('contatto') }}"
                class="btn-primary px-8 py-4 text-base rounded-xl shadow-xl shadow-primary/30 hover:shadow-primary/50 hover:scale-[1.03] transition-all duration-200 gap-2"
                data-i18n="home.aiact.cta">
-                Check Compliance
+                {{ __('home.aiact.cta') }}
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/>
                 </svg>
@@ -584,13 +581,13 @@
         >
             <span class="badge bg-primary/10 text-primary mb-4 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest"
                   data-i18n="home.products.badge">
-                AI-Powered Tools
+                {{ __('home.products.badge') }}
             </span>
             <h2 class="section-title mb-5" data-i18n="home.products.title">
-                Quick-Start AI Tools for SMEs
+                {{ __('home.products.title') }}
             </h2>
             <p class="section-sub mx-auto text-center" data-i18n="home.products.sub">
-                For businesses that need an affordable entry point, our standardised tools are designed to deliver value from Day One. Need something custom? Our consulting team can build it.
+                {{ __('home.products.sub') }}
             </p>
         </div>
 
@@ -612,7 +609,7 @@
                 {{-- Coming Soon badge --}}
                 <div class="absolute top-3 right-3">
                     <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-amber/10 text-amber border border-amber/20" data-i18n="products.coming_soon">
-                        Coming Soon
+                        {{ __('home.products.coming_soon') }}
                     </span>
                 </div>
 
@@ -638,7 +635,7 @@
                     <a href="{{ route('prodotti.show', $product) }}"
                        class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary-dark transition-colors duration-200 group/link"
                        data-i18n="home.products.learn">
-                        Learn more
+                        {{ __('home.products.learn') }}
                         <svg class="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/>
                         </svg>
@@ -654,7 +651,7 @@
             <a href="{{ route('prodotti') }}"
                class="btn-outline gap-2"
                data-i18n="home.products.viewall">
-                View All Products
+                {{ __('home.products.viewall') }}
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/>
                 </svg>
@@ -755,20 +752,17 @@
         >
             <span class="badge bg-primary/20 text-primary-light border border-primary/30 mb-6 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest"
                   data-i18n="home.cta.badge">
-                Ready to Start?
+                {{ __('home.cta.badge') }}
             </span>
 
             <h2 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6 leading-tight"
-                data-i18n="home.cta.title">
-                Transform Your Business<br>
-                <span class="bg-gradient-to-r from-primary-light to-[#6ee7b7] bg-clip-text text-transparent">
-                    With AI That Works
-                </span>
+                data-i18n-html="home.cta.title">
+                {!! __('home.cta.title') !!}
             </h2>
 
             <p class="text-lg sm:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed mb-12"
                data-i18n="home.cta.sub">
-                Built for European SMEs ready to transform their operations with AI. Book a free discovery call to explore what's possible.
+                {{ __('home.cta.sub') }}
             </p>
 
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -777,7 +771,7 @@
                    rel="noopener noreferrer"
                    class="btn-primary text-base px-9 py-4 rounded-xl shadow-xl shadow-primary/30 hover:shadow-primary/50 hover:scale-[1.03] transition-all duration-200 gap-2"
                    data-i18n="home.cta.btn1">
-                    Book a Discovery Call
+                    {{ __('home.cta.btn1') }}
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/>
                     </svg>
@@ -785,7 +779,7 @@
                 <a href="{{ route('contatto') }}"
                    class="btn-white text-base px-9 py-4 rounded-xl hover:scale-[1.03] transition-all duration-200 gap-2"
                    data-i18n="home.cta.btn2">
-                    Contact Us
+                    {{ __('home.cta.btn2') }}
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/>
                     </svg>
@@ -798,19 +792,19 @@
                     <svg class="w-5 h-5 text-primary-light" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                     </svg>
-                    <span data-i18n="home.cta.trust1">GDPR Compliant</span>
+                    <span data-i18n="home.cta.trust1">{{ __('home.cta.trust1') }}</span>
                 </div>
                 <div class="flex items-center gap-2 text-white/70 text-sm font-medium">
                     <svg class="w-5 h-5 text-primary-light" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                     </svg>
-                    <span data-i18n="home.cta.trust2">EU Data Residency</span>
+                    <span data-i18n="home.cta.trust2">{{ __('home.cta.trust2') }}</span>
                 </div>
                 <div class="flex items-center gap-2 text-white/70 text-sm font-medium">
                     <svg class="w-5 h-5 text-primary-light" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                     </svg>
-                    <span data-i18n="home.cta.trust3">EU AI Act Ready</span>
+                    <span data-i18n="home.cta.trust3">{{ __('home.cta.trust3') }}</span>
                 </div>
             </div>
         </div>

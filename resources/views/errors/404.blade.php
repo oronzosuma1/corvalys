@@ -5,15 +5,16 @@
     $seg = request()->segment(1);
     $detectedLocale = in_array($seg, ['it', 'fr'], true) ? $seg : app()->getLocale();
     app()->setLocale($detectedLocale);
+
+    // Tell x-seo-head to emit a SINGLE noindex,nofollow tag (otherwise
+    // the layout emits index,follow BEFORE our @push and curl shows
+    // the wrong directive first).
+    $seoNoindex = true;
 @endphp
 @extends('layouts.app')
 
 @section('title', __('errors.404.title'))
 @section('meta_description', __('errors.404.description'))
-
-@push('head')
-    <meta name="robots" content="noindex,nofollow">
-@endpush
 
 @section('content')
 <section class="bg-hero text-white min-h-[60vh] flex items-center">

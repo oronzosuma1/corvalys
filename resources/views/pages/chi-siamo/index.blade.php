@@ -19,13 +19,13 @@
                 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6"
                 data-i18n="about.hero.title"
             >
-                Chi Siamo
+                {{ __('about.hero.title') }}
             </h1>
             <p
                 class="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed"
                 data-i18n="about.hero.sub"
             >
-                Aiutiamo le PMI europee a crescere attraverso l'intelligenza artificiale applicata ai processi reali.
+                {{ __('about.hero.sub') }}
             </p>
         </div>
     </section>
@@ -39,10 +39,7 @@
                        prose-a:text-primary prose-a:no-underline hover:prose-a:underline"
                 data-i18n-html="about.intro"
             >
-                <p>
-                    Corvalys nasce con un obiettivo chiaro: rendere l'intelligenza artificiale accessibile,
-                    comprensibile e concretamente utile per le piccole e medie imprese europee.
-                </p>
+                {!! __('about.intro') !!}
             </div>
         </div>
     </section>
@@ -56,13 +53,13 @@
                     class="section-title mb-4"
                     data-i18n="about.sections.heading"
                 >
-                    Scopri Corvalys
+                    {{ __('about.sections.heading') }}
                 </h2>
                 <p
                     class="section-sub mx-auto"
                     data-i18n="about.sections.sub"
                 >
-                    Approfondisci ogni aspetto della nostra identità e del nostro approccio.
+                    {{ __('about.sections.sub') }}
                 </p>
             </div>
 
@@ -82,16 +79,16 @@
                         class="font-heading text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-200"
                         data-i18n="about.card.mission.title"
                     >
-                        La Nostra Missione
+                        {{ __('about.card.mission.title') }}
                     </h3>
                     <p
                         class="text-gray-500 text-sm leading-relaxed flex-1"
                         data-i18n="about.card.mission.desc"
                     >
-                        Perché esistiamo e quale impatto vogliamo generare nel tessuto imprenditoriale europeo.
+                        {{ __('about.card.mission.desc') }}
                     </p>
                     <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
-                        <span data-i18n="about.card.readmore">Scopri di più</span>
+                        <span data-i18n="about.card.readmore">{{ __('about.card.readmore') }}</span>
                         <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
                         </svg>
@@ -112,16 +109,16 @@
                         class="font-heading text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-200"
                         data-i18n="about.card.whatwedo.title"
                     >
-                        Cosa Facciamo
+                        {{ __('about.card.whatwedo.title') }}
                     </h3>
                     <p
                         class="text-gray-500 text-sm leading-relaxed flex-1"
                         data-i18n="about.card.whatwedo.desc"
                     >
-                        Soluzioni AI concrete: dalla suite prodotti alla consulenza su misura e alla formazione.
+                        {{ __('about.card.whatwedo.desc') }}
                     </p>
                     <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
-                        <span data-i18n="about.card.readmore">Scopri di più</span>
+                        <span data-i18n="about.card.readmore">{{ __('about.card.readmore') }}</span>
                         <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
                         </svg>
@@ -142,16 +139,16 @@
                         class="font-heading text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-200"
                         data-i18n="about.card.values.title"
                     >
-                        I Nostri Valori
+                        {{ __('about.card.values.title') }}
                     </h3>
                     <p
                         class="text-gray-500 text-sm leading-relaxed flex-1"
                         data-i18n="about.card.values.desc"
                     >
-                        I principi che guidano ogni decisione: chiarezza, impatto misurabile, etica e partnership.
+                        {{ __('about.card.values.desc') }}
                     </p>
                     <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
-                        <span data-i18n="about.card.readmore">Scopri di più</span>
+                        <span data-i18n="about.card.readmore">{{ __('about.card.readmore') }}</span>
                         <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
                         </svg>
@@ -169,20 +166,20 @@
                 class="font-heading text-3xl sm:text-4xl font-bold mb-4"
                 data-i18n="about.cta.title"
             >
-                Chi c'è dietro Corvalys
+                {{ __('about.cta.title') }}
             </h2>
             <p
                 class="text-white/70 text-lg mb-10 max-w-xl mx-auto"
                 data-i18n="about.cta.sub"
             >
-                Fondato da professionisti con oltre 20 anni di esperienza in operations, AI e sistemi di qualità.
+                {{ __('about.cta.sub') }}
             </p>
             <a
                 href="{{ route('chi-siamo.team') }}"
                 class="btn-white"
                 data-i18n="about.cta.button"
             >
-                Meet the Team
+                {{ __('about.cta.button') }}
             </a>
         </div>
     </section>
