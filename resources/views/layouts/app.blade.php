@@ -46,7 +46,7 @@
 
     <x-footer />
 
-    <x-cookie-banner />
+    <x-cookie-consent />
     <x-cookie-preferences-button />
 
     {{-- @livewireScriptConfig (no auto-start): our resources/js/app.js

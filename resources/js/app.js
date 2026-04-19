@@ -55,27 +55,32 @@ function newUuid() {
 
 Alpine.store('cookies', {
     /**
-     * accepted is kept as a plain reactive property (not a getter) because
-     * Alpine's store proxy only tracks deps on direct property reads, not
-     * on nested accesses made inside a JS getter.
+     * accepted is a plain reactive property (not a getter) because
+     * Alpine's store proxy only tracks deps on direct property reads,
+     * not on nested accesses made inside a JS getter function.
      */
     accepted: !!readConsent(),
     _loaded: readConsent(),
     view: 'compact',           // 'compact' | 'categories'
-    /** Necessary is always true and cannot be toggled by the user. */
+
+    /**
+     * Category model.
+     *   necessary: always true (session/CSRF/locale cookies — ePrivacy exempt)
+     *   functional: UI treats this as "Cookie tecnici" / "always on" too
+     *               (kept reactive so the checkbox-disabled UI has a source)
+     *   analytics / marketing: user-toggleable
+     */
     categories: {
         necessary: true,
-        functional: false,
+        functional: true,
         analytics: false,
         marketing: false,
     },
 
     init() {
-        // Keep local toggles in sync if consent was already saved.
         if (this._loaded && this._loaded.categories) {
             this.categories = Object.assign({}, this.categories, this._loaded.categories);
         }
-        // Respect Global Privacy Control: silent reject on first visit only.
         if (!this._loaded && navigator.globalPrivacyControl === true) {
             this._persist('gpc_auto_reject');
         }
@@ -89,11 +94,13 @@ Alpine.store('cookies', {
         this._persist('accept');
     },
     rejectAll() {
-        this.categories = { necessary: true, functional: false, analytics: false, marketing: false };
+        // functional stays TRUE — it's the "technical" always-on category per spec.
+        this.categories = { necessary: true, functional: true, analytics: false, marketing: false };
         this._persist('reject');
     },
     savePreferences() {
-        this.categories.necessary = true; // enforce
+        this.categories.necessary = true;
+        this.categories.functional = true;
         this._persist('custom');
     },
 
