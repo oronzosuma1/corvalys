@@ -1,19 +1,11 @@
-{{-- Floating Cookie Preferences Button (opt-in via config) --}}
+{{-- Floating Cookie Preferences Button (opt-in via config).
+     The consent banner is now a blocking modal that shows on every page
+     until the user chooses. This little corner button is only useful AFTER
+     a choice has been made so the user can change it. --}}
 @if(config('corvalys.cookie_preferences_button', false))
-<div x-data="{
-        bannerOpen: false,
-        init() {
-            // Hide if banner is open; track via custom events.
-            this.bannerOpen = false;
-            window.addEventListener('cookie-banner:open', () => { this.bannerOpen = true; });
-            window.addEventListener('open-cookie-preferences', () => { this.bannerOpen = true; }); // legacy alias
-            // Reset when consent is saved
-            window.addEventListener('consent:updated', () => { this.bannerOpen = false; });
-            window.addEventListener('cookie-consent-ready', () => { this.bannerOpen = false; }); // legacy alias
-        }
-     }"
+<div x-data
      x-cloak
-     x-show="!bannerOpen"
+     x-show="$store.cookies.accepted"
      x-transition:enter="transition ease-out duration-200"
      x-transition:enter-start="opacity-0 scale-90"
      x-transition:enter-end="opacity-100 scale-100"
@@ -23,12 +15,10 @@
      class="fixed bottom-4 left-4 z-[9998]"
      style="display: none;">
     <button type="button"
-            @click="window.dispatchEvent(new CustomEvent('cookie-banner:open'))"
+            @click="window.cookieConsent && window.cookieConsent.open()"
             aria-label="{{ __('cookie.banner.preferences_link') }}"
             title="{{ __('cookie.banner.preferences_link') }}"
-            data-i18n-title="nav.cookie-preferences"
             class="group flex items-center justify-center w-12 h-12 rounded-full bg-white border border-gray-200 shadow-lg hover:shadow-xl hover:border-primary/40 transition focus:outline-none focus:ring-2 focus:ring-primary/30">
-        {{-- Fingerprint / cookie icon --}}
         <svg class="w-6 h-6 text-gray-600 group-hover:text-primary transition" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-4-4 4 4 0 0 1-4-4 4 4 0 0 1-2-6z"/>

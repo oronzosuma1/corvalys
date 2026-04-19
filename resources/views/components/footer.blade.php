@@ -151,7 +151,7 @@
                 <ul class="space-y-2.5">
                     <li>
                         <button type="button"
-                           onclick="window.dispatchEvent(new CustomEvent('cookie-banner:open'))"
+                           onclick="window.cookieConsent && window.cookieConsent.open()"
                            class="text-white/70 text-sm hover:text-white transition text-left"
                            data-i18n="nav.cookie-preferences">
                             {{ __('nav.cookie_preferences') }}
