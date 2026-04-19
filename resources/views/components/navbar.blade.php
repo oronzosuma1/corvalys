@@ -52,7 +52,7 @@
                         aria-haspopup="true"
                         :aria-expanded="aboutOpen"
                     >
-                        <span data-i18n="nav.about">{{ __('nav.about') }}</span>
+                        <span>{{ __('nav.about') }}</span>
                         <svg
                             class="w-4 h-4 transition-transform duration-200"
                             :class="aboutOpen ? 'rotate-180' : ''"
@@ -88,7 +88,6 @@
                             <a
                                 href="{{ route($link['route']) }}"
                                 class="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors {{ request()->routeIs($link['route']) ? 'text-primary bg-primary/5 font-medium' : '' }}"
-                                data-i18n="{{ $link['i18n'] }}"
                             >
                                 <span class="w-1.5 h-1.5 rounded-full bg-primary/40 flex-shrink-0"></span>
                                 {{ __($link['key']) }}
@@ -101,7 +100,7 @@
                 <a
                     href="{{ route('consulenza') }}"
                     class="px-3 py-2 text-sm font-medium rounded-lg hover:text-primary hover:bg-gray-50 transition-colors duration-150 {{ request()->routeIs('consulenza') ? 'text-primary' : 'text-gray-700' }}"
-                    data-i18n="nav.consulting"
+
                 >{{ __('nav.consulting') }}</a>
 
                 {{-- Prodotti dropdown --}}
@@ -114,7 +113,7 @@
                         aria-haspopup="true"
                         :aria-expanded="productsOpen"
                     >
-                        <span data-i18n="nav.products">{{ __('nav.products') }}</span>
+                        <span>{{ __('nav.products') }}</span>
                         <svg
                             class="w-4 h-4 transition-transform duration-200"
                             :class="productsOpen ? 'rotate-180' : ''"
@@ -142,7 +141,7 @@
                             <svg class="w-4 h-4 text-primary/70 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7"/>
                             </svg>
-                            <span data-i18n="nav.products_all">{{ __('nav.products_all') }}</span>
+                            <span>{{ __('nav.products_all') }}</span>
                         </a>
 
                         @php
@@ -174,7 +173,7 @@
                         aria-haspopup="true"
                         :aria-expanded="blogOpen"
                     >
-                        <span data-i18n="nav.blog">{{ __('nav.blog') }}</span>
+                        <span>{{ __('nav.blog') }}</span>
                         <svg
                             class="w-4 h-4 transition-transform duration-200"
                             :class="blogOpen ? 'rotate-180' : ''"
@@ -198,7 +197,7 @@
                         <a
                             href="{{ route('blog.index') }}"
                             class="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors {{ request()->routeIs('blog.index') && !request()->query('type') ? 'text-primary bg-primary/5 font-medium' : '' }}"
-                            data-i18n="nav.blog.all"
+
                         >
                             <span class="w-1.5 h-1.5 rounded-full bg-primary/40 flex-shrink-0"></span>
                             {{ __('nav.blog_all') }}
@@ -206,7 +205,7 @@
                         <a
                             href="{{ route('blog.index', ['type' => 'article']) }}"
                             class="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors {{ request()->routeIs('blog.index') && request()->query('type') === 'article' ? 'text-primary bg-primary/5 font-medium' : '' }}"
-                            data-i18n="nav.blog.articles"
+
                         >
                             <span class="w-1.5 h-1.5 rounded-full bg-primary/40 flex-shrink-0"></span>
                             {{ __('nav.blog_articles') }}
@@ -214,7 +213,7 @@
                         <a
                             href="{{ route('blog.index', ['type' => 'case_study']) }}"
                             class="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors {{ request()->routeIs('blog.index') && request()->query('type') === 'case_study' ? 'text-primary bg-primary/5 font-medium' : '' }}"
-                            data-i18n="nav.blog.cases"
+
                         >
                             <span class="w-1.5 h-1.5 rounded-full bg-primary/40 flex-shrink-0"></span>
                             {{ __('nav.blog_cases') }}
@@ -226,7 +225,7 @@
                 <a
                     href="{{ route('risorse') }}"
                     class="px-3 py-2 text-sm font-medium rounded-lg hover:text-primary hover:bg-gray-50 transition-colors duration-150 {{ request()->routeIs('risorse*') ? 'text-primary' : 'text-gray-700' }}"
-                    data-i18n="nav.resources"
+
                 >{{ __('nav.resources') }}</a>
 
                 {{-- Business Survey --}}
@@ -234,7 +233,7 @@
                     href="{{ route('business-survey') }}"
                     class="px-3 py-2 text-sm font-semibold rounded-lg transition-colors duration-150 {{ request()->routeIs('business-survey*') ? 'text-primary' : 'text-amber-600 hover:text-amber-700 hover:bg-amber-50' }}"
                 >
-                    <span class="flex items-center gap-1.5" data-i18n="nav.business_survey">
+                    <span class="flex items-center gap-1.5">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z"/></svg>
                         {{ __('nav.business_survey') }}
                     </span>
@@ -254,14 +253,14 @@
                     class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold border border-primary/20 text-primary hover:bg-primary/5 transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-primary/50"
                 >
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"/></svg>
-                    <span data-i18n="cta.book_call">{{ __('nav.book_call') }}</span>
+                    <span>{{ __('nav.book_call') }}</span>
                 </a>
                 @endif
 
                 <a
                     href="{{ route('contatto') }}"
                     class="btn-primary inline-flex items-center gap-1.5 px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-150 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-primary/50"
-                    data-i18n="nav.cta"
+
                 >
                     {{ __('nav.contact') }}
                 </a>
@@ -320,7 +319,7 @@
                     @click="mAboutOpen = !mAboutOpen"
                     class="w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-50 hover:text-primary transition-colors"
                 >
-                    <span data-i18n="nav.about">{{ __('nav.about') }}</span>
+                    <span>{{ __('nav.about') }}</span>
                     <svg
                         class="w-4 h-4 transition-transform duration-200"
                         :class="mAboutOpen ? 'rotate-180' : ''"
@@ -342,7 +341,6 @@
                         <a
                             href="{{ route($link['route']) }}"
                             class="block px-3 py-2 text-sm text-gray-600 rounded-lg hover:bg-gray-50 hover:text-primary transition-colors {{ request()->routeIs($link['route']) ? 'text-primary font-medium' : '' }}"
-                            data-i18n="{{ $link['i18n'] }}"
                             @click="mobileOpen = false"
                         >{{ __($link['key']) }}</a>
                     @endforeach
@@ -353,7 +351,7 @@
             <a
                 href="{{ route('consulenza') }}"
                 class="block px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-gray-50 hover:text-primary transition-colors {{ request()->routeIs('consulenza') ? 'text-primary' : 'text-gray-700' }}"
-                data-i18n="nav.consulting"
+
                 @click="mobileOpen = false"
             >{{ __('nav.consulting') }}</a>
 
@@ -363,7 +361,7 @@
                     @click="mProdOpen = !mProdOpen"
                     class="w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-50 hover:text-primary transition-colors"
                 >
-                    <span data-i18n="nav.products">{{ __('nav.products') }}</span>
+                    <span>{{ __('nav.products') }}</span>
                     <svg
                         class="w-4 h-4 transition-transform duration-200"
                         :class="mProdOpen ? 'rotate-180' : ''"
@@ -384,7 +382,7 @@
                     <a
                         href="{{ route('prodotti') }}"
                         class="block px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-gray-50 hover:text-primary transition-colors {{ request()->routeIs('prodotti') && !request()->route()->hasParameter('service') ? 'text-primary font-medium' : '' }}"
-                        data-i18n="nav.products_all"
+
                         @click="mobileOpen = false"
                     >{{ __('nav.products_all') }}</a>
 
@@ -404,7 +402,7 @@
                     @click="mBlogOpen = !mBlogOpen"
                     class="w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-50 hover:text-primary transition-colors"
                 >
-                    <span data-i18n="nav.blog">{{ __('nav.blog') }}</span>
+                    <span>{{ __('nav.blog') }}</span>
                     <svg
                         class="w-4 h-4 transition-transform duration-200"
                         :class="mBlogOpen ? 'rotate-180' : ''"
@@ -425,19 +423,19 @@
                     <a
                         href="{{ route('blog.index') }}"
                         class="block px-3 py-2 text-sm text-gray-600 rounded-lg hover:bg-gray-50 hover:text-primary transition-colors {{ request()->routeIs('blog.index') && !request()->query('type') ? 'text-primary font-medium' : '' }}"
-                        data-i18n="nav.blog.all"
+
                         @click="mobileOpen = false"
                     >{{ __('nav.blog_all') }}</a>
                     <a
                         href="{{ route('blog.index', ['type' => 'article']) }}"
                         class="block px-3 py-2 text-sm text-gray-600 rounded-lg hover:bg-gray-50 hover:text-primary transition-colors {{ request()->routeIs('blog.index') && request()->query('type') === 'article' ? 'text-primary font-medium' : '' }}"
-                        data-i18n="nav.blog.articles"
+
                         @click="mobileOpen = false"
                     >{{ __('nav.blog_articles') }}</a>
                     <a
                         href="{{ route('blog.index', ['type' => 'case_study']) }}"
                         class="block px-3 py-2 text-sm text-gray-600 rounded-lg hover:bg-gray-50 hover:text-primary transition-colors {{ request()->routeIs('blog.index') && request()->query('type') === 'case_study' ? 'text-primary font-medium' : '' }}"
-                        data-i18n="nav.blog.cases"
+
                         @click="mobileOpen = false"
                     >{{ __('nav.blog_cases') }}</a>
                 </div>
@@ -447,7 +445,7 @@
             <a
                 href="{{ route('risorse') }}"
                 class="block px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-gray-50 hover:text-primary transition-colors {{ request()->routeIs('risorse*') ? 'text-primary' : 'text-gray-700' }}"
-                data-i18n="nav.resources"
+
                 @click="mobileOpen = false"
             >{{ __('nav.resources') }}</a>
 
@@ -458,7 +456,7 @@
                 @click="mobileOpen = false"
             >
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z"/></svg>
-                <span data-i18n="nav.business_survey">{{ __('nav.business_survey') }}</span>
+                <span>{{ __('nav.business_survey') }}</span>
             </a>
 
             {{-- Mobile: Language Switcher + CTA --}}
@@ -474,14 +472,14 @@
                     @click="mobileOpen = false"
                 >
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
-                    <span data-i18n="cta.book_call">{{ __('nav.book_call') }}</span>
+                    <span>{{ __('nav.book_call') }}</span>
                 </a>
                 @endif
 
                 <a
                     href="{{ route('contatto') }}"
                     class="btn-primary inline-flex items-center justify-center gap-1.5 w-full px-5 py-2.5 rounded-lg text-sm font-semibold text-center transition-all duration-150 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-primary/50"
-                    data-i18n="nav.cta"
+
                     @click="mobileOpen = false"
                 >
                     {{ __('nav.contact') }}

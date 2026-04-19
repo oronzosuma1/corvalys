@@ -83,14 +83,14 @@
                     <li>
                         <a href="{{ route('consulenza') }}"
                            class="text-white/70 text-sm hover:text-white transition"
-                           data-i18n="nav.consulting">
+>
                             {{ __('nav.consulting') }}
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('prodotti') }}"
                            class="text-white/70 text-sm hover:text-white transition"
-                           data-i18n="nav.products">
+>
                             {{ __('nav.products') }}
                         </a>
                     </li>
@@ -107,35 +107,35 @@
                     <li>
                         <a href="{{ route('chi-siamo') }}"
                            class="text-white/70 text-sm hover:text-white transition"
-                           data-i18n="nav.about">
+>
                             {{ __('nav.about') }}
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('blog.index') }}"
                            class="text-white/70 text-sm hover:text-white transition"
-                           data-i18n="nav.blog">
+>
                             {{ __('nav.blog') }}
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('partner') }}"
                            class="text-white/70 text-sm hover:text-white transition"
-                           data-i18n="nav.partner">
+>
                             {{ __('nav.partner') }}
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('risorse') }}"
                            class="text-white/70 text-sm hover:text-white transition"
-                           data-i18n="nav.resources">
+>
                             {{ __('nav.resources') }}
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('business-survey') }}"
                            class="text-white/70 text-sm hover:text-white transition"
-                           data-i18n="nav.business_survey">
+>
                             {{ __('nav.business_survey') }}
                         </a>
                     </li>
@@ -153,35 +153,35 @@
                         <button type="button"
                            onclick="window.cookieConsent && window.cookieConsent.open()"
                            class="text-white/70 text-sm hover:text-white transition text-left"
-                           data-i18n="nav.cookie-preferences">
+>
                             {{ __('nav.cookie_preferences') }}
                         </button>
                     </li>
                     <li>
                         <a href="{{ route('privacy') }}"
                            class="text-white/70 text-sm hover:text-white transition"
-                           data-i18n="nav.privacy">
+>
                             {{ __('nav.privacy') }}
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('termini') }}"
                            class="text-white/70 text-sm hover:text-white transition"
-                           data-i18n="nav.termini">
+>
                             {{ __('nav.termini') }}
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('cookie') }}"
                            class="text-white/70 text-sm hover:text-white transition"
-                           data-i18n="nav.cookie">
+>
                             {{ __('nav.cookie') }}
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('contatto') }}"
                            class="text-white/70 text-sm hover:text-white transition"
-                           data-i18n="nav.contatto">
+>
                             {{ __('nav.contatto') }}
                         </a>
                     </li>
