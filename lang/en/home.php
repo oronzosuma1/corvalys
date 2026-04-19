@@ -88,4 +88,11 @@ return [
         'trust2' => 'EU Data Residency',
         'trust3' => 'EU AI Act Ready',
     ],
+    'survey' => [
+        'badge' => '3-Minute Survey',
+        'title' => 'What is slowing down your business?',
+        'lead' => 'Take our free 3-minute survey. Help us understand the tasks European businesses want to solve first.',
+        'cta' => 'Start Survey',
+        'duration' => 'Takes 3-5 minutes',
+    ],
 ];

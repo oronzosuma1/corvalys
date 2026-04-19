@@ -682,21 +682,21 @@
                 {{-- Left: Content --}}
                 <div class="flex-1 text-center lg:text-left">
                     <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold tracking-widest uppercase bg-amber-500/20 text-amber-300 border border-amber-500/30 mb-5">
-                        3-Minute Survey
+                        {{ __('home.survey.badge') }}
                     </span>
                     <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white tracking-tight leading-tight mb-4">
-                        What is slowing down your business?
+                        {{ __('home.survey.title') }}
                     </h2>
                     <p class="text-white/60 text-base leading-relaxed mb-8 max-w-lg">
-                        Take our free 3-minute survey. Help us understand the tasks European businesses want to solve first.
+                        {{ __('home.survey.lead') }}
                     </p>
                     <div class="flex flex-col sm:flex-row items-center gap-4 lg:justify-start justify-center">
                         <a href="{{ route('business-survey') }}"
                            class="inline-flex items-center gap-2 px-8 py-4 bg-[#0F7B6C] text-white rounded-xl font-semibold text-sm hover:bg-[#0d6b5e] hover:shadow-lg hover:shadow-primary/30 transition-all duration-200">
-                            Start Survey
+                            {{ __('home.survey.cta') }}
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
                         </a>
-                        <span class="text-white/40 text-xs font-medium">Takes 3-5 minutes</span>
+                        <span class="text-white/40 text-xs font-medium">{{ __('home.survey.duration') }}</span>
                     </div>
                 </div>
 

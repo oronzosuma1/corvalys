@@ -88,4 +88,11 @@ return [
         'trust2' => 'Données en Europe',
         'trust3' => 'EU AI Act Ready',
     ],
+    'survey' => [
+        'badge' => 'Sondage de 3 minutes',
+        'title' => 'Qu\'est-ce qui ralentit votre entreprise ?',
+        'lead' => 'Participez à notre sondage gratuit de 3 minutes. Aidez-nous à comprendre quelles tâches les entreprises européennes veulent résoudre en premier.',
+        'cta' => 'Commencer le sondage',
+        'duration' => 'Prend 3-5 minutes',
+    ],
 ];
