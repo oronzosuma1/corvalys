@@ -21,7 +21,9 @@ Route::get('/blog/{slug}', fn (string $slug) => redirect("/it/blog/{$slug}", 301
     ->name('blog.show.en');
 Route::get('/prodotti/{slug}', fn (string $slug) => redirect("/it/prodotti/{$slug}", 301))
     ->where('slug', '[A-Za-z0-9_\-]+');
-Route::redirect('/legal/privacy', '/it/legale/privacy', 301)->name('privacy.en');
+// Note: /legal/privacy is the canonical EN privacy URL (served via LocalizedRoutes
+// → privacy.en). No legacy redirect needed — keeping one here would collide with
+// the canonical route name and break `php artisan route:cache`.
 Route::redirect('/business-survey', '/it/business-survey', 301);
 Route::redirect('/it/survey', '/it/business-survey', 301);
 Route::redirect('/fr/survey', '/fr/sondage', 301);
