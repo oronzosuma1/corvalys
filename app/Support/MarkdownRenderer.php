@@ -25,11 +25,16 @@ class MarkdownRenderer
             'html_input' => 'strip',         // strip raw <script>/<iframe>
             'allow_unsafe_links' => false,
             'heading_permalink' => [
-                'html_class' => 'heading-permalink',
-                'symbol' => '#',
-                // "after" so heading text sits immediately after <h2>:
-                // grep-friendly, cleaner screen-reader output.
-                'insert' => 'after',
+                // Invisible floating anchor — the <a> tag is empty (no
+                // visible "#"), opacity-0 by default, fades in on hover
+                // of the enclosing .prose heading. Keeps deep-linking
+                // via #slug fragments without leaking a literal "#"
+                // character into the reading flow.
+                'html_class'      => 'anchor opacity-0 group-hover:opacity-100 ml-2 text-gray-400',
+                'id_prefix'       => '',
+                'fragment_prefix' => '',
+                'insert'          => 'before',
+                'symbol'          => '',
                 'min_heading_level' => 2,
                 'max_heading_level' => 4,
             ],
