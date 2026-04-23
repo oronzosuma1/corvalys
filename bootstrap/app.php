@@ -17,6 +17,11 @@ return Application::configure(basePath: dirname(__DIR__))
             'admin' => \App\Http\Middleware\AdminMiddleware::class,
         ]);
 
+        // Security headers (HSTS, CSP, X-Frame-Options, etc.) applied to
+        // every response. Runs last so headers land on the outgoing response
+        // regardless of which controller or group handled the request.
+        $middleware->append(\App\Http\Middleware\SecurityHeaders::class);
+
         // Redirect unauthenticated users to admin login
         $middleware->redirectGuestsTo('/admin/login');
 
