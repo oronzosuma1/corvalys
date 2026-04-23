@@ -54,7 +54,7 @@ class SitemapController extends Controller
 
         // Dynamic product detail pages (one <url> per product per locale)
         $products = class_exists(Service::class)
-            ? Service::active()->orderBy('sort_order')->get()
+            ? Service::prodotti()->active()->orderBy('sort_order')->get()
             : collect();
         foreach ($products as $product) {
             $alternates = $this->alternatesFor('prodotti.show', ['service' => $product->slug]);
