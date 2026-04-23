@@ -43,17 +43,38 @@ Route::permanentRedirect('/sondage', '/fr/sondage');
 // Home shortcut — keep non-suffixed `home` name for backward compat
 Route::redirect('/home', '/', 301);
 
+// Sitemap, robots and feed responses must be stateless: no session cookies,
+// no CSRF token, no flash errors. Skipping the session middleware stack keeps
+// the XML response free of Set-Cookie headers and lets upstream caches reuse it.
+$statelessExcluded = [
+    \Illuminate\Session\Middleware\StartSession::class,
+    \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+    \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+    \Illuminate\Cookie\Middleware\EncryptCookies::class,
+    \Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class,
+];
+
 // Sitemap (top-level, not localized)
-Route::get('/sitemap.xml', \App\Http\Controllers\SitemapController::class)->name('sitemap');
+Route::get('/sitemap.xml', \App\Http\Controllers\SitemapController::class)
+    ->withoutMiddleware($statelessExcluded)
+    ->name('sitemap');
 
 // Dynamic robots.txt (top-level, not localized)
-Route::get('/robots.txt', \App\Http\Controllers\RobotsController::class)->name('robots');
+Route::get('/robots.txt', \App\Http\Controllers\RobotsController::class)
+    ->withoutMiddleware($statelessExcluded)
+    ->name('robots');
 
 // RSS feed (top-level + per-locale prefix). The controller resolves locale from
 // the request-scoped locale set by middleware (same URL convention as sitemap).
-Route::get('/feed.xml', \App\Http\Controllers\FeedController::class)->name('feed.en');
-Route::get('/it/feed.xml', \App\Http\Controllers\FeedController::class)->name('feed.it');
-Route::get('/fr/feed.xml', \App\Http\Controllers\FeedController::class)->name('feed.fr');
+Route::get('/feed.xml', \App\Http\Controllers\FeedController::class)
+    ->withoutMiddleware($statelessExcluded)
+    ->name('feed.en');
+Route::get('/it/feed.xml', \App\Http\Controllers\FeedController::class)
+    ->withoutMiddleware($statelessExcluded)
+    ->name('feed.it');
+Route::get('/fr/feed.xml', \App\Http\Controllers\FeedController::class)
+    ->withoutMiddleware($statelessExcluded)
+    ->name('feed.fr');
 
 // Newsletter (form POST, not localized)
 Route::post('/newsletter', [HomeController::class, 'newsletter'])->name('newsletter');

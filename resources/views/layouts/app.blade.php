@@ -52,7 +52,7 @@
     {{-- @livewireScriptConfig (no auto-start): our resources/js/app.js
          imports Livewire ESM and calls Livewire.start() manually.
          This is the single Alpine boot path. --}}
-    @livewireScriptConfig
+    @livewireScriptConfig(['nonce' => app('csp-nonce')])
     @stack('scripts')
 </body>
 </html>

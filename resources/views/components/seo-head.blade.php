@@ -116,7 +116,7 @@
 
 {{-- Additional schema (if provided) --}}
 @foreach($schema as $schemaItem)
-<script type="application/ld+json">
+<script type="application/ld+json" @cspNonce>
 {!! json_encode($schemaItem, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
 </script>
 @endforeach

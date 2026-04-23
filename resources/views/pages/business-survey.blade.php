@@ -416,7 +416,7 @@
 @endsection
 
 @push('scripts')
-<script>
+<script @cspNonce>
 function businessSurvey() {
     return {
         step: 0,

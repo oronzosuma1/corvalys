@@ -26,6 +26,9 @@
 <IfModule mod_headers.c>
     Header unset X-Powered-By
     Header unset Server
+    Header unset x-turbo-charged-by
+    Header unset X-Turbo-Charged-By
+    RequestHeader unset Proxy
     Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
     Header always set X-Content-Type-Options "nosniff"
     Header always set X-Frame-Options "SAMEORIGIN"

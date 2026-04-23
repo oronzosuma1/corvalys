@@ -979,7 +979,7 @@
             </div>
         </div>
     </section>
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async @cspNonce></script>
     @endif
 
 @endsection

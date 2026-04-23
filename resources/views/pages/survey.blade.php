@@ -496,7 +496,7 @@
 @endsection
 
 @push('scripts')
-<script>
+<script @cspNonce>
 function surveyApp() {
     return {
         step: 1,

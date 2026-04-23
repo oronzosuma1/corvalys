@@ -7,7 +7,7 @@
     <title>@yield('title', 'Admin') - Corvalys</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
-    <script src="https://cdn.tiny.cloud/1/{{ config('corvalys.tinymce_key', 'no-api-key') }}/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/{{ config('corvalys.tinymce_key', 'no-api-key') }}/tinymce/6/tinymce.min.js" referrerpolicy="origin" @cspNonce></script>
     @stack('head')
 </head>
 <body class="bg-gray-50 min-h-screen flex font-body antialiased">
@@ -199,8 +199,8 @@
         </div>
     </main>
 
-    @livewireScripts
-    <script>
+    @livewireScripts(['nonce' => app('csp-nonce')])
+    <script @cspNonce>
         document.addEventListener('DOMContentLoaded', function () {
             if (document.querySelector('.tinymce-editor')) {
                 tinymce.init({

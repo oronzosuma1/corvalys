@@ -150,7 +150,7 @@
 </div>
 
 @push('scripts')
-<script>
+<script @cspNonce>
     // Auto-calculate IVA and total
     const amountInput = document.getElementById('amount');
     const vatInput = document.getElementById('vat_amount');

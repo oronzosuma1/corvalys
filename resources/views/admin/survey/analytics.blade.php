@@ -242,7 +242,7 @@
 @endsection
 
 @push('scripts')
-<script>
+<script @cspNonce>
 document.addEventListener('DOMContentLoaded', function() {
     @if($total > 0)
     // Radar Chart
