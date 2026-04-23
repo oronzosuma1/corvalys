@@ -81,7 +81,7 @@
                         prose-headings:font-heading prose-headings:text-gray-900
                         prose-a:text-primary prose-a:no-underline hover:prose-a:underline
                         prose-strong:text-gray-900 prose-p:text-gray-600 prose-p:leading-relaxed">
-                {!! nl2br(e($service->description)) !!}
+                {!! \Illuminate\Support\Str::markdown($service->description ?? '') !!}
             </div>
         </div>
     </section>
