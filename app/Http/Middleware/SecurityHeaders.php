@@ -32,7 +32,14 @@ class SecurityHeaders
             // 'strict-dynamic' lets nonced scripts load further scripts without their own
             // nonces — the host allowlists below are kept for older browsers that ignore
             // 'strict-dynamic' and fall back to CSP2 behaviour.
-            "script-src 'self' 'nonce-{$nonce}' 'strict-dynamic' https://assets.calendly.com https://cdn.tiny.cloud",
+            //
+            // 'unsafe-eval' is required because Alpine.js (bundled inside Livewire 3) uses
+            // `new Function()` to evaluate template expressions (x-data, x-show,
+            // @click.away, etc.). Without it, the survey page body stays blank, the
+            // language dropdown never closes, and every x-data component is inert. Switch
+            // to @alpinejs/csp one day if A+ becomes critical — that build precompiles
+            // expressions and avoids eval.
+            "script-src 'self' 'nonce-{$nonce}' 'strict-dynamic' 'unsafe-eval' https://assets.calendly.com https://cdn.tiny.cloud",
             "style-src 'self' 'unsafe-inline' https://assets.calendly.com https://fonts.googleapis.com",
             "img-src 'self' data: https:",
             "font-src 'self' https://fonts.gstatic.com data:",
