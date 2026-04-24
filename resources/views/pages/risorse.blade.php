@@ -30,6 +30,68 @@
         </div>
     </section>
 
+    {{-- ── Featured: AI Readiness Assessment ── --}}
+    {{-- Deep 6-dimension self-evaluation (Leadership, Data, Technology,
+         Culture, Process, Compliance). This is the full version — the mini
+         5-question variant inside the Contact form is kept unchanged for
+         quick-lead scoring. --}}
+    <section class="section bg-white pb-0">
+        <div class="max-w-7xl mx-auto px-6">
+            <article class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary via-primary-dark to-navy text-white p-8 sm:p-12 shadow-xl">
+                {{-- Decorative corner --}}
+                <div class="absolute -top-10 -right-10 w-56 h-56 rounded-full bg-white/5"></div>
+                <div class="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-white/5"></div>
+
+                <div class="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+                    <div class="lg:max-w-2xl">
+                        <div class="mb-4">
+                            <span class="inline-flex items-center gap-1.5 text-xs font-semibold bg-white/10 text-white border border-white/20 px-3 py-1 rounded-full" data-i18n="resources.featured.badge">
+                                Free Assessment
+                            </span>
+                        </div>
+
+                        <h2
+                            class="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-4"
+                            data-i18n="resources.featured.title"
+                        >
+                            AI Readiness Assessment
+                        </h2>
+
+                        <p
+                            class="text-white/80 text-base sm:text-lg leading-relaxed mb-6"
+                            data-i18n="resources.featured.desc"
+                        >
+                            Discover how ready your organisation is for AI adoption. Our comprehensive evaluation scores you across six dimensions — Leadership, Data, Technology, Culture, Process, and Compliance — and delivers tailored recommendations based on your results.
+                        </p>
+
+                        {{-- Dimension chips --}}
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="text-xs font-medium bg-white/10 text-white/90 px-3 py-1.5 rounded-lg" data-i18n="resources.featured.dim1">Leadership</span>
+                            <span class="text-xs font-medium bg-white/10 text-white/90 px-3 py-1.5 rounded-lg" data-i18n="resources.featured.dim2">Data</span>
+                            <span class="text-xs font-medium bg-white/10 text-white/90 px-3 py-1.5 rounded-lg" data-i18n="resources.featured.dim3">Technology</span>
+                            <span class="text-xs font-medium bg-white/10 text-white/90 px-3 py-1.5 rounded-lg" data-i18n="resources.featured.dim4">Culture</span>
+                            <span class="text-xs font-medium bg-white/10 text-white/90 px-3 py-1.5 rounded-lg" data-i18n="resources.featured.dim5">Process</span>
+                            <span class="text-xs font-medium bg-white/10 text-white/90 px-3 py-1.5 rounded-lg" data-i18n="resources.featured.dim6">Compliance</span>
+                        </div>
+                    </div>
+
+                    <div class="flex-shrink-0">
+                        <a
+                            href="{{ route('survey') }}"
+                            class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-primary-dark font-bold text-sm sm:text-base shadow-lg hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-200"
+                            data-i18n="resources.featured.cta"
+                        >
+                            Start the Assessment
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
     {{-- ── Resource Cards ── --}}
     <section class="section bg-white">
         <div class="max-w-7xl mx-auto px-6">
